@@ -46,31 +46,33 @@
             <button id="" class="btn btn-secondary">Start</button>
             <button class="btn btn-secondary">Instructions</button>
         </div>
-        <!-- The start page menu -->
+        <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <h2>Please Enter the Game Information</h2>
-        <form>
-            <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="frames-input" required>
-                <label for="frames-input">Number of frames</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="player-one-input" required>
-                <label for="player-one-input">Name of Player One</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="player-two-input" required>
-                <label for="player-two-input">Name of Player Two</label>
-            </div>
-            <div>
-                <button type="submit" id="start-game-btn" class="btn btn-secondary">Start Game</button>
-                <button id="back-game-btn" class="btn btn-secondary">Back</button>
-            </div>
-        </form>
-
+        <div id="settingspage">
+            <h2>Please Enter the Game Information</h2>
+            <form>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="frames-input" required>
+                    <label for="frames-input">Number of frames</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="player-one-input" required>
+                    <label for="player-one-input">Name of Player One</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="player-two-input" required>
+                    <label for="player-two-input">Name of Player Two</label>
+                </div>
+                <div>
+                    <button type="submit" id="start-game-btn" class="btn btn-secondary">Start Game</button>
+                    <button id="back-game-btn" class="btn btn-secondary">Back</button>
+                </div>
+            </form>
+        </div>
         <!-- ./The Settings Page-->
 
+        <!-- The Game Ball Page -->
         <div id="game-balls-page">
             <div id="red-ball-section">
                 <button class="ball size-big red">1</button>
@@ -84,13 +86,29 @@
                 <button class="ball size-big black">7</button>
             </div>
         </div>
+        <!-- ./The game ball Page -->
 
+        <!-- Game Buttons -->
         <div id="game-buttons">
-            <button class="btn btn-secondary game-button">Foul</button>
-            <button class="btn btn-secondary game-button">End of Break</button>
+            <button id="foul-btn" class="btn btn-secondary game-button">Foul</button>
+            <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
         </div>
+        <!-- ./Game Buttons-->
+
     </section>
     <!-- ./Game Area Section -->
+
+    <!-- Break Section-->
+    <section>
+        <span id="red-ball-break-counter" class="ball small red">0</span>
+        <span id="yellow-ball-break-counter" class="ball small yellow">0</span>
+        <span id="green-ball-break-counter" class="ball small green">0</span>
+        <span id="brown-ball-break-counter" class="ball small brown" 0></span>
+        <span id="blue-ball-break-counter" class="ball small blue">0</span>
+        <span id="pink-ball-break-counter" class="ball small pink">0</span>
+        <span id="black-ball-break-counter" class="ball small black">0</span>
+    </section>
+    <!-- ./Break Section -->
 
     <script src="assets/js/script.js"></script>
 </body>
