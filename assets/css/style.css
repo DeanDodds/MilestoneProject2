@@ -5,13 +5,6 @@ font-family: 'Raleway', sans-serif;
 font-family: 'Roboto', sans-serif; */
 
 /* Fonts */
-
-#logo {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 32px;
-}
-
 h1,
 h2,
 h3 {
@@ -37,4 +30,21 @@ button {
     font-weight: 800;
     text-transform: uppercase;
 
+}
+
+/* Colours */
+
+
+
+/* Header */
+
+#logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: white;
+}
+
+.logo-span {
+    color: red;
 }
