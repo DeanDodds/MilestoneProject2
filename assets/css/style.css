@@ -58,6 +58,14 @@ header {
     color: red;
 }
 
+/* Game Area */
+
+#game-area-section button {
+    display: block;
+}
+
+
+
 
 
 .hidden {

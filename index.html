@@ -39,11 +39,11 @@
     <!-- ./Header Section -->
 
     <!-- Game Area Sections -->
-    <section id="game-area-section" class="text-center">
+    <div id="game-area-section" class="text-center">
 
         <!-- The start page menu -->
         <div id="start-page">
-            <button id="" class="btn btn-secondary">Start</button>
+            <button id="start-btn" class="btn btn-secondary">Start</button>
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Instructions">
                 Instructions
             </button>
@@ -98,16 +98,16 @@
         </div>
         <!-- ./Game Buttons-->
 
-    </section>
+    </div>
     <!-- ./Game Area Section -->
 
     <!-- Break Section-->
-    <section id="break-section">
+    <div id="break-section">
         <div>
             <span id="red-ball-break-counter" class="ball small red">0</span>
             <span id="yellow-ball-break-counter" class="ball small yellow">0</span>
             <span id="green-ball-break-counter" class="ball small green">0</span>
-            <span id="brown-ball-break-counter" class="ball small brown" 0></span>
+            <span id="brown-ball-break-counter" class="ball small brown">0</span>
             <span id="blue-ball-break-counter" class="ball small blue">0</span>
             <span id="pink-ball-break-counter" class="ball small pink">0</span>
             <span id="black-ball-break-counter" class="ball small black">0</span>
@@ -116,12 +116,12 @@
             <p id="current-Break">0</p>
         </div>
         <p><span id="remaining-points">1</span> Remaining</p>
-        <div></div>
-    </section>
+
+    </div>
     <!-- ./Break Section -->
 
     <!-- ./Score Board Section-->
-    <section id="score-board">
+    <div id="score-board">
         <div id="Player-one-display">
             <p id="player-one-name">name-1</p>
             <span>/</span>
@@ -133,12 +133,12 @@
             <p id="player-two-frame-counter">0</p>
         </div>
 
-        <div id="Player-one-display">
+        <div id="Player-two-display">
             <p id="player-two-name">name-2</p>
             <span>/</span>
             <p id="player-two-score">0</p>
         </div>
-    </section>
+    </div>
     <!-- ./Score Board Section-->
 
     <!-- footer-->
@@ -147,7 +147,7 @@
         <ul class="list-inline social-links">
             <li class="list-inline-item">
                 <a href="#" target="_blank" aria-label="link to Linkeden" rel="noopener"><i class="fab fa-linkedin"
-                        class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Linkeden</span></a>
+                        aria-hidden="true"></i><span class="sr-only">Linkeden</span></a>
             </li>
             <li class="list-inline-item">
                 <a href="#" target="_blank" aria-label="link to Github" rel="noopener"><i class="fab fa-github"
@@ -158,23 +158,24 @@
                         class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span></a>
             </li>
         </ul>
-        </div>
     </footer>
     <!-- ./footer-->
 
     <!-- Modals -->
     <div class="modal fade" id="Instructions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        aria-labelledby="Instructions" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Instructions</h5>
+                    <h5 class="modal-title">Instructions</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h2>How to play</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error excepturi ex sapiente corrupti
-                        placeat vel similique nulla, velit esse facere eius animi ratione cum et id officia voluptates?
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error excepturi ex sapiente
+                        corrupti
+                        placeat vel similique nulla, velit esse facere eius animi ratione cum et id officia
+                        voluptates?
                         Deserunt, unde.</p>
                 </div>
                 <div class="modal-footer">
@@ -185,11 +186,11 @@
     </div>
 
     <div class="modal fade" id="foul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        aria-labelledby="foul" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">What Kind of Foul?</h5>
+                    <h2 class="modal-title">What Kind of Foul?</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
