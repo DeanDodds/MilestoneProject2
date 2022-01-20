@@ -27,16 +27,70 @@
         </div>
         <div>
             <div>
-                <button class="btn btn btn-secondary">Mute</button>
+                <button id="mute-btn' class=" btn btn btn-secondary">Mute</button>
                 <div>
-                    <button class="btn  btn btn-secondary gamebutton">End Frame</button>
-                    <button class="btn  btn btn-secondary gamebutton">End Game</button>
+                    <button id="end-frame-btn" class="btn  btn btn-secondary game-button">End Frame</button>
+                    <button id="end-game-btn" class="btn  btn btn-secondary game-button">End Game</button>
                 </div>
             </div>
         </div>
 
     </header>
-    <!-- Header Section -->
+    <!-- ./Header Section -->
+
+    <!-- Game Area Sections -->
+    <section id="game-area-section">
+
+        <!-- The start page menu -->
+        <div id="start-page">
+            <button id="" class="btn btn-secondary">Start</button>
+            <button class="btn btn-secondary">Instructions</button>
+        </div>
+        <!-- The start page menu -->
+
+        <!-- The Settings Page-->
+        <h2>Please Enter the Game Information</h2>
+        <form>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="frames-input" required>
+                <label for="frames-input">Number of frames</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="player-one-input" required>
+                <label for="player-one-input">Name of Player One</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="player-two-input" required>
+                <label for="player-two-input">Name of Player Two</label>
+            </div>
+            <div>
+                <button type="submit" id="start-game-btn" class="btn btn-secondary">Start Game</button>
+                <button id="back-game-btn" class="btn btn-secondary">Back</button>
+            </div>
+        </form>
+
+        <!-- ./The Settings Page-->
+
+        <div id="game-balls-page">
+            <div id="red-ball-section">
+                <button class="ball size-big red">1</button>
+            </div>
+            <div id="colored-balls-section">
+                <button class="ball size-big yellow">2</button>
+                <button class="ball size-big green">3</button>
+                <button class="ball size-big brown">4</button>
+                <button class="ball size-big blue">5</button>
+                <button class="ball size-big pink">6</button>
+                <button class="ball size-big black">7</button>
+            </div>
+        </div>
+
+        <div id="game-buttons">
+            <button class="btn btn-secondary game-button">Foul</button>
+            <button class="btn btn-secondary game-button">End of Break</button>
+        </div>
+    </section>
+    <!-- ./Game Area Section -->
 
     <script src="assets/js/script.js"></script>
 </body>
