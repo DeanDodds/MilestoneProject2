@@ -1,3 +1,22 @@
+# Design
+
+## Typography
+- Montserrat is the main font used for my logo with a sans serif fallback.
+- Roboto is the main font used for all headers with a sans serif fallback.
+- Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This to complimentS the Roboto font nicely.
+
+## Imagary 
+- 1 x Background image 
+
+## Wireframes 
+- Start up wireframe <a href="#">View</a>  
+- Settings wireframe <a href="#">View</a>
+- Red ball wireframe <a href="#">View</a>
+ - Red ball mobile wireframe <a href="#">View</a>
+- Colour ball wireframe <a href="#">View</a>
+ - colur ball wireframe <a href="#">View</a>
+- End game wireframe <a href="#">View</a>
+
 # Technologies Used
 - HTML
 - CSS
