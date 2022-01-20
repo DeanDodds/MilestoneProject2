@@ -44,7 +44,9 @@
         <!-- The start page menu -->
         <div id="start-page">
             <button id="" class="btn btn-secondary">Start</button>
-            <button class="btn btn-secondary">Instructions</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Instructions">
+                Instructions
+            </button>
         </div>
         <!-- The Start Page Menu -->
 
@@ -90,7 +92,8 @@
 
         <!-- Game Buttons -->
         <div id="game-buttons">
-            <button id="foul-btn" class="btn btn-secondary game-button">Foul</button>
+            <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
+                data-bs-target="#foul">Foul</button>
             <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
         </div>
         <!-- ./Game Buttons-->
@@ -159,7 +162,51 @@
     </footer>
     <!-- ./footer-->
 
+    <!-- Modals -->
+    <div class="modal fade" id="Instructions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Instructions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2>How to play</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error excepturi ex sapiente corrupti
+                        placeat vel similique nulla, velit esse facere eius animi ratione cum et id officia voluptates?
+                        Deserunt, unde.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade" id="foul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">What Kind of Foul?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./Modals -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="assets/js/script.js"></script>
 </body>
 
