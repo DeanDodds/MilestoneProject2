@@ -32,11 +32,20 @@ button {
 
 }
 
-/* Colours */
+/* body  */
 
+body {
+    background: url('/assets/images/backgroundsmalldevices.png') center no-repeat fixed;
+    background-size: cover;
+}
 
+/* Header section */
 
-/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
 
 #logo {
     font-family: 'Montserrat', sans-serif;
@@ -47,4 +56,10 @@ button {
 
 .logo-span {
     color: red;
+}
+
+
+
+.hidden {
+    display: none;
 }
