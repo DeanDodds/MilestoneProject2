@@ -15,3 +15,4 @@
 ## Images
 - Favicon image<a href="https://www.flaticon.com/free-icons/snooker" title="snooker icons"> Snooker icons created by Freepik - Flaticon</a>
 - Background Image -<a href="https://www.shutterstock.com/image-illustration/3d-rendering-empty-billiard-table-top-1049972813"> Created by Gearstd - Sutterstock </a> 
+- Sphere css - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"></a> From Ran Enoch at CSSDECK.COM</a>

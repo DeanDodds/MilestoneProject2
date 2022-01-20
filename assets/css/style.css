@@ -60,12 +60,63 @@ header {
 
 /* Game Area */
 
-#game-area-section button {
-    display: block;
+
+/* Score Balls  */
+#game-balls-page {
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+
 }
 
+.red {
+    background-color: red;
+}
 
+.yellow {
+    background-color: yellow;
+}
 
+.green {
+    background-color: green;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.black {
+    background-color: rgb(48, 46, 46);
+}
+
+.ball {
+    display: block;
+    margin: 30px auto 0;
+    border-radius: 50%;
+    box-shadow: inset -25px -25px 40px rgba(0, 0, 0, .5);
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
+}
+
+.size-big {
+    height: 150px;
+    width: 150px;
+}
+
+.small {
+    height: 50px;
+    width: 50px;
+}
 
 
 .hidden {
