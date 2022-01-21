@@ -59,25 +59,40 @@ header {
 }
 
 /* buttons */
+button {
+    width: 100px;
+    display: block;
+    margin: 5px auto;
+}
+
+#game-area-section button {
+    width: 150px;
+}
+
+.game-button {
+    display: block;
+    margin: 5px auto;
+}
 
 /* Game Area */
 #game-area-section {
+    height: 80vh;
+    width: 90%;
     display: flex;
-    align-items: center;
-    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px auto;
 }
 
 /* Score Balls  */
 #game-balls-page {
-    margin: 10px auto;
-    width: 80%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    align-content: center;
+    margin: 30px 0;
     flex-direction: column;
 }
 
-/* ball section */
 .colored-balls-section {
     display: flex;
     flex-wrap: wrap;
@@ -130,6 +145,11 @@ header {
 .small {
     height: 50px;
     width: 50px;
+}
+
+/* game button section*/
+#game-buttons {
+    margin-top: 10px;
 }
 
 
