@@ -58,15 +58,29 @@ header {
     color: red;
 }
 
-/* Game Area */
+/* buttons */
 
+/* Game Area */
+#game-area-section {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
 
 /* Score Balls  */
 #game-balls-page {
     margin: 10px auto;
     width: 80%;
     display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
 
+/* ball section */
+.colored-balls-section {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .red {
