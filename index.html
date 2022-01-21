@@ -42,7 +42,7 @@
     <div id="game-area-section" class="text-center">
 
         <!-- The start page menu -->
-        <div id="start-page">
+        <div id="start-page" class="hidden">
             <button id="start-btn" class="btn btn-secondary">Start</button>
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Instructions">
                 Instructions
@@ -51,7 +51,7 @@
         <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <div id="settingspage">
+        <div id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
             <form>
                 <div class="form-floating mb-3">
@@ -77,9 +77,9 @@
         <!-- The Game Ball Page -->
         <div id="game-balls-page">
             <div id="red-ball-section">
-                <button class="ball size-big red">1</button>
+                <button class="ball size-big red hidden">1</button>
             </div>
-            <div id="colored-balls-section">
+            <div id="colored-balls-section" class="colored-balls-section hidden">
                 <button class="ball size-big yellow">2</button>
                 <button class="ball size-big green">3</button>
                 <button class="ball size-big brown">4</button>
@@ -91,7 +91,7 @@
         <!-- ./The game ball Page -->
 
         <!-- Game Buttons -->
-        <div id="game-buttons">
+        <div id="game-buttons" class="hidden">
             <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#foul">Foul</button>
             <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
