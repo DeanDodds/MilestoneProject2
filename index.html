@@ -48,7 +48,7 @@
         <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <div id="settingspage">
+        <div id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
             <form>
                 <div class="form-floating mb-3">
@@ -67,32 +67,32 @@
             </form>
             <button id="back-game-btn" class="btn btn-secondary">Back</button>
         </div>
-    </div>
-    <!-- ./The Settings Page-->
+        <!-- ./The Settings Page-->
 
-    <!-- The Game Ball Page -->
-    <div id="game-balls-page">
-        <div id="red-ball-section" class="hidden">
-            <button class="ball size-big red">1</button>
+        <!-- The Game Ball Page -->
+        <div id="game-balls-page">
+            <div id="red-ball-section">
+                <button class="ball size-big red">1</button>
+            </div>
+            <div id="colored-balls-section" class="colored-balls-section hidden">
+                <button class="ball size-big yellow">2</button>
+                <button class="ball size-big green">3</button>
+                <button class="ball size-big brown">4</button>
+                <button class="ball size-big blue">5</button>
+                <button class="ball size-big pink">6</button>
+                <button class="ball size-big black">7</button>
+            </div>
         </div>
-        <div id="colored-balls-section" class="colored-balls-section hidden">
-            <button class="ball size-big yellow">2</button>
-            <button class="ball size-big green">3</button>
-            <button class="ball size-big brown">4</button>
-            <button class="ball size-big blue">5</button>
-            <button class="ball size-big pink">6</button>
-            <button class="ball size-big black">7</button>
-        </div>
-    </div>
-    <!-- ./The game ball Page -->
+        <!-- ./The game ball Page -->
 
-    <!-- Game Buttons -->
-    <div id="game-buttons" class="hidden">
-        <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
-            data-bs-target="#foul">Foul</button>
-        <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
-        <button id="end-frame-btn" class="btn btn btn-secondary game-button">End Frame</button>
-        <button id="end-game-btn" class="btn  btn btn-secondary game-button">End Game</button>
+        <!-- Game Buttons -->
+        <div id="game-buttons" class="hidden">
+            <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
+                data-bs-target="#foul">Foul</button>
+            <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
+            <button id="end-frame-btn" class="btn btn btn-secondary game-button">End Frame</button>
+            <button id="end-game-btn" class="btn  btn btn-secondary game-button">End Game</button>
+        </div>
     </div>
     <!-- ./Game Buttons-->
 
@@ -101,7 +101,7 @@
 
     <!-- Break Section-->
     <div id="break-section">
-        <div>
+        <div class="break-section">
             <span id="red-ball-break-counter" class="ball small red">0</span>
             <span id="yellow-ball-break-counter" class="ball small yellow">0</span>
             <span id="green-ball-break-counter" class="ball small green">0</span>
@@ -110,10 +110,10 @@
             <span id="pink-ball-break-counter" class="ball small pink">0</span>
             <span id="black-ball-break-counter" class="ball small black">0</span>
         </div>
-        <div>
+        <div class="break-section-numbers">
             <p id="current-Break">0</p>
+            <p><span id="remaining-points">1</span> Remaining</p>
         </div>
-        <p><span id="remaining-points">1</span> Remaining</p>
 
     </div>
     <!-- ./Break Section -->

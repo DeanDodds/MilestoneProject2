@@ -152,7 +152,20 @@ button {
     margin-top: 10px;
 }
 
+/* break counter section */
+
+.break-section {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+#break-section {
+    width: 100%;
+    display: flex;
+}
 
 .hidden {
     display: none;
+
 }
