@@ -38,7 +38,7 @@
     <div id="game-area-section" class="text-center">
 
         <!-- The start page menu -->
-        <div class="start-page">
+        <div id="start-page" class="start-page">
             <button id="start-btn" class="btn btn-secondary game-button">Start</button>
             <button type="button" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#Instructions">
@@ -48,7 +48,7 @@
         <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <div id="settingspage">
+        <div id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
             <form>
                 <div class="form-floating mb-3">
@@ -72,9 +72,9 @@
         <!-- The Game Ball Page -->
         <div id="game-balls-page">
             <div id="red-ball-section">
-                <button class="ball size-big red">1</button>
+                <button class="ball size-big red hidden">1</button>
             </div>
-            <div id="colored-balls-section" class="colored-balls-section">
+            <div id="colored-balls-section" class="colored-balls-section hidden">
                 <button class="ball size-big yellow">2</button>
                 <button class="ball size-big green">3</button>
                 <button class="ball size-big brown">4</button>
@@ -86,7 +86,7 @@
         <!-- ./The game ball Page -->
 
         <!-- Game Buttons -->
-        <div id="game-buttons">
+        <div id="game-buttons" class="hidden">
             <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#foul">Foul</button>
             <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
@@ -102,23 +102,23 @@
     <!-- Break Section-->
     <div id="break-section">
         <div class="break-section">
-            <span id="red-ball-break-counter" class="ball small red">0</span>
-            <span id="yellow-ball-break-counter" class="ball small yellow">0</span>
-            <span id="green-ball-break-counter" class="ball small green">0</span>
-            <span id="brown-ball-break-counter" class="ball small brown">0</span>
-            <span id="blue-ball-break-counter" class="ball small blue">0</span>
-            <span id="pink-ball-break-counter" class="ball small pink">0</span>
-            <span id="black-ball-break-counter" class="ball small black">0</span>
-            <p id="current-Break">0</p>
+            <span id="red-ball-break-counter" class="ball small red hidden">0</span>
+            <span id="yellow-ball-break-counter" class="ball small yellow hidden">0</span>
+            <span id="green-ball-break-counter" class="ball small green hidden">0</span>
+            <span id="brown-ball-break-counter" class="ball small brown hidden">0</span>
+            <span id="blue-ball-break-counter" class="ball small blue hidden">0</span>
+            <span id="pink-ball-break-counter" class="ball small pink hidden">0</span>
+            <span id="black-ball-break-counter" class="ball small black hidden">0</span>
+            <p id="current-Break hidden">0</p>
         </div>
-        <div class="break-section-numbers">
+        <div class="break-section-numbers hidden">
             <p><span id="remaining-points">1</span> Remaining</p>
         </div>
     </div>
     <!-- ./Break Section -->
 
     <!-- ./Score Board Section-->
-    <div id="score-board" class="score-board text-center">
+    <div id="score-board" class="score-board text-center hidden">
         <div id="Player-one-display" class="player-display">
             <p id="player-one-name">name-1</p>
             <p> <span id="player-one-score" class="player-score">0</span> <span id="active"></span></p>
