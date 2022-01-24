@@ -38,7 +38,7 @@
     <div id="game-area-section" class="text-center">
 
         <!-- The start page menu -->
-        <div class="start-page hidden">
+        <div class="start-page">
             <button id="start-btn" class="btn btn-secondary game-button">Start</button>
             <button type="button" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#Instructions">
@@ -48,7 +48,7 @@
         <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <div id="settingspage" class="hidden">
+        <div id="settingspage">
             <h2>Please Enter the Game Information</h2>
             <form>
                 <div class="form-floating mb-3">
@@ -74,7 +74,7 @@
             <div id="red-ball-section">
                 <button class="ball size-big red">1</button>
             </div>
-            <div id="colored-balls-section" class="colored-balls-section hidden">
+            <div id="colored-balls-section" class="colored-balls-section">
                 <button class="ball size-big yellow">2</button>
                 <button class="ball size-big green">3</button>
                 <button class="ball size-big brown">4</button>
@@ -86,7 +86,7 @@
         <!-- ./The game ball Page -->
 
         <!-- Game Buttons -->
-        <div id="game-buttons" class="hidden">
+        <div id="game-buttons">
             <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#foul">Foul</button>
             <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
@@ -111,29 +111,26 @@
             <span id="black-ball-break-counter" class="ball small black">0</span>
             <p id="current-Break">0</p>
         </div>
-        <div class="break-section-numbers hidden">
+        <div class="break-section-numbers">
             <p><span id="remaining-points">1</span> Remaining</p>
         </div>
     </div>
     <!-- ./Break Section -->
 
     <!-- ./Score Board Section-->
-    <div id="score-board" class="score-board">
-        <div id="Player-one-display">
+    <div id="score-board" class="score-board text-center">
+        <div id="Player-one-display" class="player-display">
             <p id="player-one-name">name-1</p>
-            <span>/</span>
-            <p id="player-one-score">0</p>
+            <p> <span id="player-one-score" class="player-score">0</span> <span id="active"></span></p>
         </div>
         <div id="frame-information" class="text-center">
             <p id="player-one-frame-counter">0</p>
             <p>(<span id="number-of-frames">0</span>)</p>
             <p id="player-two-frame-counter">0</p>
         </div>
-
-        <div id="Player-two-display">
+        <div id="Player-two-display" class="player-display">
             <p id="player-two-name">name-2</p>
-            <span>/</span>
-            <p id="player-two-score">0</p>
+            <p><span id="player-two-score" class="player-score">0</span> <span id="active-right"></span></p>
         </div>
     </div>
     <!-- ./Score Board Section-->

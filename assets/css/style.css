@@ -37,14 +37,12 @@ button {
 }
 
 /* body  */
-
 body {
     background: url('/assets/images/backgroundsmalldevices.png') center no-repeat fixed;
     background-size: cover;
 }
 
 /* Header section */
-
 header {
     display: flex;
     justify-content: space-between;
@@ -60,6 +58,11 @@ header {
 
 .logo-span {
     color: red;
+}
+
+/* footer */
+footer {
+    clear: both;
 }
 
 /* buttons */
@@ -178,10 +181,78 @@ button {
     margin: 0px;
 }
 
+/* Score Board */
+.score-board {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    height: 70px;
+    margin-top: 15px;
+}
 
+.player-display p {
+    display: inline;
+}
+
+#frame-information {
+    background-color: yellow;
+}
+
+#frame-information p {
+    display: inline;
+}
+
+
+#player-one-score,
+#active {
+    float: right;
+}
+
+.player-score {
+    color: white;
+    background-color: black;
+    padding: 20px;
+    height: 100%;
+}
+
+#active {
+    margin-top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+
+    border-right: 40px solid yellow;
+}
+
+#active-right {
+    margin-top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+
+    border-left: 40px solid yellow;
+}
+
+.player-display {
+    background-color: gray;
+    color: white;
+}
+
+#player-two-score,
+#active-right {
+    float: left;
+}
+
+#player-two-name p {
+    padding-top: 15px;
+}
+
+#player-one-name,
+#frame-information {
+    padding-top: 15px;
+}
 
 .hidden {
     display: none;
 }
-
-/* Score Board */
