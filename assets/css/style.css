@@ -25,11 +25,15 @@ h3 {
     font-size: 22px;
 }
 
+p {
+    font-size: 24px;
+    font-size: 'Raleway', sans-serif;
+}
+
 button {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-
 }
 
 /* body  */
@@ -76,7 +80,7 @@ button {
 
 /* Game Area */
 #game-area-section {
-    height: 80vh;
+    height: 70vh;
     width: 90%;
     display: flex;
     justify-content: center;
@@ -157,15 +161,27 @@ button {
 .break-section {
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    width: 60%;
 }
 
 #break-section {
     width: 100%;
-    display: flex;
 }
+
+.break-section-numbers {
+    width: 40%;
+}
+
+#current-Break {
+    align-self: flex-end;
+    padding-left: 20px;
+    margin: 0px;
+}
+
+
 
 .hidden {
     display: none;
-
 }
+
+/* Score Board */
