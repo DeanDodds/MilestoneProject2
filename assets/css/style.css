@@ -214,7 +214,7 @@ button {
     height: 100%;
 }
 
-#active {
+.active {
     margin-top: 15px;
     width: 0;
     height: 0;
@@ -224,7 +224,7 @@ button {
     border-right: 40px solid yellow;
 }
 
-#active-right {
+.active-right {
     margin-top: 15px;
     width: 0;
     height: 0;
