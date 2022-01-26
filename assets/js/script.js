@@ -13,6 +13,8 @@ let ballBtns = document.getElementsByClassName('size-big');
 const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
 
+let totalNumberOfFrames = document.getElementById('number-of-frames').innerHTML;
+
 let points = 0;
 let breaktotal = 0;
 let playerOneTotalScore = 0
@@ -49,6 +51,7 @@ for (let ballBtn of ballBtns) {
 endBreakBtn.addEventListener('click', function () {
     breaktotal = 0
     console.log(breaktotal)
+    switchPlayer()
 });
 
 function getGameSettings() {
@@ -69,4 +72,19 @@ function startGame() {
     settingsPage.classList.add('hidden');
     document.getElementById('footer').classList.add('hidden');
 
+}
+
+function switchPlayer() {
+    let activePlayerOneMarker = document.getElementById('active-left');
+    let activePlayerTWOMarker = document.getElementById('active-right');
+
+    if (activePlayerOneMarker.classList.contains('active')){
+        alert('player ones turn');
+        activePlayerOneMarker.classList.remove('active')
+        activePlayerTWOMarker.classList.add('active')
+    }else {
+        alert('player two')
+        activePlayerTWOMarker.classList.remove('active')
+        activePlayerOneMarker.classList.add('active')
+    }
 }

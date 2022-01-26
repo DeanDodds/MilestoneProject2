@@ -203,7 +203,7 @@ button {
 
 
 #player-one-score,
-#active {
+#active-left {
     float: right;
 }
 
@@ -214,24 +214,20 @@ button {
     height: 100%;
 }
 
+#active-left {
+    border-right: 40px solid yellow;
+}
+
+#active-right {
+    border-left: 40px solid yellow;
+}
+
 .active {
     margin-top: 15px;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-
-    border-right: 40px solid yellow;
-}
-
-.active-right {
-    margin-top: 15px;
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-
-    border-left: 40px solid yellow;
 }
 
 .player-display {
