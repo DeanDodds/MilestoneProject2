@@ -38,7 +38,7 @@ button {
 
 /* body  */
 body {
-    background: url('/assets/images/backgroundsmalldevices.png') center no-repeat fixed;
+    background: url('./assets/images/backgroundsmalldevices.png') center no-repeat fixed;
     background-size: cover;
 }
 
