@@ -29,12 +29,46 @@
 - Github
 - Gitpod
 
+## Deployment <a id="deployment"></a>
+-----
+
+### Github pages <a id=pages></a>
+
+I Deployed my project to Github pages using the following steps:
+
+1. I logged in to Github and located [repositorys](https://github.com/DeanDodds/MilestoneProject2)
+2. I then clicked on settings, this was located just above the green GitPod button.
+3. I scrolled down through the settings menu and clicked on the pages section
+4. from there, I  went to the source section and under the dropdown menu labeled none I selcted the new-main 
+5. I clicked save 
+6. after a few minutes the site was live and the link to the published website was generated [link](https://deandodds.github.io/milestoneprojectone2/)
+
+### Making a local clone <A id="clone"></a>
+
+You can clone a Github repository to your local computer by following these steps:
+
+1. On GitHub.com, navigate the repository page
+2. above the list of files, click on the Code dropdown menu
+3. select the download zip file 
+4. once the files have downloaded you can extract them form the zip file and run them on your local environment 
+
+You can see more information on making local clones [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
+
+### Forking the GitHub Repository <A id="fork"></a>
+
+Forking a Github repositary allows you to make a copy that you can work on without effecting the original repository. You can fork a repository by:
+
+1. On GitHub.com, navigate the repository page of the repository you would like to fork
+2. on the top right hand side of the page locate click fork button 
+3. the copy of this resository should now be in your own repositories
+
 # Testing 
 
 ## bugs 
 - Score counter does not flip back to player one 
 - Display does not return to red display when changing player
 - Brown and black ball break counters counters not adding 1 each time
+- background image does not load on the live website
 
 # Credits
 
