@@ -12,14 +12,21 @@ const startGameBtn = document.getElementById('start-game-btn');
 const ballBtns = document.getElementsByClassName('size-big');
 const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
+const 
+
 let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
 let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
 let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
-let currentPlayerScoreMarker
+let currentPlayerScoreMarker = document.getElementById('player-one-score')
+let activePlayerOneMarker = document.getElementById('active-left');
+let activePlayerTWOMarker = document.getElementById('active-right');
+
 let winner 
 let points = 0;
 let breaktotal = 0;
-let playerOneTotalScore = 0
+
+
+let playerScore = 0
 
 startBtn.addEventListener('click', function () {
     startPage.classList.add('hidden');
@@ -36,13 +43,10 @@ startGameBtn.addEventListener('click', getGameSettings)
 for (let ballBtn of ballBtns) {
     ballBtn.addEventListener('click', function () {
         points = parseInt(this.innerHTML)
-        alert(points)
-        // if (activePlayerOneMarker.classList.contains('active')){
-        //     alert('player tws turn');
-        // }else {
-        //     alert('players one turn')
-        // }
-
+        breaktotal = breaktotal + points;
+        playerScore = playerScore + points;
+        console.log(playerScore, breaktotal)
+        currentPlayerScoreMarker.innerHTML = playerScore
         changeDisplay(points)
     });
 }
@@ -66,15 +70,19 @@ function getGameSettings() {
 }
 
 
-
+/**
+ * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.
+ */
 function startGame() {
     RedBallPage.classList.remove('hidden')
     gameBtns.classList.remove('hidden')
     settingsPage.classList.add('hidden');
     document.getElementById('footer').classList.add('hidden');
-
 }
 
+/** 
+ * change Display funtion changes between the red ball display and color ball display by adding and removing the hidden class.
+*/
 function changeDisplay(num) {
     if (num == 1) {
         RedBallPage.classList.add('hidden');
@@ -84,28 +92,28 @@ function changeDisplay(num) {
         RedBallPage.classList.remove('hidden');
     }
 }
-
-function addScores(num, num){
-    num + num
-    return num
-}
-
+/** 
+ * The switch player fumction swaps the active triangle between the players and 
+ * swaps the 
+ * */ 
 function switchPlayer() {
-    let activePlayerOneMarker = document.getElementById('active-left');
-    let activePlayerTWOMarker = document.getElementById('active-right');
-
+    changeDisplay()
     if (activePlayerOneMarker.classList.contains('active')){
         alert('player tws turn');
-        activePlayerOneMarker.classList.remove('active')
-        activePlayerTWOMarker.classList.add('active')
-        currentPlayerScoreMarker = document.getElementById('player-one-score')
-        playerTwoTotalScore = parseInt(currentPlayerScoreMarker.innerHTML)
+        activePlayerOneMarker.classList.remove('active');
+        activePlayerTWOMarker.classList.add('active');
+        currentPlayerScoreMarker = document.getElementById('player-two-score');
+        playerScore = parseInt(currentPlayerScoreMarker.innerHTML)
     }else {
         alert('players one turn')
-        activePlayerTWOMarker.classList.remove('active')
-        activePlayerOneMarker.classList.add('active')
-        currentPlayerScoreMarker = document.getElementById('player-two-score')
-        playerOneTotalScore = parseInt(currentPlayerScoreMarker.innerHTML)
+        activePlayerTWOMarker.classList.remove('active');
+        activePlayerOneMarker.classList.add('active');
+        currentPlayerScoreMarker = document.getElementById('player-one-score');
+        playerScore = parseInt(currentPlayerScoreMarker.innerHTML);
     }
+
+}
+
+function displayBreakTotal(){
 
 }
