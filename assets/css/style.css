@@ -38,7 +38,7 @@ button {
 
 /* body  */
 body {
-    background: url(../images/backgrounddesktop.png) no-repeat center center fixed;
+    background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgroundsmalldevices.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
