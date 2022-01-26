@@ -5,16 +5,18 @@ const RedBallPage = document.getElementById('red-ball-section');
 const colorBall = document.getElementById('colored-balls-section');
 
 
-// Getting Buttons by id 
+// Getting Game Elements by id 
 const startBtn = document.getElementById('start-btn');
 const backBtn = document.getElementById('back-game-btn');
 const startGameBtn = document.getElementById('start-game-btn');
-let ballBtns = document.getElementsByClassName('size-big');
+const ballBtns = document.getElementsByClassName('size-big');
 const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
-
-let totalNumberOfFrames = document.getElementById('number-of-frames').innerHTML;
-
+let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
+let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
+let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
+let currentPlayerScoreMarker
+let winner 
 let points = 0;
 let breaktotal = 0;
 let playerOneTotalScore = 0
@@ -35,16 +37,13 @@ for (let ballBtn of ballBtns) {
     ballBtn.addEventListener('click', function () {
         points = parseInt(this.innerHTML)
         alert(points)
-        breaktotal = breaktotal + points
-        playerOneTotalScore = playerOneTotalScore + points
-        console.log(breaktotal, playerOneTotalScore)
-        if (points == 1) {
-            RedBallPage.classList.add('hidden');
-            colorBall.classList.remove('hidden')
-        } else {
-            colorBall.classList.add('hidden');
-            RedBallPage.classList.remove('hidden');
-        }
+        // if (activePlayerOneMarker.classList.contains('active')){
+        //     alert('player tws turn');
+        // }else {
+        //     alert('players one turn')
+        // }
+
+        changeDisplay(points)
     });
 }
 
@@ -66,6 +65,8 @@ function getGameSettings() {
     startGame()
 }
 
+
+
 function startGame() {
     RedBallPage.classList.remove('hidden')
     gameBtns.classList.remove('hidden')
@@ -74,17 +75,37 @@ function startGame() {
 
 }
 
+function changeDisplay(num) {
+    if (num == 1) {
+        RedBallPage.classList.add('hidden');
+        colorBall.classList.remove('hidden')
+    } else {
+        colorBall.classList.add('hidden');
+        RedBallPage.classList.remove('hidden');
+    }
+}
+
+function addScores(num, num){
+    num + num
+    return num
+}
+
 function switchPlayer() {
     let activePlayerOneMarker = document.getElementById('active-left');
     let activePlayerTWOMarker = document.getElementById('active-right');
 
     if (activePlayerOneMarker.classList.contains('active')){
-        alert('player ones turn');
+        alert('player tws turn');
         activePlayerOneMarker.classList.remove('active')
         activePlayerTWOMarker.classList.add('active')
+        currentPlayerScoreMarker = document.getElementById('player-one-score')
+        playerTwoTotalScore = parseInt(currentPlayerScoreMarker.innerHTML)
     }else {
-        alert('player two')
+        alert('players one turn')
         activePlayerTWOMarker.classList.remove('active')
         activePlayerOneMarker.classList.add('active')
+        currentPlayerScoreMarker = document.getElementById('player-two-score')
+        playerOneTotalScore = parseInt(currentPlayerScoreMarker.innerHTML)
     }
+
 }
