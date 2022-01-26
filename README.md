@@ -29,6 +29,12 @@
 - Github
 - Gitpod
 
+# Testing 
+
+## bugs 
+- Score counter does not flip back to player one 
+- Display does not return to red display when changing player
+
 # Credits
 
 ## Images
