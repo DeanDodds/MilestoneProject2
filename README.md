@@ -34,6 +34,7 @@
 ## bugs 
 - Score counter does not flip back to player one 
 - Display does not return to red display when changing player
+- Brown and black ball break counters counters not adding 1 each time
 
 # Credits
 
