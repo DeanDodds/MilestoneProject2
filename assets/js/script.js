@@ -20,7 +20,6 @@ let currentPlayerScoreMarker = document.getElementById('player-one-score')
 let activePlayerOneMarker = document.getElementById('active-left');
 let activePlayerTWOMarker = document.getElementById('active-right');
 
-let winner 
 let points = 0;
 let breaktotal = 0;
 
@@ -47,7 +46,7 @@ for (let ballBtn of ballBtns) {
         console.log(playerScore, breaktotal)
         currentPlayerScoreMarker.innerHTML = playerScore
         changeDisplay(points)
-        displayBreakBalls(points, 0)
+        displayBreakBalls(points)
     });
 }
 
@@ -55,8 +54,12 @@ endBreakBtn.addEventListener('click', function () {
     breaktotal = 0
     console.log(breaktotal)
     switchPlayer()
+    clearBreak()
 });
 
+/**
+ * Gets the users input and displays it in the scoreboard element
+ */
 function getGameSettings() {
     event.preventDefault()
     let numberOfFrames = document.getElementById('frames-input').value;
@@ -68,7 +71,6 @@ function getGameSettings() {
     document.getElementById('score-board').classList.remove('hidden')
     startGame()
 }
-
 
 /**
  * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.
@@ -145,7 +147,7 @@ function displayBreakBalls(num,){
         document.getElementById('brown-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('brown-break-counter').innerHTML);
         num1 = ballCounter + 1;
-        document.getElementById('brownbreak-counter').innerHTML = num1;
+        document.getElementById('brown-break-counter').innerHTML = num1;
     }else if (num == 5){
         alert('display blue')
         document.getElementById('blue-ball-break-counter').classList.remove('hidden');
@@ -163,6 +165,23 @@ function displayBreakBalls(num,){
         document.getElementById('black-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
         num1 = ballCounter + 1;
-        document.getElementById('black-break-counter').innerHTML = num1
+        document.getElementById('black-break-counter').innerHTML = num1;
+    }
+}
+
+/**
+ * adds class of hidden to break counter elements
+ * and resets counters to 0
+ */
+function clearBreak(){
+    let breakCounters = document.getElementsByClassName('small');
+    let breakCounterInners = document.getElementsByClassName('break-ball-counter');
+
+    for (let breakCounter of breakCounters) {
+        breakCounter.classList.add('hidden')
+    }
+
+    for (let breakCounterInner of breakCounterInners){
+        breakCounterInner.innerHTML = 0;
     }
 }
