@@ -12,6 +12,7 @@ const startGameBtn = document.getElementById('start-game-btn');
 const ballBtns = document.getElementsByClassName('size-big');
 const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
+const endFrameBtn = document.getElementById('end-frame-btn');
 
 let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
 let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
@@ -67,6 +68,12 @@ endBreakBtn.addEventListener('click', function () {
     switchPlayer()
     clearBreak()
 });
+
+// End of frame event listerner 
+endFrameBtn.addEventListener('click', function () {
+    endFrame();
+});
+
 
 
 
@@ -238,4 +245,27 @@ function trackRemainingPoints(num, num1, num2) {
         console.log(num3)
     }
     return num3
+}
+
+function endFrame() {
+    let playerOneScore = parseInt(document.getElementById('player-one-score').innerHTML);
+    let playerTwoScore = parseInt(document.getElementById('player-two-score').innerHTML);
+    let playerOneFrame = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
+    let playerTwoFrame = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
+    console.log(playerOneFrame)
+    if (playerOneScore > playerTwoScore) {
+        playerOneFrame = playerOneFrame + 1
+        console.log(playerOneFrame)
+        document.getElementById('player-one-frame-counter').innerHTML = playerOneFrame
+        alert('player one wins')
+    } else if (playerTwoScore > playerOneScore) {
+        playerTwoFrame = playerTwoFrame + 1
+        console.log(playerTwoFrame)
+        document.getElementById('player-two-frame-counter').innerHTML = playerTwoFrame
+        alert('player one wins')
+        alert('player two wins this frame');
+    } else {
+        console.log('error');
+    }
+
 }
