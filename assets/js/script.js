@@ -22,8 +22,10 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let remainingPoints = 147; // remaining points on the table
-
+let red = 15 // number of reds on the table
+let colours = 27;
+let remainingPoints = (red * 8) + colours // remaining points on the table
+console.log(remainingPoints)
 
 let playerScore = 0
 
@@ -52,6 +54,9 @@ for (let ballBtn of ballBtns) {
         currentPlayerScoreMarker.innerHTML = playerScore
         changeDisplay(points)
         displayBreakBalls(points)
+        red = trackRemainingreds(red, points)
+        remainingPoints = trackRemainingPoints(red, colours, points)
+        console.log(red, colours, remainingPoints)
     });
 }
 
@@ -194,6 +199,43 @@ function clearBreak() {
     }
 }
 
-function trackRemainingPoints() {
+/**
+ * 
+ * @param {*red} num 
+ * @param {*points} num2
+ * if points is 1 then funtion will minus one red 
+ * @returns red
+ */
+function trackRemainingreds(num, num2) {
+    if (num2 === 1) {
+        console.log('track reds')
+        num = num - 1;
+    } else {
+        console.log('notred')
+    }
+    return num;
+}
 
+/**
+ * 
+ * @param {*red} num 
+ * @param {*colours} num1 
+ * @param {*points} num2 
+ * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours)
+ * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours) + 7
+ *   
+ * @returns remiaining points 
+ */
+function trackRemainingPoints(num, num1, num2) {
+    let num3
+    if (num2 === 1) {
+        console.log('on color track points')
+        num3 = (num * 8) + num1 + 7
+        console.log(num3)
+    } else {
+        console.log('on reds track points')
+        num3 = (num * 8) + num1
+        console.log(num3)
+    }
+    return num3
 }
