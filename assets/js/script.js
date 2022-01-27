@@ -72,6 +72,9 @@ endBreakBtn.addEventListener('click', function () {
 // End of frame event listerner 
 endFrameBtn.addEventListener('click', function () {
     endFrame();
+    clearPoints();
+    clearBreak();
+    startFrame();
 });
 
 
@@ -89,15 +92,17 @@ function getGameSettings() {
     document.getElementById('player-one-name').innerHTML = playerOne;
     document.getElementById('player-two-name').innerHTML = playerTwo;
     document.getElementById('score-board').classList.remove('hidden')
-    startGame()
+    startFrame()
 }
 
 /**
  * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.
  */
-function startGame() {
+function startFrame() {
+    console.log('starting frame')
     RedBallPage.classList.remove('hidden')
     gameBtns.classList.remove('hidden')
+    colorBall.classList.add('hidden');
     settingsPage.classList.add('hidden');
     document.getElementById('footer').classList.add('hidden');
 }
@@ -114,6 +119,24 @@ function changeDisplay(num) {
         RedBallPage.classList.remove('hidden');
     }
 }
+
+function getEndGameInfo() {
+    displayEndGameInfo()
+}
+
+function displayEndGameInfo() {
+    console.log('display end game');
+    RedBallPage.classList.add('hidden');
+    gameBtns.classList.remove('hidden');
+    colorBall.classList.add('hidden');
+    document.getElementById('footer').classList.remove('hidden');
+    console.log('display end game done');
+}
+
+function getEndGameInfo() {
+    alert('game info');
+}
+
 /** 
  * The switch player fumction swaps the active triangle between the players and 
  * swaps the the scoring between the two players 
@@ -194,15 +217,23 @@ function displayBreakBalls(num, ) {
  * and resets counters to 0
  */
 function clearBreak() {
+    console.log('clear break')
     let breakCounters = document.getElementsByClassName('small');
     let breakCounterInners = document.getElementsByClassName('break-ball-counter');
 
     for (let breakCounter of breakCounters) {
         breakCounter.classList.add('hidden')
     }
-
     for (let breakCounterInner of breakCounterInners) {
         breakCounterInner.innerHTML = 0;
+    }
+}
+
+function clearPoints() {
+    console.log('clear points')
+    let scores = document.getElementsByClassName('player-score');
+    for (let score of scores) {
+        score.innerHTML = 0;
     }
 }
 
@@ -267,5 +298,21 @@ function endFrame() {
     } else {
         console.log('error');
     }
+    checkframes(playerOneFrame, playerTwoFrame)
+}
 
+function checkframes(num1, num2) {
+    console.log('end frame')
+    num3 = parseInt(document.getElementById('number-of-frames').innerHTML)
+    num4 = num3 / 2;
+    console.log(num1, num2, num3, )
+    if (num1 >= num4 || num2 >= num4) {
+        alert('end of game')
+        endGame()
+    }
+
+}
+
+function endGame() {
+    displayEndGameInfo()
 }

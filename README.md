@@ -69,6 +69,7 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 - Display does not return to red display when changing player
 - Brown and black ball break counters counters not adding 1 each time
 - background image does not load on the live website
+- settings form required attribute not working
 
 # Credits
 
