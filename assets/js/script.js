@@ -3,6 +3,7 @@ const startPage = document.getElementById('start-page');
 const settingsPage = document.getElementById('settingspage');
 const RedBallPage = document.getElementById('red-ball-section');
 const colorBall = document.getElementById('colored-balls-section');
+const scoreboard = document.getElementById('score-board');
 
 
 // Getting Game Elements by id 
@@ -13,6 +14,7 @@ const ballBtns = document.getElementsByClassName('size-big');
 const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
 const endFrameBtn = document.getElementById('end-frame-btn');
+const endOfGameBtn = document.getElementById('end-game-btn');
 
 let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
 let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
@@ -48,16 +50,19 @@ startGameBtn.addEventListener('click', getGameSettings)
 // ball buton event listerners
 for (let ballBtn of ballBtns) {
     ballBtn.addEventListener('click', function () {
-        points = parseInt(this.innerHTML)
-        breaktotal = breaktotal + points;
-        playerScore = playerScore + points;
-        console.log(playerScore, breaktotal)
-        currentPlayerScoreMarker.innerHTML = playerScore
-        changeDisplay(points)
-        displayBreakBalls(points)
-        red = trackRemainingreds(red, points)
-        remainingPoints = trackRemainingPoints(red, colours, points)
-        console.log(red, colours, remainingPoints)
+        if (remainingPoints > 27) {
+            points = parseInt(this.innerHTML)
+            breaktotal = breaktotal + points;
+            playerScore = playerScore + points;
+            console.log(playerScore, breaktotal)
+            currentPlayerScoreMarker.innerHTML = playerScore
+            changeDisplay(points)
+            displayBreakBalls(points)
+            red = trackRemainingreds(red, points)
+            remainingPoints = trackRemainingPoints(red, colours, points)
+            noPointsLeft(remainingPoints)
+            console.log(red, colours, remainingPoints)
+        }
     });
 }
 
@@ -77,8 +82,13 @@ endFrameBtn.addEventListener('click', function () {
     startFrame();
 });
 
+// End of game event listner
+endOfGameBtn.addEventListener('click', function () {
+    alert('end of game pressed')
+    endGame()
+})
 
-
+// <--------------------------- display functions ------------------------------------------>
 
 /**
  * Gets the users input and displays it in the scoreboard element
@@ -110,31 +120,26 @@ function startFrame() {
 /** 
  * change Display funtion changes between the red ball display and color ball display by adding and removing the hidden class.
  */
-function changeDisplay(num) {
-    if (num == 1) {
+function changeDisplay(num, num2) {
+    if (num == 1 && num2 > 27) {
         RedBallPage.classList.add('hidden');
         colorBall.classList.remove('hidden')
-    } else {
+    } else if (num > 1 && num2 > 27) {
         colorBall.classList.add('hidden');
         RedBallPage.classList.remove('hidden');
+    } else {
+        console.log('finale color ')
     }
 }
 
-function getEndGameInfo() {
-    displayEndGameInfo()
-}
-
 function displayEndGameInfo() {
-    console.log('display end game');
+    alert('display end game');
     RedBallPage.classList.add('hidden');
-    gameBtns.classList.remove('hidden');
+    gameBtns.classList.add('hidden');
     colorBall.classList.add('hidden');
     document.getElementById('footer').classList.remove('hidden');
+    scoreboard.classList.add('hidden')
     console.log('display end game done');
-}
-
-function getEndGameInfo() {
-    alert('game info');
 }
 
 /** 
@@ -158,6 +163,7 @@ function switchPlayer() {
     }
 
 }
+
 
 /**
  * removes hidden class from the breakball counters bases on the number of points put through 
@@ -301,6 +307,14 @@ function endFrame() {
     checkframes(playerOneFrame, playerTwoFrame)
 }
 
+function noPointsLeft(num) {
+    if (num === 0) {
+        endFrame();
+    } else {
+        console.log('still poins')
+    }
+}
+
 function checkframes(num1, num2) {
     console.log('end frame')
     num3 = parseInt(document.getElementById('number-of-frames').innerHTML)
@@ -313,6 +327,12 @@ function checkframes(num1, num2) {
 
 }
 
+function getEndGameInfo() {
+    alert('game info');
+}
+
 function endGame() {
-    displayEndGameInfo()
+    alert('getting end of game info')
+    clearBreak()
+    displayEndGameInfo();
 }
