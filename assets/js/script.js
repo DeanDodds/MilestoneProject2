@@ -23,14 +23,21 @@ let currentPlayerScoreMarker = document.getElementById('player-one-score')
 let activePlayerOneMarker = document.getElementById('active-left');
 let activePlayerTWOMarker = document.getElementById('active-right');
 
+// Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
 let red = 15 // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
+let playerOneBreakTally = [];
+let playerTwoBreakTally = [];
+let playerOneFoulTally = [];
+let playerTwoFoulTally = [];
 console.log(remainingPoints)
 
 let playerScore = 0
+
+// <--------------------------- display functions ------------------------------------------>
 
 // start button event listener
 startBtn.addEventListener('click', function () {
@@ -67,6 +74,13 @@ for (let ballBtn of ballBtns) {
 
 // end break button event listener
 endBreakBtn.addEventListener('click', function () {
+    if (activePlayerOneMarker.classList.contains('active')) {
+        playerOneBreakTally.push(breaktotal)
+    } else {
+        playerTwoBreakTally.push(breaktotal)
+    }
+    console.log(playerOneBreakTally, playerTwoBreakTally)
+
     breaktotal = 0
     console.log(breaktotal)
     switchPlayer()
@@ -75,16 +89,26 @@ endBreakBtn.addEventListener('click', function () {
 
 // End of frame event listerner 
 endFrameBtn.addEventListener('click', function () {
+    if (activePlayerOneMarker.classList.contains('active')) {
+        playerOneBreakTally.push(breaktotal)
+    } else {
+        playerTwoBreakTally.push(breaktotal)
+    }
     endFrame();
     clearPoints();
     clearBreak();
     startFrame();
+
 });
 
-// End of game event listner
+// End of game event listerner
 endOfGameBtn.addEventListener('click', function () {
     alert('end of game pressed')
-    endGame()
+    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally)
+    endFrame()
+    clearPoints();
+    clearBreak();
+    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally)
 })
 
 // <--------------------------- display functions ------------------------------------------>
@@ -129,7 +153,8 @@ function changeDisplay(num, num2) {
     }
 }
 
-function displayEndGameInfo() {
+function displayEndGameInfo(num1, num2, num3, num4) {
+    console.log(num1, num2)
     alert('display end game');
     RedBallPage.classList.add('hidden');
     gameBtns.classList.add('hidden');
@@ -138,12 +163,15 @@ function displayEndGameInfo() {
     scoreboard.classList.add('hidden')
     console.log('display end game done');
 
+
     playerOne = document.getElementById('player-one-name').innerHTML
     playerTwo = document.getElementById('player-one-name').innerHTML
     playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
     playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML
-    playerTwoHighestBreak = 11;
-    playerOneHighestBreak = 12;
+    playerOneHighestBreak = Math.max(...num1);
+    playerTwoHighestBreak = Math.max(...num2);
+    console.log(playerOneHighestBreak, playerTwoHighestBreak)
+    playerOneFouls = 3
     playerTwoFouls = 2
 
     document.getElementById('game-area-section').innerHTML = `
@@ -358,12 +386,7 @@ function checkframes(num1, num2) {
 
 }
 
-function getEndGameInfo() {
-    alert('game info');
-}
-
 function endGame() {
     alert('getting end of game info')
     clearBreak()
-    displayEndGameInfo()
 }
