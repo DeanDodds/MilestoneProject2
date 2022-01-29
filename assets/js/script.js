@@ -25,7 +25,7 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 15 // number of reds on the table
+let red = 1 // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
 console.log(remainingPoints)
@@ -50,19 +50,18 @@ startGameBtn.addEventListener('click', getGameSettings)
 // ball buton event listerners
 for (let ballBtn of ballBtns) {
     ballBtn.addEventListener('click', function () {
-        if (remainingPoints > 27) {
-            points = parseInt(this.innerHTML)
-            breaktotal = breaktotal + points;
-            playerScore = playerScore + points;
-            console.log(playerScore, breaktotal)
-            currentPlayerScoreMarker.innerHTML = playerScore
-            changeDisplay(points)
-            displayBreakBalls(points)
-            red = trackRemainingreds(red, points)
-            remainingPoints = trackRemainingPoints(red, colours, points)
-            noPointsLeft(remainingPoints)
-            console.log(red, colours, remainingPoints)
-        }
+        points = parseInt(this.innerHTML)
+        breaktotal = breaktotal + points;
+        playerScore = playerScore + points;
+        console.log(playerScore, breaktotal)
+        currentPlayerScoreMarker.innerHTML = playerScore
+        red = trackRemainingreds(red, points)
+        changeDisplay(points, red)
+        displayBreakBalls(points)
+        colours = removeColourPoints(colours, points, remainingPoints)
+        remainingPoints = trackRemainingPoints(red, colours, points)
+        noPointsLeft(remainingPoints)
+        console.log(red, colours, remainingPoints)
     });
 }
 
@@ -121,14 +120,12 @@ function startFrame() {
  * change Display funtion changes between the red ball display and color ball display by adding and removing the hidden class.
  */
 function changeDisplay(num, num2) {
-    if (num == 1 && num2 > 27) {
+    if (num == 1 || num2 === 0) {
         RedBallPage.classList.add('hidden');
         colorBall.classList.remove('hidden')
-    } else if (num > 1 && num2 > 27) {
+    } else {
         colorBall.classList.add('hidden');
         RedBallPage.classList.remove('hidden');
-    } else {
-        console.log('finale color ')
     }
 }
 
@@ -271,17 +268,29 @@ function trackRemainingreds(num, num2) {
  * @returns remiaining points 
  */
 function trackRemainingPoints(num, num1, num2) {
-    let num3
+    let num3;
     if (num2 === 1) {
-        console.log('on color track points')
-        num3 = (num * 8) + num1 + 7
-        console.log(num3)
+        console.log('on color track points');
+        num3 = (num * 8) + num1 + 7;
+        console.log(num3);
     } else {
-        console.log('on reds track points')
-        num3 = (num * 8) + num1
-        console.log(num3)
+        console.log('on reds track points');
+        num3 = (num * 8) + num1;
+        console.log(num3);
     }
     return num3
+}
+
+function removeColourPoints(num1, num2, num3) {
+    if (num3 <= 27) {
+        num1 = num1 - num2;
+        alert('removing color')
+    } else {
+        num1 = 27;
+        alert('colors = 27')
+    }
+    console.log(num1)
+    return num1
 }
 
 function endFrame() {
