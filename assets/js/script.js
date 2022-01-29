@@ -25,27 +25,29 @@ const gameBtns = document.getElementById('game-buttons');
 const endBreakBtn = document.getElementById('end-break-btn');
 const endFrameBtn = document.getElementById('end-frame-btn');
 const endOfGameBtn = document.getElementById('end-game-btn');
+const foulBtn = document.getElementById('send-foul');
 
 let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
 let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
 let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
-let currentPlayerScoreMarker = document.getElementById('player-one-score')
+let currentPlayerScoreMarker = document.getElementById('player-one-score');
+let inactivePlayerScoreMarker = document.getElementById('player-two-score')
 let activePlayerOneMarker = document.getElementById('active-left');
 let activePlayerTWOMarker = document.getElementById('active-right');
 
 // Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 15 // number of reds on the table
+let red = 15; // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
 let playerOneBreakTally = [];
 let playerTwoBreakTally = [];
 let playerOneFoulTally = [];
 let playerTwoFoulTally = [];
-console.log(remainingPoints)
+console.log(remainingPoints);
 
-let playerScore = 0
+let playerScore = 0;
 
 // <--------------------------- display functions ------------------------------------------>
 
@@ -71,14 +73,14 @@ for (let ballBtn of ballBtns) {
         breaktotal = breaktotal + points;
         playerScore = playerScore + points;
         console.log(playerScore, breaktotal)
-        currentPlayerScoreMarker.innerHTML = playerScore
-        red = trackRemainingreds(red, points)
-        changeDisplay(points, red)
-        displayBreakBalls(points)
-        colours = removeColourPoints(colours, points, remainingPoints)
-        remainingPoints = trackRemainingPoints(red, colours, points)
-        noPointsLeft(remainingPoints)
-        console.log(red, colours, remainingPoints)
+        currentPlayerScoreMarker.innerHTML = playerScore;
+        red = trackRemainingreds(red, points);
+        changeDisplay(points, red);
+        displayBreakBalls(points);
+        colours = removeColourPoints(colours, points, remainingPoints);
+        remainingPoints = trackRemainingPoints(red, colours, points);
+        noPointsLeft(remainingPoints);
+        console.log(red, colours, remainingPoints);
     });
 }
 
@@ -119,6 +121,22 @@ endOfGameBtn.addEventListener('click', function () {
     clearPoints();
     clearBreak();
     displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally)
+})
+
+// Foul button event listerner
+foulBtn.addEventListener('click', function () {
+    foul = output.innerHTML;
+    freeball = false;
+    retake = false;
+    console.log(playerOneFoulTally, playerTwoFoulTally)
+    alert(foul)
+    if (activePlayerOneMarker.classList.contains('active')) {
+        playerOneFoulTally.push(foul)
+    } else {
+        playerTwoFoulTally.push(foul)
+    }
+    inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker) + foul;
+    console.log(playerOneFoulTally, playerTwoFoulTally)
 })
 
 // <--------------------------- display functions ------------------------------------------>
@@ -173,7 +191,6 @@ function displayEndGameInfo(num1, num2, num3, num4) {
     scoreboard.classList.add('hidden')
     console.log('display end game done');
 
-
     playerOne = document.getElementById('player-one-name').innerHTML
     playerTwo = document.getElementById('player-one-name').innerHTML
     playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
@@ -200,6 +217,8 @@ function displayEndGameInfo(num1, num2, num3, num4) {
     `
 }
 
+// <--------------------------- games functions ------------------------------------------>
+
 /** 
  * The switch player fumction swaps the active triangle between the players and 
  * swaps the the scoring between the two players 
@@ -211,12 +230,14 @@ function switchPlayer() {
         activePlayerOneMarker.classList.remove('active');
         activePlayerTWOMarker.classList.add('active');
         currentPlayerScoreMarker = document.getElementById('player-two-score');
+        inactivePlayerScoreMarker = document.getElementById('player-one-score');
         playerScore = parseInt(currentPlayerScoreMarker.innerHTML)
     } else {
         alert('players one turn')
         activePlayerTWOMarker.classList.remove('active');
         activePlayerOneMarker.classList.add('active');
         currentPlayerScoreMarker = document.getElementById('player-one-score');
+        inactivePlayerScoreMarker = document.getElementById('player-two-score');
         playerScore = parseInt(currentPlayerScoreMarker.innerHTML);
     }
 
@@ -274,6 +295,8 @@ function displayBreakBalls(num, ) {
         document.getElementById('black-break-counter').innerHTML = num1;
     }
 }
+
+
 
 /**
  * adds class of hidden to break counter elements
@@ -400,3 +423,7 @@ function endGame() {
     alert('getting end of game info')
     clearBreak()
 }
+
+// function addFoul(num, ele, ele) {
+
+// }

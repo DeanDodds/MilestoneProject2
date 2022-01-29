@@ -275,7 +275,7 @@ button {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: red;
     cursor: pointer;
 }
 
@@ -283,6 +283,6 @@ button {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: red;
     cursor: pointer;
 }
