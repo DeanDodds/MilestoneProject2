@@ -78,3 +78,6 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 - Background Image -<a href="https://www.shutterstock.com/image-illustration/3d-rendering-empty-billiard-table-top-1049972813"> Created by Gearstd - Sutterstock </a> 
 - CSS Sphere  - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"> From Ran Enoch at CSSDECK.COM</a>
 - CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
+
+## Code
+-  Foul slider<a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
