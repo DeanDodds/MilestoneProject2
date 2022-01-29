@@ -137,6 +137,29 @@ function displayEndGameInfo() {
     document.getElementById('footer').classList.remove('hidden');
     scoreboard.classList.add('hidden')
     console.log('display end game done');
+
+    playerOne = document.getElementById('player-one-name').innerHTML
+    playerTwo = document.getElementById('player-one-name').innerHTML
+    playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
+    playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML
+    playerTwoHighestBreak = 11;
+    playerOneHighestBreak = 12;
+    playerTwoFouls = 2
+
+    document.getElementById('game-area-section').innerHTML = `
+    <div class-"player-display-scores">
+    <h2>${playerOne}</h2>
+    <p>Number of frames won: <span>${playerOneFrames}</span></p>
+    <p>Highest break won: <span>${playerOneHighestBreak}</span></p>
+    <p>Points giving away in fouls: <span>${playerTwoFouls}</span></p>
+    </div>
+
+    <div class-"player-display-scores">
+    <h2>${playerTwo}</h2>
+    <p>Number of frames won: <span>${playerTwoFrames}</span></p>
+    <p>Highest break won: <span>${playerTwoHighestBreak}</span></p>
+    <p>Points giving away in fouls <span>${playerTwoFouls}</span></p>
+    `
 }
 
 /** 
@@ -160,7 +183,6 @@ function switchPlayer() {
     }
 
 }
-
 
 /**
  * removes hidden class from the breakball counters bases on the number of points put through 
@@ -343,5 +365,5 @@ function getEndGameInfo() {
 function endGame() {
     alert('getting end of game info')
     clearBreak()
-    displayEndGameInfo();
+    displayEndGameInfo()
 }
