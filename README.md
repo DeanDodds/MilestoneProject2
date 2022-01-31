@@ -80,4 +80,6 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 - CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
 
 ## Code
--  Foul slider<a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
+-  Foul slider <a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
+- addSUM function <a href ="https://medium.com/@chrisburgin95/rewriting-javascript-sum-an-array-dbf838996ed0">by Chris Burgin</a>
+- checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial

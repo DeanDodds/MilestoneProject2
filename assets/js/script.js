@@ -64,7 +64,9 @@ backBtn.addEventListener('click', function () {
 });
 
 //start game button event listener
-startGameBtn.addEventListener('click', getGameSettings)
+startGameBtn.addEventListener('click', function () {
+    getGameSettings();
+})
 
 // ball buton event listerners
 for (let ballBtn of ballBtns) {
@@ -182,7 +184,7 @@ foulBtn.addEventListener('click', function () {
  * Gets the users input and displays it in the scoreboard element
  */
 function getGameSettings() {
-    event.preventDefault()
+    document.getElementById('settings').checkValidity();
     let numberOfFrames = document.getElementById('frames-input').value;
     let playerOne = document.getElementById('player-one-input').value;
     let playerTwo = document.getElementById('player-two-input').value;
