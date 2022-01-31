@@ -204,16 +204,24 @@
                 </div>
                 <div class="modal-body">
                     <h3>How many points</h3>
-                    <div class="slidecontainer">
-                        <input type="range" min="4" max="7" value="4" class="slider" id="myRange">
-                        <p id="demo"></p>
-                    </div>
+                    <form id="foul-forms">
+                        <div class="slidecontainer">
+                            <input type="range" min="4" max="7" value="4" class="slider" id="myRange">
+                            <p id="demo"></p>
+                        </div>
+                        <h3>Please Select any of the folling?</h3>
+                        <input type="checkbox" id="freeball" name="freeball" value="freeball">
+                        <label for="freeball"> Free Ball</label><br>
+                        <input type="checkbox" id="retake" name="option1" value="retake-shot">
+                        <label for="retake">Player to retake shot?</label><br>
+                        <input type="checkbox" id="remove-red" name="option1" value="remove-red">
+                        <label for="remove-red">Remove red ball</label><br><br>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="send-foul">submit</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="send-foul">submit</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-
                 </div>
             </div>
         </div>
