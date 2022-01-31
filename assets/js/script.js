@@ -38,13 +38,14 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 // Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 15; // number of reds on the table
+let red = 1; // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
 let playerOneBreakTally = [0];
 let playerTwoBreakTally = [0];
 let playerOneFoulTally = [0];
 let playerTwoFoulTally = [0];
+let i = 1;
 console.log(remainingPoints);
 
 let playerScore = 0;
@@ -65,6 +66,7 @@ backBtn.addEventListener('click', function () {
 
 //start game button event listener
 startGameBtn.addEventListener('click', function () {
+    event.preventDefault();
     getGameSettings();
 })
 
@@ -82,20 +84,40 @@ for (let ballBtn of ballBtns) {
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
+        if (remainingPoints <= 27) {
+            i = lastcolorDiplay(i);
+            if (i === 7) {
+                if (activePlayerOneMarker.classList.contains('active')) {
+                    playerOneBreakTally.push(breaktotal)
+                } else {
+                    playerTwoBreakTally.push(breaktotal)
+                }
+            }
+        }
         console.log(red, colours, remainingPoints);
     });
 }
 
-// end break button event listener
+// endbreak button event listener
 endBreakBtn.addEventListener('click', function () {
     if (activePlayerOneMarker.classList.contains('active')) {
         playerOneBreakTally.push(breaktotal)
     } else {
         playerTwoBreakTally.push(breaktotal)
     }
-    console.log(playerOneBreakTally, playerTwoBreakTally)
-
-    breaktotal = 0
+    breaktotal = 0;
+    alert(remainingPoints)
+    if (remainingPoints <= 27) {
+        alert('inside i look after ending break')
+        i = lastcolorDiplay(i);
+        if (i === 7) {
+            if (activePlayerOneMarker.classList.contains('active')) {
+                playerOneBreakTally.push(breaktotal)
+            } else {
+                playerTwoBreakTally.push(breaktotal)
+            }
+        }
+    }
     console.log(breaktotal)
     switchPlayer()
     clearBreak()
@@ -159,7 +181,6 @@ foulBtn.addEventListener('click', function () {
             playerTwoBreakTally.push(breaktotal)
         }
         console.log(playerOneBreakTally, playerTwoBreakTally)
-
         breaktotal = 0
         console.log(breaktotal)
         switchPlayer()
@@ -463,6 +484,11 @@ function checkframes(num1, num2) {
 
 function endGame() {
     alert('end game function')
+    if (activePlayerOneMarker.classList.contains('active')) {
+        playerOneFoulTally.push(foul)
+    } else {
+        playerTwoFoulTally.push(foul)
+    }
     clearBreak()
     displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
 
@@ -477,4 +503,20 @@ function getSum(num) {
     }
     console.log(sum)
     return sum;
+}
+
+function lastcolorDiplay(num) {
+    let colours = document.getElementsByClassName('ball');
+    for (let colour of colours) {
+        colour.classList.add('hidden')
+    }
+    if (num <= 7) {
+        colours[num].classList.remove('hidden')
+        num++
+    }
+    return num;
+}
+
+function freeballDisplay() {
+
 }

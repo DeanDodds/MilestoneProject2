@@ -40,7 +40,7 @@
         <!-- The start page menu -->
         <div id="start-page" class="start-page">
             <button id="start-btn" class="btn btn-secondary game-button">Start</button>
-            <button type="button" class="btn btn-secondary game-button" data-bs-toggle="modal"
+            <button id="instructions" type="button" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#Instructions">
                 Instructions
             </button>
@@ -50,7 +50,7 @@
         <!-- The Settings Page-->
         <div id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
-            <form id="settings">
+            <form id="settings" class="needs-validation" novalidate>
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="frames-input" required>
                     <label for="frames-input">Number of frames</label>
