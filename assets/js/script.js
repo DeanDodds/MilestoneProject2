@@ -115,6 +115,11 @@ endFrameBtn.addEventListener('click', function () {
 
 // End of game event listerner
 endOfGameBtn.addEventListener('click', function () {
+    if (activePlayerOneMarker.classList.contains('active')) {
+        playerOneBreakTally.push(breaktotal)
+    } else {
+        playerTwoBreakTally.push(breaktotal)
+    }
     alert('end of game pressed')
     endFrame()
     displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
@@ -135,10 +140,28 @@ foulBtn.addEventListener('click', function () {
     if (freeball) {
         console('freeBall')
     }
+
     if (removeRed) {
         console.log(red);
         red = red - 1;
-        console.log(red);
+        console.
+        log(red);
+    }
+
+    if (retake) {
+
+    } else {
+        if (activePlayerOneMarker.classList.contains('active')) {
+            playerOneBreakTally.push(breaktotal)
+        } else {
+            playerTwoBreakTally.push(breaktotal)
+        }
+        console.log(playerOneBreakTally, playerTwoBreakTally)
+
+        breaktotal = 0
+        console.log(breaktotal)
+        switchPlayer()
+        clearBreak()
     }
 
     inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
