@@ -41,10 +41,10 @@ let breaktotal = 0; // total of current break
 let red = 15; // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
-let playerOneBreakTally = [];
-let playerTwoBreakTally = [];
-let playerOneFoulTally = [];
-let playerTwoFoulTally = [];
+let playerOneBreakTally = [0];
+let playerTwoBreakTally = [0];
+let playerOneFoulTally = [0];
+let playerTwoFoulTally = [0];
 console.log(remainingPoints);
 
 let playerScore = 0;
@@ -116,27 +116,41 @@ endFrameBtn.addEventListener('click', function () {
 // End of game event listerner
 endOfGameBtn.addEventListener('click', function () {
     alert('end of game pressed')
-    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally)
     endFrame()
+    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
     clearPoints();
     clearBreak();
-    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally)
 })
 
 // Foul button event listerner
 foulBtn.addEventListener('click', function () {
-    foul = output.innerHTML;
-    freeball = false;
-    retake = false;
+    foul = parseInt(output.innerHTML);
+    let = freeball = document.querySelector('#freeball:checked') !== null;
+    let = retake = document.querySelector('#retake:checked') !== null;
+    let = removeRed = document.querySelector('#remove-red:checked') !== null;
+    console.log(freeball, retake, removeRed);
     console.log(playerOneFoulTally, playerTwoFoulTally)
     alert(foul)
+
+    if (freeball) {
+        console('freeBall')
+    }
+    if (removeRed) {
+        console.log(red);
+        red = red - 1;
+        console.log(red);
+    }
+
+    inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
+    console.log(playerOneFoulTally, playerTwoFoulTally)
+
     if (activePlayerOneMarker.classList.contains('active')) {
         playerOneFoulTally.push(foul)
     } else {
         playerTwoFoulTally.push(foul)
     }
-    inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker) + foul;
-    console.log(playerOneFoulTally, playerTwoFoulTally)
+
+
 })
 
 // <--------------------------- display functions ------------------------------------------>
@@ -182,7 +196,8 @@ function changeDisplay(num, num2) {
 }
 
 function displayEndGameInfo(num1, num2, num3, num4) {
-    console.log(num1, num2)
+    console.log('displaying ending')
+    console.log(num1, num2, num3, num4)
     alert('display end game');
     RedBallPage.classList.add('hidden');
     gameBtns.classList.add('hidden');
@@ -192,21 +207,23 @@ function displayEndGameInfo(num1, num2, num3, num4) {
     console.log('display end game done');
 
     playerOne = document.getElementById('player-one-name').innerHTML
-    playerTwo = document.getElementById('player-one-name').innerHTML
+    playerTwo = document.getElementById('player-two-name').innerHTML
     playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
     playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML
     playerOneHighestBreak = Math.max(...num1);
     playerTwoHighestBreak = Math.max(...num2);
     console.log(playerOneHighestBreak, playerTwoHighestBreak)
-    playerOneFouls = 3
-    playerTwoFouls = 2
+    playerOneFouls = getSum(num3);
+    playerTwoFouls = getSum(num4);
+
+    console.log(playerOneFouls, playerTwoFouls);
 
     document.getElementById('game-area-section').innerHTML = `
     <div class-"player-display-scores">
     <h2>${playerOne}</h2>
     <p>Number of frames won: <span>${playerOneFrames}</span></p>
     <p>Highest break won: <span>${playerOneHighestBreak}</span></p>
-    <p>Points giving away in fouls: <span>${playerTwoFouls}</span></p>
+    <p>Points giving away in fouls: <span>${playerOneFouls}</span></p>
     </div>
 
     <div class-"player-display-scores">
@@ -408,7 +425,7 @@ function noPointsLeft(num) {
 }
 
 function checkframes(num1, num2) {
-    console.log('end frame')
+    console.log('check frames funtion')
     num3 = parseInt(document.getElementById('number-of-frames').innerHTML)
     num4 = num3 / 2;
     console.log(num1, num2, num3, )
@@ -420,10 +437,19 @@ function checkframes(num1, num2) {
 }
 
 function endGame() {
-    alert('getting end of game info')
+    alert('end game function')
     clearBreak()
+    displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
+
 }
 
-// function addFoul(num, ele, ele) {
-
-// }
+function getSum(num) {
+    console.log('getsum function');
+    let sum = 0;
+    let num1 = num;
+    for (let i = 0; i < num1.length; i++) {
+        sum += num[i]
+    }
+    console.log(sum)
+    return sum;
+}
