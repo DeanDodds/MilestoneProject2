@@ -41,10 +41,10 @@ let breaktotal = 0; // total of current break
 let red = 1; // number of reds on the table
 let colours = 27;
 let remainingPoints = (red * 8) + colours // remaining points on the table
-let playerOneBreakTally = [0];
-let playerTwoBreakTally = [0];
-let playerOneFoulTally = [0];
-let playerTwoFoulTally = [0];
+let playerOneBreakTally = [0]; // array that holds all player ones breaks
+let playerTwoBreakTally = [0]; // array that holds all player twos breaks
+let playerOneFoulTally = [0]; // array to hold all player ones fouls
+let playerTwoFoulTally = [0]; // array to hold all player twos fouls
 let i = 1;
 console.log(remainingPoints);
 
@@ -79,7 +79,6 @@ for (let ballBtn of ballBtns) {
         console.log(playerScore, breaktotal)
         currentPlayerScoreMarker.innerHTML = playerScore;
         red = trackRemainingreds(red, points);
-        changeDisplay(points, red);
         displayBreakBalls(points);
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
@@ -93,6 +92,8 @@ for (let ballBtn of ballBtns) {
                     playerTwoBreakTally.push(breaktotal)
                 }
             }
+        } else {
+            changeDisplay(points, red);
         }
         console.log(red, colours, remainingPoints);
     });
@@ -107,17 +108,6 @@ endBreakBtn.addEventListener('click', function () {
     }
     breaktotal = 0;
     alert(remainingPoints)
-    if (remainingPoints <= 27) {
-        alert('inside i look after ending break')
-        i = lastcolorDiplay(i);
-        if (i === 7) {
-            if (activePlayerOneMarker.classList.contains('active')) {
-                playerOneBreakTally.push(breaktotal)
-            } else {
-                playerTwoBreakTally.push(breaktotal)
-            }
-        }
-    }
     console.log(breaktotal)
     switchPlayer()
     clearBreak()
@@ -287,7 +277,6 @@ function displayEndGameInfo(num1, num2, num3, num4) {
  * swaps the the scoring between the two players 
  * */
 function switchPlayer() {
-    changeDisplay()
     if (activePlayerOneMarker.classList.contains('active')) {
         alert('player tws turn');
         activePlayerOneMarker.classList.remove('active');
