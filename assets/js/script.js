@@ -38,7 +38,7 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 // Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 2; // number of reds on the table
+let red = 15; // number of reds on the table
 let colours = 27;
 let i = 1
 let remainingPoints = (red * 8) + colours // remaining points on the table
