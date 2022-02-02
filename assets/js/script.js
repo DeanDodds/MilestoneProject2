@@ -76,7 +76,6 @@ for (let ballBtn of ballBtns) {
         points = parseInt(this.innerHTML)
         breaktotal = breaktotal + points;
         playerScore = playerScore + points;
-        console.log(playerScore, breaktotal)
         currentPlayerScoreMarker.innerHTML = playerScore;
         red = trackRemainingreds(red, points);
         displayBreakBalls(points, breaktotal);
@@ -84,11 +83,8 @@ for (let ballBtn of ballBtns) {
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
-        alert('reds= ' + red)
-        alert('remaining points =' + remainingPoints);
-        if (remainingPoints < 145) {
-            viewRemaingingpoints(remainingPoints)
-        }
+        viewRemaingingpoints(remainingPoints)
+
     });
 }
 
@@ -100,24 +96,18 @@ endBreakBtn.addEventListener('click', function () {
         playerTwoBreakTally.push(breaktotal)
     }
     breaktotal = 0;
-    alert(remainingPoints)
-    console.log(breaktotal)
     switchPlayer()
     clearBreak()
     changeDisplay()
     if (remainingPoints === 34) {
-        alert('end break option 1')
         reemainingPoints = remainingPoints = 27;
-        alert('changing points')
         points = 2
         alert(remainingPoints)
         alert(points)
         changeDisplay(points, red, remainingPoints, i);
     } else if (remainingPoints <= 27) {
-        alert('end break option 2')
         changeDisplay(points, red, remainingPoints, i);
     } else {
-        alert('end break option 3')
         changeDisplay()
     }
 });
@@ -156,38 +146,28 @@ foulBtn.addEventListener('click', function () {
     let = freeball = document.querySelector('#freeball:checked') !== null;
     let = retake = document.querySelector('#retake:checked') !== null;
     let = removeRed = document.querySelector('#remove-red:checked') !== null;
-    console.log(freeball, retake, removeRed);
-    console.log(playerOneFoulTally, playerTwoFoulTally)
     alert(foul)
 
-    if (freeball) {
-        console('freeBall')
-    }
+    if (freeball) {}
 
     if (removeRed) {
-        console.log(red);
         red = red - 1;
-        console.
-        log(red);
     }
 
     if (retake) {
-
+        console.log('players turn again')
     } else {
         if (activePlayerOneMarker.classList.contains('active')) {
             playerOneBreakTally.push(breaktotal)
         } else {
             playerTwoBreakTally.push(breaktotal)
         }
-        console.log(playerOneBreakTally, playerTwoBreakTally)
         breaktotal = 0
-        console.log(breaktotal)
         switchPlayer()
         clearBreak()
     }
 
     inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
-    console.log(playerOneFoulTally, playerTwoFoulTally)
 
     if (activePlayerOneMarker.classList.contains('active')) {
         playerOneFoulTally.push(foul)
@@ -248,7 +228,6 @@ function changeDisplay(num, num2, num3, num4) {
 function displayEndGameInfo(num1, num2, num3, num4) {
     console.log('displaying ending')
     console.log(num1, num2, num3, num4)
-    alert('display end game');
     RedBallPage.classList.add('hidden');
     gameBtns.classList.add('hidden');
     colorBall.classList.add('hidden');
@@ -292,14 +271,12 @@ function displayEndGameInfo(num1, num2, num3, num4) {
  * */
 function switchPlayer() {
     if (activePlayerOneMarker.classList.contains('active')) {
-        alert('player tws turn');
         activePlayerOneMarker.classList.remove('active');
         activePlayerTWOMarker.classList.add('active');
         currentPlayerScoreMarker = document.getElementById('player-two-score');
         inactivePlayerScoreMarker = document.getElementById('player-one-score');
         playerScore = parseInt(currentPlayerScoreMarker.innerHTML)
     } else {
-        alert('players one turn')
         activePlayerTWOMarker.classList.remove('active');
         activePlayerOneMarker.classList.add('active');
         currentPlayerScoreMarker = document.getElementById('player-one-score');
@@ -321,43 +298,36 @@ function displayBreakBalls(num, num2) {
     document.getElementById('current-Break').innerHTML = num2;
     breakMarker.classList.remove('hidden')
     if (num == 1) {
-        alert('display red')
         document.getElementById('red-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('red-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('red-break-counter').innerHTML = num1;
     } else if (num == 2) {
-        alert('display yellow')
         document.getElementById('yellow-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('yellow-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('yellow-break-counter').innerHTML = num1;
     } else if (num == 3) {
-        alert('display green')
         document.getElementById('green-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('green-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('green-break-counter').innerHTML = num1;
     } else if (num == 4) {
-        alert('display brown')
         document.getElementById('brown-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('brown-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('brown-break-counter').innerHTML = num1;
     } else if (num == 5) {
-        alert('display blue')
         document.getElementById('blue-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('blue-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('blue-break-counter').innerHTML = num1;
     } else if (num == 6) {
-        alert('display pink')
         document.getElementById('pink-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('pink-break-counter').innerHTML);
         num1 = ballCounter + 1;
         document.getElementById('pink-break-counter').innerHTML = num1;
     } else if (num == 7) {
-        alert('display black')
         document.getElementById('black-ball-break-counter').classList.remove('hidden');
         ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
         num1 = ballCounter + 1;
@@ -439,10 +409,8 @@ function trackRemainingPoints(num, num1, num2) {
 function removeColourPoints(num1, num2, num3) {
     if (num3 <= 27) {
         num1 = num1 - num2;
-        alert('removing color')
     } else {
         num1 = 27;
-        alert('colors = 27')
     }
     console.log(num1)
     return num1
@@ -463,7 +431,6 @@ function endFrame() {
         playerTwoFrame = playerTwoFrame + 1
         console.log(playerTwoFrame)
         document.getElementById('player-two-frame-counter').innerHTML = playerTwoFrame
-        alert('player one wins')
         alert('player two wins this frame');
     } else {
         console.log('error');
@@ -485,14 +452,12 @@ function checkframes(num1, num2) {
     num4 = num3 / 2;
     console.log(num1, num2, num3, )
     if (num1 >= num4 || num2 >= num4) {
-        alert('end of game')
         endGame()
     }
 
 }
 
 function endGame() {
-    alert('end game function')
     if (activePlayerOneMarker.classList.contains('active')) {
         playerOneFoulTally.push(foul)
     } else {
