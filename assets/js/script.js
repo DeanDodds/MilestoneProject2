@@ -174,7 +174,7 @@ foulBtn.addEventListener('click', function () {
     } else {
         playerTwoFoulTally.push(foul)
     }
-
+    changeDisplay()
 
 })
 
