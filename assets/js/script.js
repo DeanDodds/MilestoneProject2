@@ -38,7 +38,7 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 // Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 15; // number of reds on the table
+let red = 2; // number of reds on the table
 let colours = 27;
 let i = 1
 let remainingPoints = (red * 8) + colours // remaining points on the table
@@ -82,9 +82,9 @@ for (let ballBtn of ballBtns) {
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
+        alert(i)
         changeDisplay(points, red, remainingPoints, i);
         viewRemaingingpoints(remainingPoints)
-
     });
 }
 
@@ -98,16 +98,16 @@ endBreakBtn.addEventListener('click', function () {
     breaktotal = 0;
     switchPlayer()
     clearBreak()
-    changeDisplay()
     if (remainingPoints === 34) {
+        alert('OPTION 1')
         reemainingPoints = remainingPoints = 27;
         points = 2
         alert(remainingPoints)
-        alert(points)
         changeDisplay(points, red, remainingPoints, i);
     } else if (remainingPoints <= 27) {
-        changeDisplay(points, red, remainingPoints, i);
+        alert('OPTION 2')
     } else {
+        alert('OPTION 3')
         changeDisplay()
     }
 });
@@ -146,9 +146,10 @@ foulBtn.addEventListener('click', function () {
     let = freeball = document.querySelector('#freeball:checked') !== null;
     let = retake = document.querySelector('#retake:checked') !== null;
     let = removeRed = document.querySelector('#remove-red:checked') !== null;
-    alert(foul)
-
-    if (freeball) {}
+    inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
+    if (freeball) {
+        displayFreeBall()
+    }
 
     if (removeRed) {
         red = red - 1;
@@ -157,25 +158,28 @@ foulBtn.addEventListener('click', function () {
     if (retake) {
         console.log('players turn again')
     } else {
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneBreakTally.push(breaktotal)
-        } else {
-            playerTwoBreakTally.push(breaktotal)
-        }
-        breaktotal = 0
         switchPlayer()
-        clearBreak()
     }
-
-    inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
 
     if (activePlayerOneMarker.classList.contains('active')) {
         playerOneFoulTally.push(foul)
     } else {
         playerTwoFoulTally.push(foul)
     }
-    changeDisplay()
 
+    if (remainingPoints === 34) {
+        alert('OPTION 1')
+        reemainingPoints = remainingPoints = 27;
+        points = 2
+        alert(remainingPoints)
+        changeDisplay(points, red, remainingPoints, i);
+    } else if (remainingPoints <= 27) {
+        alert('OPTION 2')
+    } else {
+        alert('OPTION 3')
+        changeDisplay()
+    }
+    breaktotal = 0
 })
 
 // <--------------------------- display functions ------------------------------------------>
