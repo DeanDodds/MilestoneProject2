@@ -38,14 +38,14 @@ let activePlayerTWOMarker = document.getElementById('active-right');
 // Game Tallys
 let points = 0; // points each ball is worth
 let breaktotal = 0; // total of current break
-let red = 1; // number of reds on the table
+let red = 2; // number of reds on the table
 let colours = 27;
+let i = 1
 let remainingPoints = (red * 8) + colours // remaining points on the table
 let playerOneBreakTally = [0]; // array that holds all player ones breaks
 let playerTwoBreakTally = [0]; // array that holds all player twos breaks
 let playerOneFoulTally = [0]; // array to hold all player ones fouls
 let playerTwoFoulTally = [0]; // array to hold all player twos fouls
-let i = 1;
 console.log(remainingPoints);
 
 let playerScore = 0;
@@ -83,19 +83,9 @@ for (let ballBtn of ballBtns) {
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
-        if (remainingPoints <= 27) {
-            i = lastcolorDiplay(i);
-            if (i === 7) {
-                if (activePlayerOneMarker.classList.contains('active')) {
-                    playerOneBreakTally.push(breaktotal)
-                } else {
-                    playerTwoBreakTally.push(breaktotal)
-                }
-            }
-        } else {
-            changeDisplay(points, red);
-        }
-        console.log(red, colours, remainingPoints);
+        changeDisplay(points, red, remainingPoints, i);
+        alert('reds= ' + red)
+        alert('remaining points =' + remainingPoints);
     });
 }
 
@@ -111,6 +101,22 @@ endBreakBtn.addEventListener('click', function () {
     console.log(breaktotal)
     switchPlayer()
     clearBreak()
+    changeDisplay()
+    if (remainingPoints === 34) {
+        alert('end break option 1')
+        reemainingPoints = remainingPoints = 27;
+        alert('changing points')
+        points = 2
+        alert(remainingPoints)
+        alert(points)
+        changeDisplay(points, red, remainingPoints, i);
+    } else if (remainingPoints <= 27) {
+        alert('end break option 2')
+        changeDisplay(points, red, remainingPoints, i);
+    } else {
+        alert('end break option 3')
+        changeDisplay()
+    }
 });
 
 // End of frame event listerner 
@@ -221,14 +227,19 @@ function startFrame() {
 /** 
  * change Display funtion changes between the red ball display and color ball display by adding and removing the hidden class.
  */
-function changeDisplay(num, num2) {
-    if (num == 1 || num2 === 0) {
+function changeDisplay(num, num2, num3, num4) {
+    if (num == 1 || num2 === 0 && num3 > 27) {
         RedBallPage.classList.add('hidden');
         colorBall.classList.remove('hidden')
+        i = 1;
+    } else if (num3 <= 27) {
+        i = lastcolorDiplay(num4);
     } else {
         colorBall.classList.add('hidden');
         RedBallPage.classList.remove('hidden');
+        i = 1
     }
+    return i;
 }
 
 function displayEndGameInfo(num1, num2, num3, num4) {
@@ -300,9 +311,10 @@ function switchPlayer() {
  * the funtion
  * adds one to the break counter of the breakball counter
  */
-function displayBreakBalls(num, ) {
+function displayBreakBalls(num, num1) {
     let ballCounter;
-    let num1
+    let num1;
+    document.getElementById("current").classList.remove('hidden')
     if (num == 1) {
         alert('display red')
         document.getElementById('red-ball-break-counter').classList.remove('hidden');
@@ -495,6 +507,7 @@ function getSum(num) {
 }
 
 function lastcolorDiplay(num) {
+    document.getElementById('colored-balls-section').classList.remove('hidden')
     let colours = document.getElementsByClassName('ball');
     for (let colour of colours) {
         colour.classList.add('hidden')
@@ -507,5 +520,9 @@ function lastcolorDiplay(num) {
 }
 
 function freeballDisplay() {
+
+}
+
+function viewRemaingingpoints() {
 
 }
