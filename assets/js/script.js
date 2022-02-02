@@ -79,13 +79,16 @@ for (let ballBtn of ballBtns) {
         console.log(playerScore, breaktotal)
         currentPlayerScoreMarker.innerHTML = playerScore;
         red = trackRemainingreds(red, points);
-        displayBreakBalls(points);
+        displayBreakBalls(points, breaktotal);
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
         alert('reds= ' + red)
         alert('remaining points =' + remainingPoints);
+        if (remainingPoints < 40) {
+            viewRemaingingpoints(remainingPoints)
+        }
     });
 }
 
@@ -311,10 +314,12 @@ function switchPlayer() {
  * the funtion
  * adds one to the break counter of the breakball counter
  */
-function displayBreakBalls(num, num1) {
+function displayBreakBalls(num, num2) {
     let ballCounter;
     let num1;
-    document.getElementById("current").classList.remove('hidden')
+    let breakMarker = document.getElementById("current");
+    document.getElementById('current-Break').innerHTML = num2;
+    breakMarker.classList.remove('hidden')
     if (num == 1) {
         alert('display red')
         document.getElementById('red-ball-break-counter').classList.remove('hidden');
@@ -523,6 +528,11 @@ function freeballDisplay() {
 
 }
 
-function viewRemaingingpoints() {
+function viewRemaingingpoints(num) {
+    console.log(num)
+    console.log('view remaining points')
+    console.log(num)
+    document.getElementById('remaining-points').innerHTML = num;
+    document.getElementById('remaining').classList.remove('hidden')
 
 }
