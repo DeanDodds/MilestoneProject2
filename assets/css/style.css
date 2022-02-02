@@ -86,7 +86,7 @@ button {
 
 /* Game Area */
 #game-area-section {
-    height: 70vh;
+    min-height: 80vh;
     width: 90%;
     display: flex;
     justify-content: center;
@@ -204,6 +204,10 @@ button {
     display: inline;
 }
 
+.break-ball-counter {
+    text-align: center;
+    padding-top: 3px;
+}
 
 #player-one-score,
 #active-left {
@@ -285,4 +289,10 @@ button {
     border-radius: 50%;
     background: red;
     cursor: pointer;
+}
+
+#break-section-numbers {
+    margin: 10px;
+    background-color: black;
+    color: white;
 }

@@ -86,7 +86,7 @@ for (let ballBtn of ballBtns) {
         changeDisplay(points, red, remainingPoints, i);
         alert('reds= ' + red)
         alert('remaining points =' + remainingPoints);
-        if (remainingPoints < 40) {
+        if (remainingPoints < 145) {
             viewRemaingingpoints(remainingPoints)
         }
     });
@@ -373,6 +373,7 @@ function displayBreakBalls(num, num2) {
  */
 function clearBreak() {
     console.log('clear break')
+    document.getElementById("current").classList.add('hidden')
     let breakCounters = document.getElementsByClassName('small');
     let breakCounterInners = document.getElementsByClassName('break-ball-counter');
 
@@ -382,6 +383,8 @@ function clearBreak() {
     for (let breakCounterInner of breakCounterInners) {
         breakCounterInner.innerHTML = 0;
     }
+
+
 }
 
 function clearPoints() {
