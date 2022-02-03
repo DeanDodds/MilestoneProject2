@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // <--------------------------- Slider JavaScript ------------------------------------------>
 
     //slider from 3w3schools
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
+    let slider = document.getElementById("myRange");
+    let output = document.getElementById("demo");
     output.innerHTML = slider.value; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let activePlayerTWOMarker = document.getElementById('active-right');
 
     // Game Tallys
-    let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
-    let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
-    let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
+    // let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
+    // let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
+    // let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
     let currentPlayerScoreMarker = document.getElementById('player-one-score');
     let points = 0; // points each ball is worth
     let breaktotal = 0; // total of current break
@@ -79,14 +79,16 @@ document.addEventListener('DOMContentLoaded', function () {
             breaktotal = breaktotal + points;
             playerScore = playerScore + points;
             currentPlayerScoreMarker.innerHTML = playerScore;
-            red = trackRemainingreds(red, points);
+            red = trackRemainingReds(red, points);
             displayBreakBalls(points, breaktotal);
             colours = removeColourPoints(colours, points, remainingPoints);
             remainingPoints = trackRemainingPoints(red, colours, points);
             noPointsLeft(remainingPoints);
             alert(i)
             changeDisplay(points, red, remainingPoints, i);
-            viewRemaingingpoints(remainingPoints)
+            if (remainingPoints >= 7) {
+                viewRemaingingpoints(remainingPoints)
+            }
         });
     }
 
@@ -123,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearPoints();
         clearBreak();
         startFrame();
-
+        remainingPoints = 0;
     });
 
     endOfGameBtn.addEventListener('click', function () {
@@ -137,13 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
         displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
         clearPoints();
         clearBreak();
+        remainingPoints = 0;
     })
 
     foulBtn.addEventListener('click', function () {
-        foul = parseInt(output.innerHTML);
-        let = freeball = document.querySelector('#freeball:checked') !== null;
-        let = retake = document.querySelector('#retake:checked') !== null;
-        let = removeRed = document.querySelector('#remove-red:checked') !== null;
+        let foul = parseInt(output.innerHTML);
+        let freeball = document.querySelector('#freeball:checked') !== null;
+        let retake = document.querySelector('#retake:checked') !== null;
+        let removeRed = document.querySelector('#remove-red:checked') !== null;
         inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
         if (freeball) {
             displayFreeBall()
@@ -215,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*red} num2 
      * @param {*remaining} num3 
      * @param {*i} num4 
-     * @returns 
+     * @returns i
      */
     function changeDisplay(num, num2, num3, num4) {
         if (num == 1 || num2 === 0 && num3 > 27) {
@@ -242,14 +245,14 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerTwoFoulTally} num4 
      */
     function displayEndGameInfo(num1, num2, num3, num4) {
-        console.log('displaying ending')
-        console.log(num1, num2, num3, num4)
+        document.getElementById('break-section-numbers').classList.add('hidden');
         RedBallPage.classList.add('hidden');
         gameBtns.classList.add('hidden');
         colorBall.classList.add('hidden');
+        scoreboard.classList.add('hidden');
         document.getElementById('footer').classList.remove('hidden');
-        scoreboard.classList.add('hidden')
         console.log('display end game done');
+
 
         playerOne = document.getElementById('player-one-name').innerHTML
         playerTwo = document.getElementById('player-two-name').innerHTML
@@ -326,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * the funtion
      * adds one to the break counter of the breakball counter
      * @param {*points} num 
-     * @param {*breakTotol} num2 
+     * @param {*breakTotal} num2 
      */
     function displayBreakBalls(num, num2) {
         let ballCounter;
@@ -408,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * if points is 1 then funtion will remove one red 
      * @returns red
      */
-    function trackRemainingreds(num, num2) {
+    function trackRemainingReds(num, num2) {
         if (num2 === 1) {
             console.log('track reds')
             num = num - 1;
@@ -425,7 +428,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*points} num2 
      * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours)
      * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours) + 7
-     *   
      * @returns remiaining points 
      */
     function trackRemainingPoints(num, num1, num2) {
@@ -546,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function freeballDisplay() {
-
+        console.log('freeball')
     }
 
     /**
@@ -554,12 +556,10 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {remainingPoints} num 
      */
     function viewRemaingingpoints(num) {
-        console.log(num)
-        console.log('view remaining points')
-        console.log(num)
         document.getElementById('remaining-points').innerHTML = num;
         document.getElementById('remaining').classList.remove('hidden')
-
     }
+
+
 
 });
