@@ -82,9 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
             noPointsLeft(remainingPoints);
             alert(i)
             changeDisplay(points, red, remainingPoints, i);
-            if (remainingPoints >= 7) {
-                viewRemaingingpoints(remainingPoints)
-            }
+            viewRemaingingpoints(remainingPoints)
+            
         });
     }
 
@@ -93,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         breakTotal = 0;
         switchPlayer()
         clearBreak()
+        remainingPoints = trackRemainingPoints(red, colours, points);
         if (remainingPoints === 34) {
             alert('OPTION 1')
             reemainingPoints = remainingPoints = 27;
@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('OPTION 3')
             changeDisplay()
         }
+        remainingPoints = trackRemainingPoints(red, colours, 2);
+        viewRemaingingpoints(remainingPoints)
     });
 
     endFrameBtn.addEventListener('click', function () {
@@ -143,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('players turn again')
         } else {
             switchPlayer()
+            clearPoints();
+            clearBreak();
         }
 
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
