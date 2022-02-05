@@ -37,12 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let activePlayerTWOMarker = document.getElementById('active-right');
 
     // Game Tallys
-    // let playerOneFrameCounter = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
-    // let playerTwoFrameCounter = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
-    // let totalNumberOfFrames = parseInt(document.getElementById('number-of-frames').innerHTML);
     let currentPlayerScoreMarker = document.getElementById('player-one-score');
     let points = 0; // points each ball is worth
-    let breaktotal = 0; // total of current break
+    let breakTotal = 0; // total of current break
     let red = 2; // number of reds on the table
     let colours = 27;
     let i = 1
@@ -51,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerTwoBreakTally = [0]; // array that holds all player twos breaks
     let playerOneFoulTally = [0]; // array to hold all player ones fouls
     let playerTwoFoulTally = [0]; // array to hold all player twos fouls
-    console.log(remainingPoints);
 
     let playerScore = 0;
 
@@ -76,11 +72,11 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let ballBtn of ballBtns) {
         ballBtn.addEventListener('click', function () {
             points = parseInt(this.innerHTML)
-            breaktotal = breaktotal + points;
+            breakTotal = breakTotal + points;
             playerScore = playerScore + points;
             currentPlayerScoreMarker.innerHTML = playerScore;
             red = trackRemainingReds(red, points);
-            displayBreakBalls(points, breaktotal);
+            displayBreakBalls(points, breakTotal);
             colours = removeColourPoints(colours, points, remainingPoints);
             remainingPoints = trackRemainingPoints(red, colours, points);
             noPointsLeft(remainingPoints);
@@ -93,12 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     endBreakBtn.addEventListener('click', function () {
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneBreakTally.push(breaktotal)
-        } else {
-            playerTwoBreakTally.push(breaktotal)
-        }
-        breaktotal = 0;
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        breakTotal = 0;
         switchPlayer()
         clearBreak()
         if (remainingPoints === 34) {
@@ -116,11 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     endFrameBtn.addEventListener('click', function () {
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneBreakTally.push(breaktotal)
-        } else {
-            playerTwoBreakTally.push(breaktotal)
-        }
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         endFrame();
         clearPoints();
         clearBreak();
@@ -129,13 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     endOfGameBtn.addEventListener('click', function () {
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneBreakTally.push(breaktotal)
-        } else {
-            playerTwoBreakTally.push(breaktotal)
-        }
-        alert('end of game pressed')
-        endFrame()
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        endFrame();
         displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
         clearPoints();
         clearBreak();
@@ -162,11 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
             switchPlayer()
         }
 
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneFoulTally.push(foul)
-        } else {
-            playerTwoFoulTally.push(foul)
-        }
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
 
         if (remainingPoints === 34) {
             alert('OPTION 1')
@@ -180,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('OPTION 3')
             changeDisplay()
         }
-        breaktotal = 0
+        breakTotal = 0
     })
 
     // <--------------------------- Display functions ------------------------------------------>
@@ -204,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.
      */
     function startFrame() {
-        console.log('starting frame')
         RedBallPage.classList.remove('hidden')
         gameBtns.classList.remove('hidden')
         colorBall.classList.add('hidden');
@@ -251,9 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
         colorBall.classList.add('hidden');
         scoreboard.classList.add('hidden');
         document.getElementById('footer').classList.remove('hidden');
-        console.log('display end game done');
-
-
         playerOne = document.getElementById('player-one-name').innerHTML
         playerTwo = document.getElementById('player-two-name').innerHTML
         playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
@@ -380,7 +355,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * and resets counters to 0
      */
     function clearBreak() {
-        console.log('clear break')
         document.getElementById("current").classList.add('hidden')
         let breakCounters = document.getElementsByClassName('small');
         let breakCounterInners = document.getElementsByClassName('break-ball-counter');
@@ -397,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * resets player scores to 0 
      */
     function clearPoints() {
-        console.log('clear points')
         let scores = document.getElementsByClassName('player-score');
         for (let score of scores) {
             score.innerHTML = 0;
@@ -430,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours) + 7
      * @returns remiaining points 
      */
+
     function trackRemainingPoints(num, num1, num2) {
         let num3;
         if (num2 === 1) {
@@ -460,7 +434,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             num1 = 27;
         }
-        console.log(num1)
         return num1
     }
 
@@ -512,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
         num3 = parseInt(document.getElementById('number-of-frames').innerHTML)
         num4 = num3 / 2;
         if (num1 >= num4 || num2 >= num4) {
-            endGame()
+            endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal)
         }
     }
 
@@ -521,13 +494,14 @@ document.addEventListener('DOMContentLoaded', function () {
      * Clears the break
      * Sends the player end daits to the 
      */
-    function endGame() {
+    function endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
         if (activePlayerOneMarker.classList.contains('active')) {
             playerOneFoulTally.push(foul)
             console.log('foul pushed')
         } else {
             playerTwoFoulTally.push(foul)
         }
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         clearBreak()
         displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
 
@@ -560,6 +534,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('remaining').classList.remove('hidden')
     }
 
+    function saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
+        console.log('saving break')
+        if (activePlayerOneMarker.classList.contains('active')) {
+            playerOneBreakTally.push(breakTotal)
+            console.log(playerOneBreakTally)
+        } else {
+            playerTwoBreakTally.push(breakTotal)
+            console.log(playerTwoBreakTally)
+        }
+    }
 
 
 });
