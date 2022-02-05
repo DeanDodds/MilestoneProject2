@@ -7,3 +7,4 @@
 - background image does not load on the live website
 - settings form required attribute not working
 - when the last colour balls display swapping players does not work
+- when game ends automatically the program does not save the break score

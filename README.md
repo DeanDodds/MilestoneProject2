@@ -58,6 +58,7 @@
 
 ### Imagary 
 - 1 x Background image 
+- 1 x favicon 
 
 ### Wireframes 
 - Start up wireframe - [View](/assets/screenshots/startup.jpg)
