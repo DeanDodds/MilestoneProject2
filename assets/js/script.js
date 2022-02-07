@@ -48,25 +48,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerTwoBreakTally = [0]; // array that holds all player twos breaks
     let playerOneFoulTally = [0]; // array to hold all player ones fouls
     let playerTwoFoulTally = [0]; // array to hold all player twos fouls
-
     let playerScore = 0;
 
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
-    startBtn.addEventListener('click', function () {
-        startPage.classList.add('hidden');
-        settingsPage.classList.remove('hidden');
-    });
+    startBtn.addEventListener('click', displaySettingsPage);
 
-    backBtn.addEventListener('click', function () {
-        startPage.classList.remove('hidden');
-        settingsPage.classList.add('hidden');
-    });
+    backBtn.addEventListener('click', displayHomePage)
 
-    startGameBtn.addEventListener('click', function () {
-        event.preventDefault();
-        getGameSettings();
-    })
+    startGameBtn.addEventListener('click', getGameSettings)
 
     // loop through all ball buttons 
     for (let ballBtn of ballBtns) {
@@ -83,49 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
             alert(i)
             changeDisplay(points, red, remainingPoints, i);
             viewRemaingingpoints(remainingPoints)
-            
+
         });
     }
 
-    endBreakBtn.addEventListener('click', function () {
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-        breakTotal = 0;
-        switchPlayer()
-        clearBreak()
-        remainingPoints = trackRemainingPoints(red, colours, points);
-        if (remainingPoints === 34) {
-            alert('OPTION 1')
-            reemainingPoints = remainingPoints = 27;
-            points = 2
-            alert(remainingPoints)
-            changeDisplay(points, red, remainingPoints, i);
-        } else if (remainingPoints <= 27) {
-            alert('OPTION 2')
-        } else {
-            alert('OPTION 3')
-            changeDisplay()
-        }
-        remainingPoints = trackRemainingPoints(red, colours, 2);
-        viewRemaingingpoints(remainingPoints)
-    });
+    endBreakBtn.addEventListener('click', endOfTurn);
 
-    endFrameBtn.addEventListener('click', function () {
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-        endFrame();
-        clearPoints();
-        clearBreak();
-        startFrame();
-        remainingPoints = 0;
-    });
+    endFrameBtn.addEventListener('click', endCurrentFrame);
 
-    endOfGameBtn.addEventListener('click', function () {
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-        endFrame();
-        displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
-        clearPoints();
-        clearBreak();
-        remainingPoints = 0;
-    })
+    endOfGameBtn.addEventListener('click', endOfGame)
 
     foulBtn.addEventListener('click', function () {
         let foul = parseInt(output.innerHTML);
@@ -167,15 +123,35 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     // <--------------------------- Display functions ------------------------------------------>
+    /**
+     * Displays home page
+     */
+    function displayHomePage() {
+        console.log('displaying Home Page')
+        document.getElementById('settingspage').classList.add('hidden');
+        document.getElementById('start-page').classList.remove('hidden');
+    }
+
+    /**
+     * Displays settings page
+     */
+    function displaySettingsPage() {
+        console.log('displaying settings')
+        document.getElementById('start-page').classList.add('hidden');
+        document.getElementById('settingspage').classList.remove('hidden');
+    }
 
     /**
      * Gets the users input data and displays it in the scoreboard element
      */
     function getGameSettings() {
-        document.getElementById('settings').checkValidity();
+        console.log('display dettings')
         let numberOfFrames = document.getElementById('frames-input').value;
         let playerOne = document.getElementById('player-one-input').value;
         let playerTwo = document.getElementById('player-two-input').value;
+
+        event.preventDefault();
+        document.getElementById('settings').checkValidity();
         document.getElementById('number-of-frames').innerHTML = numberOfFrames
         document.getElementById('player-one-name').innerHTML = playerOne;
         document.getElementById('player-two-name').innerHTML = playerTwo;
@@ -192,6 +168,15 @@ document.addEventListener('DOMContentLoaded', function () {
         colorBall.classList.add('hidden');
         settingsPage.classList.add('hidden');
         document.getElementById('footer').classList.add('hidden');
+    }
+
+    function endCurrentFrame() {
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        endFrame();
+        clearPoints();
+        clearBreak();
+        startFrame();
+        remainingPoints = 0;
     }
 
     /**
@@ -215,6 +200,29 @@ document.addEventListener('DOMContentLoaded', function () {
             i = 1
         }
         return i;
+    }
+
+    function endOfTurn() {
+        console.log('end of players turn')
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        breakTotal = 0;
+        switchPlayer()
+        clearBreak()
+        remainingPoints = trackRemainingPoints(red, colours, points);
+        if (remainingPoints === 34) {
+            alert('OPTION 1')
+            reemainingPoints = remainingPoints = 27;
+            points = 2
+            alert(remainingPoints)
+            changeDisplay(points, red, remainingPoints, i);
+        } else if (remainingPoints <= 27) {
+            alert('OPTION 2')
+        } else {
+            alert('OPTION 3')
+            changeDisplay()
+        }
+        remainingPoints = trackRemainingPoints(red, colours, 2);
+        viewRemaingingpoints(remainingPoints)
     }
 
     /**
@@ -547,6 +555,16 @@ document.addEventListener('DOMContentLoaded', function () {
             playerTwoBreakTally.push(breakTotal)
             console.log(playerTwoBreakTally)
         }
+    }
+
+    function endOfGame() {
+        console.log('ending game')
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        endFrame();
+        displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
+        clearPoints();
+        clearBreak();
+        remainingPoints = 0;
     }
 
 
