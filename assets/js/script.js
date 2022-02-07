@@ -81,46 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     endFrameBtn.addEventListener('click', endCurrentFrame);
 
-    endOfGameBtn.addEventListener('click', endOfGame)
+    endOfGameBtn.addEventListener('click', endOfGame);
 
-    foulBtn.addEventListener('click', function () {
-        let foul = parseInt(output.innerHTML);
-        let freeball = document.querySelector('#freeball:checked') !== null;
-        let retake = document.querySelector('#retake:checked') !== null;
-        let removeRed = document.querySelector('#remove-red:checked') !== null;
-        inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
-        if (freeball) {
-            displayFreeBall()
-        }
-
-        if (removeRed) {
-            red = red - 1;
-        }
-
-        if (retake) {
-            console.log('players turn again')
-        } else {
-            switchPlayer()
-            clearPoints();
-            clearBreak();
-        }
-
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-
-        if (remainingPoints === 34) {
-            alert('OPTION 1')
-            reemainingPoints = remainingPoints = 27;
-            points = 2
-            alert(remainingPoints)
-            changeDisplay(points, red, remainingPoints, i);
-        } else if (remainingPoints <= 27) {
-            alert('OPTION 2')
-        } else {
-            alert('OPTION 3')
-            changeDisplay()
-        }
-        breakTotal = 0
-    })
+    foulBtn.addEventListener('click', playerFoul);
 
     // <--------------------------- Display functions ------------------------------------------>
     /**
@@ -567,5 +530,41 @@ document.addEventListener('DOMContentLoaded', function () {
         remainingPoints = 0;
     }
 
+    function playerFoul() {
+        let foul = parseInt(output.innerHTML);
+        let freeball = document.querySelector('#freeball:checked') !== null;
+        let retake = document.querySelector('#retake:checked') !== null;
+        let removeRed = document.querySelector('#remove-red:checked') !== null;
+        inactivePlayerScoreMarker.innerHTML = parseInt(inactivePlayerScoreMarker.innerHTML) + foul;
+        if (freeball) {
+            displayFreeBall()
+        }
+
+        if (removeRed) {
+            red = red - 1;
+        }
+
+        if (retake) {
+            console.log('players turn again')
+        } else {
+            switchPlayer()
+        }
+
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+
+        if (remainingPoints === 34) {
+            alert('OPTION 1')
+            reemainingPoints = remainingPoints = 27;
+            points = 2
+            alert(remainingPoints)
+            changeDisplay(points, red, remainingPoints, i);
+        } else if (remainingPoints <= 27) {
+            alert('OPTION 2')
+        } else {
+            alert('OPTION 3')
+            changeDisplay()
+        }
+        breakTotal = 0
+    }
 
 });
