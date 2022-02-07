@@ -53,36 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
     startBtn.addEventListener('click', displaySettingsPage);
-
     backBtn.addEventListener('click', displayHomePage)
-
     startGameBtn.addEventListener('click', getGameSettings)
 
-    // loop through all ball buttons 
-    for (let ballBtn of ballBtns) {
-        ballBtn.addEventListener('click', function () {
-            points = parseInt(this.innerHTML)
-            breakTotal = breakTotal + points;
-            playerScore = playerScore + points;
-            currentPlayerScoreMarker.innerHTML = playerScore;
-            red = trackRemainingReds(red, points);
-            displayBreakBalls(points, breakTotal);
-            colours = removeColourPoints(colours, points, remainingPoints);
-            remainingPoints = trackRemainingPoints(red, colours, points);
-            noPointsLeft(remainingPoints);
-            alert(i)
-            changeDisplay(points, red, remainingPoints, i);
-            viewRemaingingpoints(remainingPoints)
-
-        });
+    for (let ballBtn of ballBtns) // loop through all ball buttons  
+    {
+        ballBtn.addEventListener('click', runMainainGame);
     }
-
     endBreakBtn.addEventListener('click', endOfTurn);
-
     endFrameBtn.addEventListener('click', endCurrentFrame);
-
     endOfGameBtn.addEventListener('click', endOfGame);
-
     foulBtn.addEventListener('click', playerFoul);
 
     // <--------------------------- Display functions ------------------------------------------>
@@ -271,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function () {
             inactivePlayerScoreMarker = document.getElementById('player-two-score');
             playerScore = parseInt(currentPlayerScoreMarker.innerHTML);
         }
-
     }
 
     /**
@@ -564,7 +543,23 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('OPTION 3')
             changeDisplay()
         }
-        breakTotal = 0
+        breakTotal = 0;
+        clearBreak();
+    }
+
+    function runMainainGame() {
+        points = parseInt(this.innerHTML)
+        breakTotal = breakTotal + points;
+        playerScore = playerScore + points;
+        currentPlayerScoreMarker.innerHTML = playerScore;
+        red = trackRemainingReds(red, points);
+        displayBreakBalls(points, breakTotal);
+        colours = removeColourPoints(colours, points, remainingPoints);
+        remainingPoints = trackRemainingPoints(red, colours, points);
+        noPointsLeft(remainingPoints);
+        alert(i)
+        changeDisplay(points, red, remainingPoints, i);
+        viewRemaingingpoints(remainingPoints)
     }
 
 });
