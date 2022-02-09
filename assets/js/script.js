@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPlayerScoreMarker = document.getElementById('player-one-score');
     let points = 0; // points each ball is worth
     let breakTotal = 0; // total of current break
-    let red = 15; // number of reds on the table
+    let red = 1; // number of reds on the table
     let colours = 27;
     let i = 1
     let remainingPoints = (red * 8) + colours // remaining points on the table
@@ -126,17 +126,17 @@ document.addEventListener('DOMContentLoaded', function () {
      * changes display throughout the game
      * @param {*points} num 
      * @param {*red} num2 
-     * @param {*remaining} num3 
+     * @param {*remaining points} num3 
      * @param {*i} num4 
      * @returns i
      */
-    function changeDisplay(num, num2, num3, num4) {
-        if (num == 1 || num2 === 0 && num3 > 27) {
+    function changeDisplay(points, red, reemainingPoints, increment) {
+        if (points == 1 || red === 0 && reemainingPoints > 27) {
             RedBallPage.classList.add('hidden');
             colorBall.classList.remove('hidden')
             i = 1;
-        } else if (num3 <= 27) {
-            i = lastcolorDiplay(num4);
+        } else if (reemainingPoints <= 27) {
+            i = lastcolorDiplay(increment);
         } else {
             colorBall.classList.add('hidden');
             RedBallPage.classList.remove('hidden');
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerOneFoulTally} num3 
      * @param {*playerTwoFoulTally} num4 
      */
-    function displayEndGameInfo(num1, num2, num3, num4) {
+    function displayEndGameInfo(playerOneBreak, playerTwoBreak, playerOneFouls, playerTwoFouls) {
         document.getElementById('break-section-numbers').classList.add('hidden');
         RedBallPage.classList.add('hidden');
         gameBtns.classList.add('hidden');
@@ -188,10 +188,10 @@ document.addEventListener('DOMContentLoaded', function () {
         playerTwo = document.getElementById('player-two-name').innerHTML
         playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML
         playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML
-        playerOneHighestBreak = Math.max(...num1);
-        playerTwoHighestBreak = Math.max(...num2);
-        playerOneFouls = getSum(num3);
-        playerTwoFouls = getSum(num4);
+        playerOneHighestBreak = Math.max(...playerOneBreak);
+        playerTwoHighestBreak = Math.max(...playerTwoBreak);
+        playerOneFouls = getSum(playerOneFouls);
+        playerTwoFouls = getSum(playerTwoFouls);
         console.log(playerOneHighestBreak, playerTwoHighestBreak)
         console.log(playerOneFouls, playerTwoFouls);
 
@@ -218,17 +218,17 @@ document.addEventListener('DOMContentLoaded', function () {
      * increment i by one 
      * i @returns 
      */
-    function lastcolorDiplay(num) {
+    function lastcolorDiplay(i) {
         document.getElementById('colored-balls-section').classList.remove('hidden')
         let colours = document.getElementsByClassName('ball');
         for (let colour of colours) {
             colour.classList.add('hidden')
         }
-        if (num <= 7) {
-            colours[num].classList.remove('hidden')
-            num++
+        if (i <= 7) {
+            colours[i].classList.remove('hidden')
+            i++
         }
-        return num;
+        return i;
     }
 
     // <--------------------------- games functions ------------------------------------------>
@@ -260,47 +260,47 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*points} num 
      * @param {*breakTotal} num2 
      */
-    function displayBreakBalls(num, num2) {
+    function displayBreakBalls(points, breakTotal) {
         let ballCounter;
-        let num1;
+        let newBreakTotal;
         let breakMarker = document.getElementById("current");
-        document.getElementById('current-Break').innerHTML = num2;
+        document.getElementById('current-Break').innerHTML = breakTotal;
         breakMarker.classList.remove('hidden')
-        if (num == 1) {
+        if (points == 1) {
             document.getElementById('red-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('red-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('red-break-counter').innerHTML = num1;
-        } else if (num == 2) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('red-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 2) {
             document.getElementById('yellow-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('yellow-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('yellow-break-counter').innerHTML = num1;
-        } else if (num == 3) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('yellow-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 3) {
             document.getElementById('green-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('green-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('green-break-counter').innerHTML = num1;
-        } else if (num == 4) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('green-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 4) {
             document.getElementById('brown-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('brown-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('brown-break-counter').innerHTML = num1;
-        } else if (num == 5) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('brown-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 5) {
             document.getElementById('blue-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('blue-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('blue-break-counter').innerHTML = num1;
-        } else if (num == 6) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('blue-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 6) {
             document.getElementById('pink-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('pink-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('pink-break-counter').innerHTML = num1;
-        } else if (num == 7) {
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('pink-break-counter').innerHTML = newBreakTotal;
+        } else if (points == 7) {
             document.getElementById('black-ball-break-counter').classList.remove('hidden');
             ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
-            num1 = ballCounter + 1;
-            document.getElementById('black-break-counter').innerHTML = num1;
+            newBreakTotal = ballCounter + 1;
+            document.getElementById('black-break-counter').innerHTML = newBreakTotal;
         }
     }
 
@@ -374,21 +374,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * 
-     * @param {colours} num1 
-     * @param {points} num2 
-     * @param {remainingPoints} num3 
+     * @param {colours}  
+     * @param {points}  
+     * @param {remainingPoints}  
      * @returns colours
      * Once the remaining points is equal too or less then 27 
      * the function starts to remove the points from each ball 
      * from the remaining colours.
      */
-    function removeColourPoints(num1, num2, num3) {
-        if (num3 <= 27) {
-            num1 = num1 - num2;
+    function removeColourPoints(colours, points, remainingPoints) {
+        if (remainingPoints <= 27) {
+            colours = colours - points;
         } else {
-            num1 = 27;
+            colours = 27;
         }
-        return num1
+        return colours
     }
 
     /** get the player scores from the DOM */
@@ -419,11 +419,9 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {remainingPoints} num 
      * Checks to see if points or still left and runs the end game function if there is none.
      */
-    function noPointsLeft(num) {
-        if (num === 0) {
+    function noPointsLeft(remainingPoints) {
+        if (remainingPoints === 0) {
             endFrame();
-        } else {
-            console.log('still poins')
         }
     }
 
@@ -432,13 +430,13 @@ document.addEventListener('DOMContentLoaded', function () {
      * then checks if the number of frames won by either player is 
      * more or equal to half      
      * if it is it ends the game
-     * @param {*playerOneFrame} num1 
-     * @param {*playertWOFrame} num2 */
-    function checkframes(num1, num2) {
+     * @param {*playerOneFrame}
+     * @param {*playertWOFrame} */
+    function checkframes(playerOneFrames, playerTwoFrames) {
         console.log('check frames funtion')
-        num3 = parseInt(document.getElementById('number-of-frames').innerHTML)
-        num4 = num3 / 2;
-        if (num1 >= num4 || num2 >= num4) {
+        totalFramesToPlay = parseInt(document.getElementById('number-of-frames').innerHTML)
+        framesTowin = totalFramesToPlay / 2;
+        if (playerOneFrames >= num4 || playerTwoFrames >= framesTowin) {
             endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal)
         }
     }
@@ -466,11 +464,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerfouls} num 
      * @returns the sum of an array 
      */
-    function getSum(num) {
+    function getSum(fouls) {
         let sum = 0;
-        let num1 = num;
+        let num1 = fouls;
         for (let i = 0; i < num1.length; i++) {
-            sum += num[i]
+            sum += fouls[i]
         }
         return sum;
     }
@@ -481,10 +479,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * displays remaining points 
-     * @param {remainingPoints} num 
+     * @param {remainingPoints} 
      */
-    function viewRemaingingpoints(num) {
-        document.getElementById('remaining-points').innerHTML = num;
+    function viewRemaingingpoints(remainingPoints) {
+        document.getElementById('remaining-points').innerHTML = remainingPoints;
         document.getElementById('remaining').classList.remove('hidden')
     }
 
