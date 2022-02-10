@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Getting Pages by id
-    const startPage = document.getElementById('start-page');
     const settingsPage = document.getElementById('settingspage');
     const RedBallPage = document.getElementById('red-ball-section');
     const colorBall = document.getElementById('colored-balls-section');
@@ -131,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @returns i
      */
     function changeDisplay(points, red, reemainingPoints, increment) {
+        console.log('changing display')
         if (points == 1 || red === 0 && reemainingPoints > 27) {
             RedBallPage.classList.add('hidden');
             colorBall.classList.remove('hidden')
@@ -145,6 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return i;
     }
 
+    /**
+     * ends the current frame
+     */
     function endOfTurn() {
         console.log('end of players turn')
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
@@ -153,15 +156,11 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBreak()
         remainingPoints = trackRemainingPoints(red, colours, points);
         if (remainingPoints === 34) {
-            alert('OPTION 1')
             reemainingPoints = remainingPoints = 27;
             points = 2
             alert(remainingPoints)
             changeDisplay(points, red, remainingPoints, i);
-        } else if (remainingPoints <= 27) {
-            alert('OPTION 2')
-        } else {
-            alert('OPTION 3')
+        } else if (remainingPoints <= 27) {} else {
             changeDisplay()
         }
         remainingPoints = trackRemainingPoints(red, colours, 2);
@@ -218,9 +217,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * increment i by one 
      * i @returns 
      */
+
     function lastcolorDiplay(i) {
+        console.log('just colours')
         document.getElementById('colored-balls-section').classList.remove('hidden')
-        let colours = document.getElementsByClassName('ball');
+        let colours = document.getElementsByClassName('size-big');
         for (let colour of colours) {
             colour.classList.add('hidden')
         }
@@ -238,6 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * swaps the the scoring between the two players 
      * */
     function switchPlayer() {
+        console.log('switch player')
         if (activePlayerOneMarker.classList.contains('active')) {
             activePlayerOneMarker.classList.remove('active');
             activePlayerTWOMarker.classList.add('active');
@@ -261,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*breakTotal} num2 
      */
     function displayBreakBalls(points, breakTotal) {
+        console.log('break ball being added')
         let ballCounter;
         let newBreakTotal;
         let breakMarker = document.getElementById("current");
@@ -301,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
             newBreakTotal = ballCounter + 1;
             document.getElementById('black-break-counter').innerHTML = newBreakTotal;
-        }
+        } else('not working')
     }
 
     /**
@@ -309,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * and resets counters to 0
      */
     function clearBreak() {
+        console.log('clearing break')
         document.getElementById("current").classList.add('hidden')
         let breakCounters = document.getElementsByClassName('small');
         let breakCounterInners = document.getElementsByClassName('break-ball-counter');
@@ -338,14 +342,12 @@ document.addEventListener('DOMContentLoaded', function () {
      * if points is 1 then funtion will remove one red 
      * @returns red
      */
-    function trackRemainingReds(num, num2) {
-        if (num2 === 1) {
-            console.log('track reds')
-            num = num - 1;
-        } else {
-            console.log('notred')
-        }
-        return num;
+    function trackRemainingReds(red, points) {
+        if (points === 1) {
+            red = red - 1;
+        } else {}
+        console.log('reds =', red)
+        return red;
     }
 
     /**
@@ -357,19 +359,17 @@ document.addEventListener('DOMContentLoaded', function () {
      * if the player is on a colour remianing points = reds times 8 + 27 (the remianing colours) + 7
      * @returns remiaining points 
      */
-
-    function trackRemainingPoints(num, num1, num2) {
-        let num3;
-        if (num2 === 1) {
-            console.log('on color track points');
-            num3 = (num * 8) + num1 + 7;
-            console.log(num3);
+    function trackRemainingPoints(red, colours, points) {
+        console.log('Tracking points')
+        let newRemainingPointsTotal;
+        if (points === 1) {
+            newRemainingPointsTotal = (red * 8) + colours + 7;
+            console.log(newRemainingPointsTotal);
         } else {
-            console.log('on reds track points');
-            num3 = (num * 8) + num1;
-            console.log(num3);
+            newRemainingPointsTotal = (red * 8) + colours;
+            console.log(newRemainingPointsTotal);
         }
-        return num3
+        return newRemainingPointsTotal
     }
 
     /**
@@ -415,7 +415,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * 
      * @param {remainingPoints} num 
      * Checks to see if points or still left and runs the end game function if there is none.
      */
@@ -435,8 +434,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function checkframes(playerOneFrames, playerTwoFrames) {
         console.log('check frames funtion')
         totalFramesToPlay = parseInt(document.getElementById('number-of-frames').innerHTML)
-        framesTowin = totalFramesToPlay / 2;
-        if (playerOneFrames >= num4 || playerTwoFrames >= framesTowin) {
+        framesToWin = totalFramesToPlay / 2;
+        if (playerOneFrames >= framesToWin || playerTwoFrames >= framesToWin) {
             endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal)
         }
     }
@@ -497,6 +496,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Ends the game 
+     */
     function endOfGame() {
         console.log('ending game')
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
@@ -507,6 +509,9 @@ document.addEventListener('DOMContentLoaded', function () {
         remainingPoints = 0;
     }
 
+    /**
+     * get the data from the the foul form and 
+     */
     function playerFoul() {
         let foul = parseInt(output.innerHTML);
         let freeball = document.querySelector('#freeball:checked') !== null;
@@ -530,15 +535,11 @@ document.addEventListener('DOMContentLoaded', function () {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
 
         if (remainingPoints === 34) {
-            alert('OPTION 1')
             reemainingPoints = remainingPoints = 27;
             points = 2
             alert(remainingPoints)
             changeDisplay(points, red, remainingPoints, i);
-        } else if (remainingPoints <= 27) {
-            alert('OPTION 2')
-        } else {
-            alert('OPTION 3')
+        } else if (remainingPoints <= 27) {} else {
             changeDisplay()
         }
         breakTotal = 0;
@@ -546,6 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function runMainainGame() {
+        console.log('run main game')
         points = parseInt(this.innerHTML)
         breakTotal = breakTotal + points;
         playerScore = playerScore + points;
@@ -555,7 +557,6 @@ document.addEventListener('DOMContentLoaded', function () {
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         noPointsLeft(remainingPoints);
-        alert(i)
         changeDisplay(points, red, remainingPoints, i);
         viewRemaingingpoints(remainingPoints)
     }
