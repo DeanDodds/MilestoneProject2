@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let points = 0; // points each ball is worth
     let breakTotal = 0; // total of current break
     let red = 1; // number of reds on the table
-    let colours = 27;
-    let i = 1
+    let colours = 27; // points of colour balls
+    let i = 1 // used to increments
     let remainingPoints = (red * 8) + colours // remaining points on the table
     let playerOneBreakTally = [0]; // array that holds all player ones breaks
     let playerTwoBreakTally = [0]; // array that holds all player twos breaks
     let playerOneFoulTally = [0]; // array to hold all player ones fouls
     let playerTwoFoulTally = [0]; // array to hold all player twos fouls
-    let playerScore = 0;
+    let playerScore = 0; // current player score
 
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
         ballBtn.addEventListener('click', runMainainGame);
     }
+
     endBreakBtn.addEventListener('click', endOfTurn);
     endFrameBtn.addEventListener('click', endCurrentFrame);
     endOfGameBtn.addEventListener('click', endOfGame);
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('footer').classList.add('hidden');
     }
 
+    /** ends current frame */
     function endCurrentFrame() {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         endFrame();
@@ -198,15 +200,15 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class-"player-display-scores">
     <h2>${playerOne}</h2>
     <p>Number of frames won: <span>${playerOneFrames}</span></p>
-    <p>Highest break won: <span>${playerOneHighestBreak}</span></p>
-    <p>Points giving away in fouls: <span>${playerOneFouls}</span></p>
+    <p>Highest break: <span>${playerOneHighestBreak}</span></p>
+    <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
     </div>
 
     <div class-"player-display-scores">
     <h2>${playerTwo}</h2>
     <p>Number of frames won: <span>${playerTwoFrames}</span></p>
-    <p>Highest break won: <span>${playerTwoHighestBreak}</span></p>
-    <p>Points giving away in fouls <span>${playerTwoFouls}</span></p>
+    <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
+    <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
     `
     }
 
@@ -217,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * increment i by one 
      * i @returns 
      */
-
     function lastcolorDiplay(i) {
         console.log('just colours')
         document.getElementById('colored-balls-section').classList.remove('hidden')
@@ -440,23 +441,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /**
-     * Pushes the last tallys to the arrays they are stored in 
-     * Clears the break
-     * Sends the player end daits to the 
-     */
-    function endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
-        if (activePlayerOneMarker.classList.contains('active')) {
-            playerOneFoulTally.push(foul)
-            console.log('foul pushed')
-        } else {
-            playerTwoFoulTally.push(foul)
-        }
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-        clearBreak()
-        displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
-
-    }
 
     /**
      * Adds an array together
@@ -485,6 +469,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('remaining').classList.remove('hidden')
     }
 
+    /**
+     * saves the new breaktally to the current player break tally array 
+     * @param {*} activePlayerOneMarker 
+     * @param {*} playerOneBreakTally 
+     * @param {*} playerTwoBreakTally 
+     * @param {*} breakTotal 
+     */
     function saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
         console.log('saving break')
         if (activePlayerOneMarker.classList.contains('active')) {
@@ -510,6 +501,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
+     * Pushes the last tallys to the arrays they are stored in 
+     * Clears the break
+     * Sends the player end daits to the 
+     */
+    function endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        clearBreak()
+        displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally)
+    }
+
+    /**
      * get the data from the the foul form and 
      */
     function playerFoul() {
@@ -532,8 +534,6 @@ document.addEventListener('DOMContentLoaded', function () {
             switchPlayer()
         }
 
-        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-
         if (remainingPoints === 34) {
             reemainingPoints = remainingPoints = 27;
             points = 2
@@ -542,8 +542,21 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (remainingPoints <= 27) {} else {
             changeDisplay()
         }
+        saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        saveFoul(activePlayerOneMarker, foul)
         breakTotal = 0;
         clearBreak();
+    }
+
+    function saveFoul(activePlayerOneMarker, foul) {
+        console.log('saving foul')
+        if (activePlayerOneMarker.classList.contains('active')) {
+            playerOneFoulTally.push(foul)
+            console.log(playerOneFoulTally)
+        } else {
+            playerTwoFoulTally.push(foul)
+            console.log(playerTwoFoulTally)
+        }
     }
 
     function runMainainGame() {
