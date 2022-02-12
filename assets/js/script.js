@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //sliders from 3w3schools
     let slider = document.getElementById("myRange");
     let output = document.getElementById("demo");
-
     let sliderTwo = document.getElementById('freeball-counter');
     let sliderTwoOutput = document.getElementById('free-ball-points');
-
     output.innerHTML = slider.value; // Display the default slider value
     sliderTwoOutput.innerHTML = sliderTwo.value;
 
@@ -59,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerOneFoulTally = [0]; // array to hold all player ones fouls
     let playerTwoFoulTally = [0]; // array to hold all player twos fouls
     let playerScore = 0; // current player score
+    let currentScoreDifference
 
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
@@ -502,6 +501,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function checkDiffernce() {
+        let playerOneScore = parseInt(document.getElementById('player-one-score').innerHTML);
+        let playerTwoScore = parseInt(document.getElementById('player-two-score').innerHTML);
+        let scoreDiffence
+        if (playerOneScore >= playerTwoScore) {
+            scoreDiffence = playerOneScore - playerTwoScore;
+        } else {
+            scoreDiffence = playerTwoScore - playerOneScore;
+        }
+        console.log(scoreDiffence)
+        return scoreDiffence;
+    }
+
     /**
      * gets the total number of frames from the DOM
      * then checks if the number of frames won by either player is 
@@ -645,6 +657,8 @@ document.addEventListener('DOMContentLoaded', function () {
         displayBreakBalls(points, breakTotal);
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
+        currentScoreDifference = checkDiffernce()
+        console.log(currentScoreDifference)
         noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
         viewRemaingingpoints(remainingPoints)
