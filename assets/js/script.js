@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPlayerScoreMarker = document.getElementById('player-one-score');
     let points = 0; // points each ball is worth
     let breakTotal = 0; // total of current break
-    let red = 1; // number of reds on the table
+    let red = 15; // number of reds on the table
     let colours = 27; // points of colour balls
     let i = 1 // used to increments
     let remainingPoints = (red * 8) + colours // remaining points on the table
