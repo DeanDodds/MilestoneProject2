@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Getting Game Elements by id 
     const startBtn = document.getElementById('start-btn');
     const backBtn = document.getElementById('back-game-btn');
-    const startGameBtn = document.getElementById('start-game-btn');
+    const startGameBtn = document.getElementById('submit-btn');
     const ballBtns = document.getElementsByClassName('size-big');
     const gameBtns = document.getElementById('game-buttons');
     const endBreakBtn = document.getElementById('end-break-btn');
@@ -92,15 +92,20 @@ document.addEventListener('DOMContentLoaded', function () {
         let numberOfFrames = document.getElementById('frames-input').value;
         let playerOne = document.getElementById('player-one-input').value;
         let playerTwo = document.getElementById('player-two-input').value;
-
-        event.preventDefault();
-        document.getElementById('settings').checkValidity();
-        document.getElementById('number-of-frames').innerHTML = numberOfFrames
-        document.getElementById('player-one-name').innerHTML = playerOne;
-        document.getElementById('player-two-name').innerHTML = playerTwo;
-        document.getElementById('score-board').classList.remove('hidden')
-        startFrame()
+        if (numberOfFrames != "" && playerOne != "" && playerTwo != "") {
+            document.getElementById('number-of-frames').innerHTML = numberOfFrames
+            document.getElementById('player-one-name').innerHTML = playerOne;
+            document.getElementById('player-two-name').innerHTML = playerTwo;
+            document.getElementById('score-board').classList.remove('hidden')
+            startFrame()
+        }
     }
+    /**
+     * prevents form submission but still allows validation solution
+     */
+    $("#settings").submit(function (e) {
+        e.preventDefault();
+    });
 
     /**
      * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.

@@ -50,20 +50,23 @@
         <!-- The Settings Page-->
         <div id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
-            <form id="settings" class="needs-validation" novalidate>
+            <form action="" id="settings">
                 <div class="form-floating mb-3">
-                    <input type="number" min='1' class="form-control" id="frames-input" value='1' required>
-                    <label for="frames-input">Number of frames</label>
+                    <input value="1" type="number" class="form-control" id="frames-input" placeholder="Frames"
+                        name="frames" required />
+                    <label for="frames-input">Number Of Frames</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="player-one-input" required>
-                    <label for="player-one-input">Name of Player One</label>
+                    <input type="text" class="form-control" id="player-one-input" name="player-one-input"
+                        placeholder="Name Of Player One" required />
+                    <label for="player-one-input">Name Of Player One</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="player-two-input" required>
-                    <label for="player-two-input">Name of Player Two</label>
+                    <input type="text" class="form-control" id="player-two-input" placeholder="Name Of Player Two"
+                        required />
+                    <label for="player-two-input">Name Of Player Two</label>
                 </div>
-                <button type="submit" id="start-game-btn" class="btn btn-secondary">Start Game</button>
+                <button type="submit" id="submit-btn" class="btn btn-secondary">Submit</button>
             </form>
             <button id="back-game-btn" class="btn btn-secondary">Back</button>
         </div>
