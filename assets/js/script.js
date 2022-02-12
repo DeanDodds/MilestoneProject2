@@ -1,7 +1,7 @@
 //wait for the dom to load before running game 
 
 document.addEventListener('DOMContentLoaded', function () {
-
+    promptSound()
 
     // <--------------------------- Slider JavaScript ------------------------------------------>
 
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const endOfGameBtn = document.getElementById('end-game-btn');
     const foulBtn = document.getElementById('send-foul');
     const freeballBtn = document.getElementById('free-ball-submit');
+    const muteBtn = document.getElementById('mute-btn')
     let inactivePlayerScoreMarker = document.getElementById('player-two-score');
     let activePlayerOneMarker = document.getElementById('active-left');
     let activePlayerTWOMarker = document.getElementById('active-right');
@@ -61,15 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
+    muteBtn.addEventListener('click', mutePage)
     startBtn.addEventListener('click', displaySettingsPage);
     backBtn.addEventListener('click', displayHomePage)
     startGameBtn.addEventListener('click', getGameSettings)
-
     for (let ballBtn of ballBtns) // loop through all ball buttons  
     {
         ballBtn.addEventListener('click', runMainainGame);
     }
-
     endBreakBtn.addEventListener('click', endOfTurn);
     endFrameBtn.addEventListener('click', endCurrentFrame);
     endOfGameBtn.addEventListener('click', endOfGame);
@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
      * Gets the users input data and displays it in the scoreboard element
      */
     function getGameSettings() {
-        console.log('display dettings')
+        console.log('display gettings')
+        stopTheme()
         let numberOfFrames = document.getElementById('frames-input').value;
         let playerOne = document.getElementById('player-one-input').value;
         let playerTwo = document.getElementById('player-two-input').value;
@@ -213,21 +214,39 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(playerOneFouls, playerTwoFouls);
 
         document.getElementById('game-area-section').innerHTML = `
-    <div class-"player-display-scores">
-    <h2>${playerOne}</h2>
-    <p>Number of frames won: <span>${playerOneFrames}</span></p>
-    <p>Highest break: <span>${playerOneHighestBreak}</span></p>
-    <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
-    </div>
+        <div class="player-display-scores">
+            <div class="player-display-heading" >
+                <h2>${playerOne} </h2><h1 id="player-one-wins"></h1>
+            </div>
+            <p>Number of frames won: <span>${playerOneFrames}</span></p>
+            <p>Highest break: <span>${playerOneHighestBreak}</span></p>
+            <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
+        </div>
 
-    <div class-"player-display-scores">
-    <h2>${playerTwo}</h2>
-    <p>Number of frames won: <span>${playerTwoFrames}</span></p>
-    <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
-    <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
-    `
+        <div class="player-display-scores">
+            <div class="player-display-heading" >
+                <h2>${playerTwo} </h2><h1 id="player-two-wins"></h1>
+            </div>
+            <p>Number of frames won: <span>${playerTwoFrames}</span></p>
+            <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
+            <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
+        </div>
+
+        <button id="reset-button" class="btn btn-secondary">Restart</button>  
+        `
+        if (playerOneFrames > playerTwoFrames) {
+            document.getElementById("player-one-wins").innerHTML = '- Winner'
+        } else {
+            document.getElementById("player-two-wins").innerHTML = '- Winner'
+        }
+
+        const resetBtn = document.getElementById('reset-button');
+
+        resetBtn.addEventListener('click', function () {
+            location.reload();
+        })
+
     }
-
     /**
      * 
      * @param {*i} num 
@@ -247,6 +266,48 @@ document.addEventListener('DOMContentLoaded', function () {
             i++
         }
         return i;
+    }
+    // <--------------------------- Sound Functions ------------------------------------------>
+    function promptSound() {
+        $('#sound-modal').modal('show');
+        document.getElementById('sound-on').addEventListener('click', closeSoundModal)
+        document.getElementById('sound-on').addEventListener('click', playTheme)
+        document.getElementById('sound-off').addEventListener('click', closeSoundModal)
+        document.getElementById('sound-off').addEventListener('click', mutePage)
+    }
+
+    function playTheme() {
+        console.log('play theme')
+        document.getElementById('theme-song').play();
+    }
+
+    function playPotSound() {
+        console.log('playing pot sound')
+        document.getElementById('pot-sound').play();
+    }
+
+    function stopTheme() {
+        console.log('stop song')
+        document.getElementById('theme-song').pause();
+    }
+
+    function muteMe(elem) {
+        elem.muted = true;
+        elem.pause();
+    }
+
+    function unmuteMe(elem) {
+        elem.muted = false;
+    }
+
+    function mutePage() {
+        if (muteBtn.innerHTML === 'Mute') {
+            document.querySelectorAll("audio").forEach(elem => muteMe(elem));
+            muteBtn.textContent = "Unmute";
+        } else {
+            document.querySelectorAll("audio").forEach(elem => unmuteMe(elem));
+            muteBtn.textContent = "Mute";
+        }
     }
 
     // <--------------------------- games functions ------------------------------------------>
@@ -472,10 +533,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return sum;
     }
 
-    function freeballDisplay() {
-        console.log('freeball')
-    }
-
     /**
      * displays remaining points 
      * @param {remainingPoints} 
@@ -574,9 +631,12 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(playerTwoFoulTally)
         }
     }
-
+    /**
+     * runs the the main game 
+     */
     function runMainainGame() {
         console.log('run main game')
+        playPotSound()
         points = parseInt(this.innerHTML)
         breakTotal = breakTotal + points;
         playerScore = playerScore + points;
@@ -599,6 +659,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function closeFreeBallModal() {
         $('#freeball-modal').modal('hide');
+    }
+
+    function closeSoundModal() {
+        console.log('close-Modal')
+        $('#sound-modal').modal('hide');
     }
 
     function freeballAddPoints() {
