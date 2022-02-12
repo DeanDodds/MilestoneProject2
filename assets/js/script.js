@@ -5,14 +5,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // <--------------------------- Slider JavaScript ------------------------------------------>
 
-    //slider from 3w3schools
+    //sliders from 3w3schools
     let slider = document.getElementById("myRange");
     let output = document.getElementById("demo");
-    output.innerHTML = slider.value; // Display the default slider value
 
-    // Update the current slider value (each time you drag the slider handle)
+    let sliderTwo = document.getElementById('freeball-counter');
+    let sliderTwoOutput = document.getElementById('free-ball-points');
+
+    output.innerHTML = slider.value; // Display the default slider value
+    sliderTwoOutput.innerHTML = sliderTwo.value;
+
+    // Update the current slzider value (each time you drag the slider handle)
     slider.oninput = function () {
         output.innerHTML = this.value;
+    }
+
+    sliderTwo.oninput = function () {
+        sliderTwoOutput.innerHTML = this.value;
     }
 
     // Getting Pages by id
@@ -31,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const endFrameBtn = document.getElementById('end-frame-btn');
     const endOfGameBtn = document.getElementById('end-game-btn');
     const foulBtn = document.getElementById('send-foul');
-    let inactivePlayerScoreMarker = document.getElementById('player-two-score')
+    const freeballBtn = document.getElementById('free-ball-submit');
+    let inactivePlayerScoreMarker = document.getElementById('player-two-score');
     let activePlayerOneMarker = document.getElementById('active-left');
     let activePlayerTWOMarker = document.getElementById('active-right');
 
@@ -64,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     endFrameBtn.addEventListener('click', endCurrentFrame);
     endOfGameBtn.addEventListener('click', endOfGame);
     foulBtn.addEventListener('click', playerFoul);
+    freeballBtn.addEventListener('click', freeballAddPoints);
 
     // <--------------------------- Display functions ------------------------------------------>
     /**
@@ -579,4 +590,25 @@ document.addEventListener('DOMContentLoaded', function () {
         viewRemaingingpoints(remainingPoints)
     }
 
+    // <-------------------  Free Ball ----------------------------->
+
+    function displayFreeBall() {
+        console.log('displaying freeball')
+        $('#freeball-modal').modal('show');
+    }
+
+    function closeFreeBallModal() {
+        $('#freeball-modal').modal('hide');
+    }
+
+    function freeballAddPoints() {
+        console.log('adding freeball points')
+        let points = parseInt(sliderTwoOutput.innerHTML)
+        console.log(points)
+        i = i - 1;
+        changeDisplay(points, red, remainingPoints, i);
+        playerScore = playerScore + points;
+        currentPlayerScoreMarker.innerHTML = playerScore;
+        closeFreeBallModal()
+    }
 });
