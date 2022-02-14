@@ -82,8 +82,8 @@ button {
 
 /* Game Area */
 #game-area-section {
-    min-height: 80vh;
     width: 90%;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -261,11 +261,29 @@ button {
 
 #player-one-name,
 #frame-information {
-    padding-top: 15px;
+    padding-top: 25px;
+}
+
+#player-one-name {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+#player-two-name {
+    margin-right: 50px;
+    margin-top: 50px;
 }
 
 
 @media only screen and (min-width: 750px) {
+    body {
+        background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgrounddesktop.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .score-board {
         display: grid;
         grid-template-columns: 40% 20% 40%;
