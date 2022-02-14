@@ -1,5 +1,7 @@
 # Snooker Counter
 
+Snooker Counter is a website to aid snooker players help keep the the score during a live game of snooker. each Player can enter there names and the number of frames they would like to play. Snooker counter will keep track the player score based on the input they give it. It will then display satatics from the games player.
+
 <a href="https://deandodds.github.io/MilestoneProject2/">View live webite......
 ![Mock up of website](/assets/screenshots/mockup.png)
 </a>
@@ -23,7 +25,12 @@
     * [Code](#code)
     * [Content](#content)
     * [Media](#media)
-6. [Acknowledgements](#acknowledgements)
+6. [Testing](#testing) 
+    *[Validation ](#validation)
+    *[Lighthouse](#lighthouse)
+    *[bugs](#bugs)
+7. [Acknowledgements](#acknowledgements)
+
 
 
 1. ## User Experience (UX) <a id="user-experience"></a>
@@ -158,7 +165,7 @@ You can clone a Github repository to your local computer by following these step
 
 You can see more information on making local clones [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
 
-### Forking the GitHub Repository <A id="fork"></a>
+### Forking the GitHub Repository <a id="fork"></a>
 
 Forking a Github repositary allows you to make a copy that you can work on without effecting the original repository. You can fork a repository by:
 
@@ -166,6 +173,44 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 2. on the top right hand side of the page locate click fork button 
 3. the copy of this resository should now be in your own repositories
 
+# Testing <a id="testing"></a>
+
+## Validation <a id="validation">
+
+I used the W3C Markup and CSS Validator Service to ensure there was no syntax errors throughout my webpage.
+
+## W3C Mark up Validator
+
+Index.html - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdeandodds.github.io%2FMilestoneProject2%2F">View</a>
+
+
+### W3C CSS Validator
+
+<a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdeandodds.github.io%2FMilestoneProject2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">View</a>
+
+
+## JShint javaScript Validator
+
+My JavaScript code was validated by <a href="https://jshint.com/">jshint.com</a> and contains no major errors.
+
+
+## LightHouse Testing <a id="lighthouse">
+
+I have tested through google dev tools lighthouse analysis which are scored on: 
+* Performance 
+* Accesibility 
+* Best Practices 
+* Search Engine Optimization (SEO)
+
+![light house test screen shot](/assets/screenshots/lighthousereport.png)
+
+## Bugs<id href="bugs">
+
+### bugs found 
+- background image does not load on the live website - fix 
+- settings form required attribute not working - fix
+
+### known bugs
 
 6. # Credits
 -----
@@ -177,6 +222,11 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 - CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
 
 ## Code
--  Foul slider <a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
+- html sliders <a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
 - addSUM function <a href ="https://medium.com/@chrisburgin95/rewriting-javascript-sum-an-array-dbf838996ed0">by Chris Burgin</a>
 - checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial
+- mute function - <a href="https://stackoverflow.com/questions/14044761/how-to-mute-all-sound-in-a-page-with-js/37218500"> by Zach Saucier - Stackoverflow</a>
+
+## Sounds
+- Pot sound - <a href="https://freesfx.co.uk/sfx/snooker"> by freefx.co.uk</a>
+- Snooker Theme tune - <a href="http://www.televisiontunes.com/Snooker_-BBC.html#google_vignette">Dragby Racer by the Doug Wood Band.</a>
