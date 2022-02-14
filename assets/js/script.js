@@ -267,6 +267,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return i;
     }
     // <--------------------------- Sound Functions ------------------------------------------>
+
+    /**
+     * Asks user if they would like sound on or off
+     */
     function promptSound() {
         $('#sound-modal').modal('show');
         document.getElementById('sound-on').addEventListener('click', closeSoundModal)
@@ -275,30 +279,34 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('sound-off').addEventListener('click', mutePage)
     }
 
+    /** Starts theme song */
     function playTheme() {
         console.log('play theme')
         document.getElementById('theme-song').play();
     }
-
+    /** Plays pot sound */
     function playPotSound() {
         console.log('playing pot sound')
         document.getElementById('pot-sound').play();
     }
 
+    /**  stops them song */
     function stopTheme() {
         console.log('stop song')
         document.getElementById('theme-song').pause();
     }
 
+    /** Mutes sounds */
     function muteMe(elem) {
         elem.muted = true;
         elem.pause();
     }
-
+    /* Unmuts sounds */
     function unmuteMe(elem) {
         elem.muted = false;
     }
 
+    /* Mute button functions */
     function mutePage() {
         if (muteBtn.innerHTML === 'Mute') {
             document.querySelectorAll("audio").forEach(elem => muteMe(elem));
@@ -309,6 +317,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /** Displays freeball modal */
+    function displayFreeBall() {
+        console.log('displaying freeball')
+        $('#freeball-modal').modal('show');
+    }
+
+    /** Closes freeball modal */
+    function closeFreeBallModal() {
+        $('#freeball-modal').modal('hide');
+    }
+
+    /** Closes sound modal */
+    function closeSoundModal() {
+        console.log('close-Modal')
+        $('#sound-modal').modal('hide');
+    }
     // <--------------------------- games functions ------------------------------------------>
 
     /** 
@@ -501,6 +525,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /** Works out the score difference between the two players */
     function checkDiffernce() {
         let playerOneScore = parseInt(document.getElementById('player-one-score').innerHTML);
         let playerTwoScore = parseInt(document.getElementById('player-two-score').innerHTML);
@@ -633,6 +658,11 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBreak();
     }
 
+    /**
+     * Saves fouls to the afoul tally array 
+     * @param {*} activePlayerOneMarker 
+     * @param {*} foul 
+     */
     function saveFoul(activePlayerOneMarker, foul) {
         console.log('saving foul')
         if (activePlayerOneMarker.classList.contains('active')) {
@@ -643,6 +673,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(playerTwoFoulTally)
         }
     }
+
     /**
      * runs the the main game 
      */
@@ -664,22 +695,7 @@ document.addEventListener('DOMContentLoaded', function () {
         viewRemaingingpoints(remainingPoints)
     }
 
-    // <-------------------  Free Ball ----------------------------->
-
-    function displayFreeBall() {
-        console.log('displaying freeball')
-        $('#freeball-modal').modal('show');
-    }
-
-    function closeFreeBallModal() {
-        $('#freeball-modal').modal('hide');
-    }
-
-    function closeSoundModal() {
-        console.log('close-Modal')
-        $('#sound-modal').modal('hide');
-    }
-
+    /**adds points from the freeball slider */
     function freeballAddPoints() {
         console.log('adding freeball points')
         let points = parseInt(sliderTwoOutput.innerHTML)
