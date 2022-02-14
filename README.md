@@ -38,10 +38,11 @@
 
 
 ### Returning Visitor Goalsand 
-* As a first time visitor, i want the website to track the stats of the game.  
+* As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
+* As a returning visitor, I want to beable to keep in touch with the creator for updates to the website 
 
 
-### Website Creator goalS
+### Website Creator goals
 * As a website creator, I want to create a website that works on all platforms.
 * As a website creator, I want to create a good user experience by having a clear navigation system.
 * As a website creator, I want my website load times to be low. I do not want users leaving the site before it has time to load.

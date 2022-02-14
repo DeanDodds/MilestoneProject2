@@ -1,5 +1,7 @@
 # Testing 
 
+## Validation 
+
 ## bugs found 
 - Score counter does not flip back to player one 
 - Display does not return to red display when changing player
