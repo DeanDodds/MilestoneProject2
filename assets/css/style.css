@@ -151,6 +151,7 @@ button {
 .small {
     height: 50px;
     width: 50px;
+    margin-left: 10px;
 }
 
 /* game button section*/
@@ -160,30 +161,41 @@ button {
 
 /* break counter section */
 
-.break-section {
-    display: flex;
-    justify-content: flex-start;
-    width: 60%;
-}
-
 #break-section {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.break-section {
+    display: flex;
 }
 
 .break-section-numbers {
     width: 40%;
 }
 
+
 #current-Break {
-    align-self: flex-end;
-    padding-left: 20px;
-    margin: 0px;
+    height: 80%;
+    width: 50px;
+    padding-left: 3px;
+}
+
+#current {
+    background-color: white;
+    border: 1px solid black;
+    position: relative;
+    padding-right: 4px;
+    margin-top: 33px;
+    border-radius: 5px;
 }
 
 /* Score Board */
+
 .score-board {
     display: grid;
-    grid-template-columns: 40% 20% 40%;
+    grid-template-columns: 100%;
     height: 70px;
     margin-top: 15px;
 }
@@ -251,6 +263,25 @@ button {
 #frame-information {
     padding-top: 15px;
 }
+
+
+@media only screen and (min-width: 750px) {
+    .score-board {
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
+        height: 70px;
+        margin-top: 15px;
+    }
+
+    #break-section {
+        width: 40%;
+    }
+
+    #current {
+        margin-left: 100px;
+    }
+}
+
 
 .hidden {
     display: none;
