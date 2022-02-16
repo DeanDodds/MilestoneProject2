@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function startFrame() {
         RedBallPage.classList.remove('hidden');
+        gameBtns.classList.remove('hidden');
         colorBall.classList.add('hidden');
         settingsPage.classList.add('hidden');
         document.getElementById('footer').classList.add('hidden');
