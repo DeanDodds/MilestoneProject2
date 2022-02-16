@@ -195,7 +195,8 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerTwoFoulTally} num4 
      */
     function displayEndGameInfo(playerOneBreak, playerTwoBreak, playerOneFouls, playerTwoFouls) {
-        document.getElementById('break-section-numbers').classList.add('hidden');
+        document.getElementById('remaining').classList.add('hidden');
+        document.getElementById('differnce').classList.add('hidden');
         RedBallPage.classList.add('hidden');
         gameBtns.classList.add('hidden');
         colorBall.classList.add('hidden');
