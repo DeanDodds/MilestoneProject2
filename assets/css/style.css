@@ -180,13 +180,7 @@ button {
     flex-wrap: wrap;
 }
 
-.break-section-numbers {
-    width: 40%;
-}
-
-
 #current-Break {
-    height: 80%;
     width: 50px;
     padding-left: 3px;
 }
@@ -198,6 +192,8 @@ button {
     padding-right: 4px;
     margin-top: 33px;
     border-radius: 5px;
+    height: 50%;
+    align-self: center;
 }
 
 /* Score Board */
@@ -283,39 +279,20 @@ button {
     margin-top: 50px;
 }
 
+/* remaining counters*/
 
-@media only screen and (min-width: 750px) {
-    body {
-        background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgrounddesktop.webp) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
-    .score-board {
-        display: grid;
-        grid-template-columns: 40% 20% 40%;
-        height: 70px;
-        margin-top: 15px;
-    }
-
-    #break-section {
-        width: 40%;
-    }
-
-    #current {
-        margin-left: 100px;
-    }
-
-    .break-section {
-        flex-wrap: nowrap;
-    }
+#remaining-points-section {
+    margin-top: 140px;
+    clear: right;
+    background-color: black;
+    color: white;
+    width: 100%;
 }
 
-
-.hidden {
-    display: none;
+.remaining-points-section {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 /*slider*/
@@ -349,8 +326,50 @@ button {
     cursor: pointer;
 }
 
-/* Break counter */
-#break-section-numbers {
-    background-color: black;
-    color: white;
+.hidden {
+    display: none;
+}
+
+@media only screen and (min-width: 350px) {
+    .remaining-points-section {
+        flex-wrap: nowrap;
+    }
+
+    .remaining-points {
+        width: 50%
+    }
+}
+
+
+@media only screen and (min-width: 729px) {
+    body {
+        background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgrounddesktop.webp) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .score-board {
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
+        height: 70px;
+        margin-top: 15px;
+    }
+
+    #break-section {
+        width: 40%;
+    }
+
+    #current {
+        margin-left: 100px;
+    }
+
+    .break-section {
+        flex-wrap: nowrap;
+    }
+
+    #remaining-points-section {
+        margin-top: 0px;
+    }
 }
