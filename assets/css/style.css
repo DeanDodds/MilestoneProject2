@@ -38,6 +38,9 @@ input[type=number] {
     font-family: 'Raleway', sans-serif;
 }
 
+#frame-information p {
+    font-weight: 700;
+}
 
 /* body  */
 body {
