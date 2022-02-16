@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function getGameSettings() {
         console.log('display gettings');
-        stopTheme();
         let numberOfFrames = document.getElementById('frames-input').value;
         let playerOne = document.getElementById('player-one-input').value;
         let playerTwo = document.getElementById('player-two-input').value;
@@ -108,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('player-one-name').innerHTML = playerOne;
             document.getElementById('player-two-name').innerHTML = playerTwo;
             document.getElementById('score-board').classList.remove('hidden');
+            stopTheme();
             startFrame();
         }
     }
