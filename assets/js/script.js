@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
             changeDisplay();
         }
         remainingPoints = trackRemainingPoints(red, colours, 2);
-        viewRemaingingpoints(remainingPoints);
+        viewRemaingingpoints(remainingPoints, currentScoreDifference);
     }
 
     /**
@@ -267,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return i;
     }
+
     // <--------------------------- Sound Functions ------------------------------------------>
 
     /**
@@ -538,7 +539,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             scoreDiffence = playerTwoScore - playerOneScore;
         }
-        console.log(scoreDiffence);
+        console.log('difference = ', scoreDiffence);
+        document.getElementById('point-difference').innertext = scoreDiffence;
+        document.getElementById('remaining-points-section').classList.remove('hidden');
         return scoreDiffence;
     }
 
@@ -577,9 +580,12 @@ document.addEventListener('DOMContentLoaded', function () {
      * displays remaining points 
      * @param {remainingPoints} 
      */
-    function viewRemaingingpoints(remainingPoints) {
+    function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
         document.getElementById('remaining-points').innerHTML = remainingPoints;
         document.getElementById('remaining').classList.remove('hidden');
+        document.getElementById('point-difference').innerHTML = currentScoreDifference;
+        document.getElementById('differnce').classList.remove('hidden');
+
     }
 
     /**
@@ -695,7 +701,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(currentScoreDifference);
         noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
-        viewRemaingingpoints(remainingPoints);
+        viewRemaingingpoints(remainingPoints, currentScoreDifference);
     }
 
     /**adds points from the freeball slider */
