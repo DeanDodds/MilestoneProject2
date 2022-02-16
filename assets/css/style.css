@@ -9,20 +9,20 @@ h3 {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 1.75em;
 }
 
 h2,
 button {
-    font-size: 26px;
+    font-size: 1.625em;
 }
 
 h3 {
-    font-size: 22px;
+    font-size: 1.375em;
 }
 
 p {
-    font-size: 24px;
+    font-size: 1.5em;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -31,6 +31,13 @@ button {
     font-weight: 800;
     text-transform: uppercase;
 }
+
+label,
+input[type=text],
+input[type=number] {
+    font-family: 'Raleway', sans-serif;
+}
+
 
 /* body  */
 body {
@@ -44,6 +51,7 @@ body {
 /* Header section */
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
 }
@@ -169,6 +177,7 @@ button {
 
 .break-section {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .break-section-numbers {
@@ -297,6 +306,10 @@ button {
 
     #current {
         margin-left: 100px;
+    }
+
+    .break-section {
+        flex-wrap: nowrap;
     }
 }
 
