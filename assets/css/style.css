@@ -44,7 +44,7 @@ input[type=number] {
 
 /* body  */
 body {
-    background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgroundsmalldevices.webp) no-repeat center center fixed;
+    background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgroundsmalllportrate.webp) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -342,7 +342,7 @@ button {
 
 @media only screen and (min-width: 729px) {
     body {
-        background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgrounddesktop.webp) no-repeat center center fixed;
+        background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgroundsmallllandscape.webp) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
