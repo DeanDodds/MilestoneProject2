@@ -666,6 +666,8 @@ document.addEventListener('DOMContentLoaded', function () {
         saveFoul(activePlayerOneMarker, foul);
         breakTotal = 0;
         clearBreak();
+        currentScoreDifference = checkDiffernce()
+        viewRemaingingpoints(remainingPoints, currentScoreDifference);
     }
 
     /**
