@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let playerOneFoulTally = [0]; // array to hold all player ones fouls
     let playerTwoFoulTally = [0]; // array to hold all player twos fouls
     let playerScore = 0; // current player score
-    ;
 
     // <--------------------------- Button Event Listerners ------------------------------------------>
 
@@ -80,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Displays home page
      */
     function displayHomePage() {
-        console.log('displaying Home Page');
         document.getElementById('settingspage').classList.add('hidden');
         document.getElementById('start-page').classList.remove('hidden');
     }
@@ -89,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Displays settings page
      */
     function displaySettingsPage() {
-        console.log('displaying settings');
         document.getElementById('start-page').classList.add('hidden');
         document.getElementById('settingspage').classList.remove('hidden');
     }
@@ -98,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Gets the users input data and displays it in the scoreboard element
      */
     function getGameSettings() {
-        console.log('display gettings');
         let numberOfFrames = document.getElementById('frames-input').value;
         let playerOne = document.getElementById('player-one-input').value;
         let playerTwo = document.getElementById('player-two-input').value;
@@ -122,6 +118,10 @@ document.addEventListener('DOMContentLoaded', function () {
      * The Start Game functions hides all elements and displays the game buttons by adding and removing the hidden class.
      */
     function startFrame() {
+        let colours = document.getElementsByClassName('size-big');
+        for (let colour of colours) {
+            colour.classList.remove('hidden');
+        }
         RedBallPage.classList.remove('hidden');
         gameBtns.classList.remove('hidden');
         colorBall.classList.add('hidden');
@@ -137,12 +137,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearBreak();
         startFrame();
         red = 15;
+        colours = 27;
+        remainingPoints = trackRemainingPoints(red, colours, points);
         currentScoreDifference = checkDiffernce();
-        noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
         hideRemainingPoints();
         endOfTurn();
-        endFrame();
+        startFrame();
     }
 
     /**
@@ -153,13 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*i} num4 
      * @returns i
      */
-    function changeDisplay(points, red, reemainingPoints, increment) {
-        console.log('changing display');
-        if (points == 1 || red === 0 && reemainingPoints > 27) {
+    function changeDisplay(points, red, remainingPoints, increment) {
+        if (points == 1 || red === 0 && remainingPoints > 27) {
             RedBallPage.classList.add('hidden');
             colorBall.classList.remove('hidden');
             i = 1;
-        } else if (reemainingPoints <= 27) {
+        } else if (remainingPoints <= 27) {
             i = lastcolorDiplay(increment);
         } else {
             colorBall.classList.add('hidden');
@@ -182,9 +182,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (remainingPoints === 34) {
             remainingPoints = remainingPoints = 27;
             points = 2;
-            alert(remainingPoints);
             changeDisplay(points, red, remainingPoints, i);
-        } else if (remainingPoints <= 27) {} else {
+        } else if (remainingPoints <= 27) {
+            changeDisplay(points, red, remainingPoints, i);
+        } else {
             changeDisplay();
         }
         remainingPoints = trackRemainingPoints(red, colours, 2);
@@ -268,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let colour of colours) {
             colour.classList.add('hidden');
         }
-        if (i < 7) {
+        if (i <= 7) {
             colours[i].classList.remove('hidden');
             i++;
         }
@@ -292,7 +293,20 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('differnce').classList.add('hidden');
     }
 
-    // <--------------------------- Sound Functions ------------------------------------------>
+    /** Displays freeball modal */
+    function displayFreeBall() {
+        $('#freeball-modal').modal('show');
+    }
+
+    /** Closes freeball modal */
+    function closeFreeBallModal() {
+        $('#freeball-modal').modal('hide');
+    }
+
+    /** Closes sound modal */
+    function closeSoundModal() {
+        $('#sound-modal').modal('hide');
+    }
 
     /**
      * Asks user if they would like sound on or off
@@ -305,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('sound-off').addEventListener('click', mutePage);
     }
 
+    // <--------------------------- Sound Functions ------------------------------------------>
     /** Starts theme song */
     function playTheme() {
         console.log('play theme');
@@ -343,22 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /** Displays freeball modal */
-    function displayFreeBall() {
-        console.log('displaying freeball');
-        $('#freeball-modal').modal('show');
-    }
-
-    /** Closes freeball modal */
-    function closeFreeBallModal() {
-        $('#freeball-modal').modal('hide');
-    }
-
-    /** Closes sound modal */
-    function closeSoundModal() {
-        console.log('close-Modal');
-        $('#sound-modal').modal('hide');
-    }
     // <--------------------------- games functions ------------------------------------------>
 
     /** 
@@ -441,11 +440,9 @@ document.addEventListener('DOMContentLoaded', function () {
      * and resets counters to 0
      */
     function clearBreak() {
-        console.log('clearing break');
         document.getElementById("current").classList.add('hidden');
         let breakCounters = document.getElementsByClassName('small');
         let breakCounterInners = document.getElementsByClassName('break-ball-counter');
-
         for (let breakCounter of breakCounters) {
             breakCounter.classList.add('hidden');
         }
@@ -474,8 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function trackRemainingReds(red, points) {
         if (points === 1) {
             red = red - 1;
-        } else {}
-        console.log('reds =', red);
+        }
         return red;
     }
 
@@ -550,15 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function noPointsLeft(remainingPoints) {
         if (remainingPoints === 0) {
-            endFrame();
-            red = 15;
-            i = 1;
-            colours = 27;
-            clearBreak()
-            clearPoints()
-            remainingPoints = trackRemainingPoints(red, colours, points);
-            viewRemaingingpoints(remainingPoints, currentScoreDifference);
-            changeDisplay();
+            endCurrentFrame();
         }
     }
 
@@ -591,6 +579,9 @@ document.addEventListener('DOMContentLoaded', function () {
         framesToWin = totalFramesToPlay / 2;
         if (playerOneFrames >= framesToWin || playerTwoFrames >= framesToWin) {
             endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
+        } else {
+
+            startFrame();
         }
     }
 
@@ -722,7 +713,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * runs the the main game 
      */
     function runMainainGame() {
-        console.log('run main game');
         playPotSound();
         points = parseInt(this.innerHTML);
         breakTotal = breakTotal + points;
@@ -733,10 +723,10 @@ document.addEventListener('DOMContentLoaded', function () {
         colours = removeColourPoints(colours, points, remainingPoints);
         remainingPoints = trackRemainingPoints(red, colours, points);
         currentScoreDifference = checkDiffernce();
-        console.log(currentScoreDifference);
         noPointsLeft(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
         viewRemaingingpoints(remainingPoints, currentScoreDifference);
+        console.log(i)
     }
 
     /**adds points from the freeball slider */
@@ -750,6 +740,4 @@ document.addEventListener('DOMContentLoaded', function () {
         currentPlayerScoreMarker.innerHTML = playerScore;
         closeFreeBallModal();
     }
-
-
 });
