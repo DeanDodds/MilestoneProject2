@@ -193,7 +193,7 @@ button {
 
 .ball {
     display: block;
-    margin: 30px auto 0;
+    margin: 30px auto;
     border-radius: 50%;
     box-shadow: inset -25px -25px 40px rgba(0, 0, 0, .5);
     background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
@@ -423,13 +423,17 @@ button {
     }
 }
 
-@media only screen and (min-width: 1099px) {
+@media only screen and (min-width: 1000px) {
     body {
         background: url(http://deandodds.github.io/MilestoneProject2/assets/images/backgroundxllandscape.webp) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+
+    .size-big {
+        margin-left: 10px;
     }
 }
 
