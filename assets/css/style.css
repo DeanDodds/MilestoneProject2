@@ -26,6 +26,10 @@ p {
     font-family: 'Raleway', sans-serif;
 }
 
+footer h2 {
+    color: white;
+}
+
 button {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
@@ -73,6 +77,36 @@ header {
 /* footer */
 footer {
     clear: both;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: #96999a;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+
+.social-links li a i:hover {
+    background-color: #fafafa;
+}
+
+
+.social-links i:hover {
+    color: #96999a;
 }
 
 /* buttons */
@@ -329,13 +363,15 @@ button {
     cursor: pointer;
 }
 
+/* footer */
+
 @media only screen and (min-width: 350px) {
     .remaining-points-section {
         flex-wrap: nowrap;
     }
 
     .remaining-points {
-        width: 50%
+        width: 50%;
     }
 }
 
