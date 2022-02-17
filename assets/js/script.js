@@ -136,7 +136,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearPoints();
         clearBreak();
         startFrame();
-        remainingPoints = 0;
+        red = 15;
+        currentScoreDifference = checkDiffernce();
+        noPointsLeft(remainingPoints);
+        changeDisplay(points, red, remainingPoints, i);
+        hideRemainingPoints();
+        endOfTurn();
+        endFrame();
     }
 
     /**
@@ -262,11 +268,28 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let colour of colours) {
             colour.classList.add('hidden');
         }
-        if (i <= 7) {
+        if (i < 7) {
             colours[i].classList.remove('hidden');
             i++;
         }
         return i;
+    }
+
+    /**
+     * displays remaining points 
+     * @param {remainingPoints} 
+     */
+    function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
+        document.getElementById('remaining-points').innerHTML = remainingPoints;
+        document.getElementById('remaining').classList.remove('hidden');
+        document.getElementById('point-difference').innerHTML = currentScoreDifference;
+        document.getElementById('differnce').classList.remove('hidden');
+
+    }
+
+    function hideRemainingPoints() {
+        document.getElementById('remaining').classList.add('hidden');
+        document.getElementById('differnce').classList.add('hidden');
     }
 
     // <--------------------------- Sound Functions ------------------------------------------>
@@ -503,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let playerTwoScore = parseInt(document.getElementById('player-two-score').innerHTML);
         let playerOneFrame = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
         let playerTwoFrame = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
-        console.log(playerOneFrame);
+
         if (playerOneScore > playerTwoScore) {
             playerOneFrame = playerOneFrame + 1;
             console.log(playerOneFrame);
@@ -514,9 +537,10 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(playerTwoFrame);
             document.getElementById('player-two-frame-counter').innerHTML = playerTwoFrame;
             alert('player two wins this frame');
-        } else {
-            console.log('error');
         }
+        playerOneScore.innerHTML = 0;
+        playerTwoScore.innerHTML = 0;
+        currentScoreDifference = checkDiffernce();
         checkframes(playerOneFrame, playerTwoFrame);
     }
 
@@ -527,6 +551,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function noPointsLeft(remainingPoints) {
         if (remainingPoints === 0) {
             endFrame();
+            red = 15;
+            i = 1;
+            colours = 27;
+            clearBreak()
+            clearPoints()
+            remainingPoints = trackRemainingPoints(red, colours, points);
+            viewRemaingingpoints(remainingPoints, currentScoreDifference);
+            changeDisplay();
         }
     }
 
@@ -718,4 +750,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentPlayerScoreMarker.innerHTML = playerScore;
         closeFreeBallModal();
     }
+
+
 });
