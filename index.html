@@ -35,10 +35,14 @@
     <!-- ./Header Section -->
 
     <!-- Game Area Sections -->
-    <div id="game-area-section" class="text-center">
+    <main id="game-area-section" class="text-center">
 
         <!-- The start page menu -->
         <div id="start-page" class="start-page">
+
+            <h2 id="page-title" class="text-center">The Online Snooker counter is a website to help snooker players
+                track there snooker
+                during frames</h2>
             <button id="start-btn" class="btn btn-secondary game-button">Start</button>
             <button id="instructions" type="button" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#Instructions">
@@ -48,7 +52,7 @@
         <!-- The Start Page Menu -->
 
         <!-- The Settings Page-->
-        <div id="settingspage" class="hidden">
+        <section id="settingspage" class="hidden">
             <h2>Please Enter the Game Information</h2>
             <form id="settings">
                 <div class="form-floating mb-3">
@@ -69,11 +73,11 @@
                 <button type="submit" id="submit-btn" class="btn btn-secondary">Start Game</button>
             </form>
             <button id="back-game-btn" class="btn btn-secondary">Back</button>
-        </div>
+        </section>
         <!-- ./The Settings Page-->
 
         <!-- The Game Ball Page -->
-        <div id="game-balls-page">
+        <section id="game-balls-page">
             <div id="red-ball-section" class="hidden">
                 <button class="ball size-big red">1</button>
             </div>
@@ -85,24 +89,24 @@
                 <button class="ball size-big pink">6</button>
                 <button class="ball size-big black">7</button>
             </div>
-        </div>
+        </section>
         <!-- ./The game ball Page -->
 
         <!-- Game Buttons -->
-        <div id="game-buttons" class="hidden">
+        <section id="game-buttons" class="hidden">
             <button id="foul-btn" class="btn btn-secondary game-button" data-bs-toggle="modal"
                 data-bs-target="#foul">Foul</button>
             <button id="end-break-btn" class="btn btn-secondary game-button">End of Break</button>
             <button id="end-frame-btn" class="btn btn btn-secondary game-button">End Frame</button>
             <button id="end-game-btn" class="btn  btn btn-secondary game-button">End Game</button>
-        </div>
-    </div>
+        </section>
+    </main>
     <!-- ./Game Buttons-->
 
     <!-- ./Game Area Section -->
 
     <!-- Break Section-->
-    <div id="break-section">
+    <section id="break-section">
         <div class="break-section">
             <div id="red-ball-break-counter" class="ball small red hidden">
                 <p id="red-break-counter" class="break-ball-counter">0</p>
@@ -129,11 +133,11 @@
         <div id="current" class="hidden">
             <p id="current-Break" class="break-ball-counter">0</p>
         </div>
-    </div>
+    </section>
     <!-- ./Break Section -->
 
     <!-- ./Score Board Section-->
-    <div id="score-board" class="score-board text-center hidden">
+    <section id="score-board" class="score-board text-center hidden">
         <div id="Player-one-display" class="player-display">
             <p id="player-one-name">name-1</p>
             <p> <span id="player-one-score" class="player-score">0</span> <span id="active-left" class="active"></span>
@@ -148,18 +152,18 @@
             <p id="player-two-name">name-2</p>
             <p><span id="player-two-score" class="player-score">0</span> <span id="active-right"></span></p>
         </div>
-    </div>
+    </section>
     <!-- ./Score Board Section-->
 
     <!-- Break-section numbers -->
-    <div id="remaining-points-section" class="remaining-points-section">
+    <section id="remaining-points-section" class="remaining-points-section">
         <div id="remaining" class="remaining-points hidden">
             <p><span id="remaining-points">0</span> Remianing</p>
         </div>
         <div id="differnce" class="remaining-points hidden">
             <p><span id="point-difference">0</span> Difference in points</p>
         </div>
-    </div>
+    </section>
     <!-- ./Break-section numbers -->
 
     <!-- footer-->
@@ -190,16 +194,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Instructions</h5>
+                    <h2>How to use the website</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h2>How to play</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error excepturi ex sapiente
-                        corrupti
-                        placeat vel similique nulla, velit esse facere eius animi ratione cum et id officia
-                        voluptates?
-                        Deserunt, unde.</p>
+                    <br>
+                    <h3>Getting started</h3>
+                    <p>To start the game press the start button and fill out the game setting forms. Once all the
+                        nessary information is added press the start game button to start the game</p>
+                    <hr>
+                    <h3>Playing the game</h3>
+                    <p>Each time a player pots a ball on the table log it on the website using the buttons</p>
+                    <p>At the end of each turn press the end of break button to change players</p>
+                    <hr>
+                    <h3>When a foul occurs</h3>
+                    <p>If during the turn a player commits a foul press the foul button</p>
+                    <p>Then select the number of points to be awarded to the opposing player</p>
+                    <p>If a red was potted during the turn check the remove red box</p>
+                    <p>If freeball is awarded the opposing player check the freeball box</p>
+                    <p>If the player has to retake shot check the retake shot box</p>
+                    <hr>
+                    <h2>Ending the Frame</h2>
+                    <p>The frame will end once all balls have been potted the frame will end however If
+                        players would like to end the frame, press the end frame button</p>
+                    <hr>
+                    <h2>Ending the Game</h2>
+                    <p>The game will end once a player wins over half the frames however if players would like to end
+                        the game early press the end game button</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

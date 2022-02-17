@@ -3,7 +3,8 @@
 /* Fonts */
 h1,
 h2,
-h3 {
+h3,
+.btn {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
 }
@@ -27,12 +28,12 @@ p {
 }
 
 footer h2 {
-    color: white;
+    color: #fafafa;
 }
 
-button {
+.btn {
     font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -74,6 +75,19 @@ header {
     color: red;
 }
 
+/* Game Section */
+#page-title {
+    color: #fafafa;
+    padding: 10px;
+    width: 70%;
+    max-width: 400px;
+    margin: 1em auto;
+}
+
+#page-title h1 {
+    box-shadow: 5px 10px black;
+}
+
 /* footer */
 footer {
     clear: both;
@@ -91,8 +105,8 @@ footer {
     font-size: 1.4rem;
     line-height: 7px;
     text-align: center;
-    color: #fafafa;
-    background: #96999a;
+    color: black;
+    background: white;
     transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     -webkit-transition: all 0.35s ease-in-out;
@@ -106,12 +120,12 @@ footer {
 
 
 .social-links i:hover {
-    color: #96999a;
+    color: red;
 }
 
 /* buttons */
 button {
-    width: 100px;
+    width: 6.250em;
     display: block;
     margin: 5px auto;
 }
