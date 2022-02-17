@@ -202,8 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerTwoFoulTally} num4 
      */
     function displayEndGameInfo(playerOneBreak, playerTwoBreak, playerOneFouls, playerTwoFouls) {
-        document.getElementById('remaining').classList.add('hidden');
-        document.getElementById('differnce').classList.add('hidden');
+        hideRemainingPoints();
         RedBallPage.classList.add('hidden');
         gameBtns.classList.add('hidden');
         colorBall.classList.add('hidden');
@@ -281,6 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {remainingPoints} 
      */
     function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
+        console.log('show remaing')
         document.getElementById('remaining-points').innerHTML = remainingPoints;
         document.getElementById('remaining').classList.remove('hidden');
         document.getElementById('point-difference').innerHTML = currentScoreDifference;
@@ -289,8 +289,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function hideRemainingPoints() {
-        document.getElementById('remaining').classList.add('hidden');
-        document.getElementById('differnce').classList.add('hidden');
+        console.log('hide remaing stats')
+        document.getElementById('remaining-points-section').classList.add('hidden');
     }
 
     /** Displays freeball modal */
@@ -395,43 +395,49 @@ document.addEventListener('DOMContentLoaded', function () {
         let breakMarker = document.getElementById("current");
         document.getElementById('current-Break').innerHTML = breakTotal;
         breakMarker.classList.remove('hidden');
-        if (points == 1) {
-            document.getElementById('red-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('red-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('red-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 2) {
-            document.getElementById('yellow-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('yellow-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('yellow-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 3) {
-            document.getElementById('green-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('green-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('green-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 4) {
-            document.getElementById('brown-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('brown-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('brown-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 5) {
-            document.getElementById('blue-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('blue-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('blue-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 6) {
-            document.getElementById('pink-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('pink-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('pink-break-counter').innerHTML = newBreakTotal;
-        } else if (points == 7) {
-            document.getElementById('black-ball-break-counter').classList.remove('hidden');
-            ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
-            newBreakTotal = ballCounter + 1;
-            document.getElementById('black-break-counter').innerHTML = newBreakTotal;
-        } else {
-            console.log('error');
+        switch (points) {
+            case 1:
+                document.getElementById('red-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('red-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('red-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 2:
+                document.getElementById('yellow-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('yellow-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('yellow-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 3:
+                document.getElementById('green-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('green-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('green-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 4:
+                document.getElementById('brown-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('brown-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('brown-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 5:
+                document.getElementById('blue-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('blue-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('blue-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 6:
+                document.getElementById('pink-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('pink-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('pink-break-counter').innerHTML = newBreakTotal;
+                break;
+            case 7:
+                document.getElementById('black-ball-break-counter').classList.remove('hidden');
+                ballCounter = parseInt(document.getElementById('black-break-counter').innerHTML);
+                newBreakTotal = ballCounter + 1;
+                document.getElementById('black-break-counter').innerHTML = newBreakTotal;
+                break;
         }
     }
 
@@ -724,16 +730,13 @@ document.addEventListener('DOMContentLoaded', function () {
         remainingPoints = trackRemainingPoints(red, colours, points);
         currentScoreDifference = checkDiffernce();
         noPointsLeft(remainingPoints);
-        changeDisplay(points, red, remainingPoints, i);
         viewRemaingingpoints(remainingPoints, currentScoreDifference);
-        console.log(i)
+        changeDisplay(points, red, remainingPoints, i);
     }
 
     /**adds points from the freeball slider */
     function freeballAddPoints() {
-        console.log('adding freeball points');
         let points = parseInt(sliderTwoOutput.innerHTML);
-        console.log(points);
         i = i - 1;
         changeDisplay(points, red, remainingPoints, i);
         playerScore = playerScore + points;
