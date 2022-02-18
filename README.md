@@ -2,7 +2,8 @@
 
 Snooker Counter is a website to aid snooker players help keep the the score during a live game of snooker. each Player can enter there names and the number of frames they would like to play. Snooker counter will keep track the player score based on the input they give it. It will then display satatics from the games player.
 
-<a href="#">View live webite......
+<a href="https://deandodds.github.io/MilestoneProject2/">View live webite......
+
 ![Mock up of website](/assets/screenshots/mockup.png)
 </a>
 
@@ -14,7 +15,7 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     * [Wireframes](#wireframes)
 2. [Features](#features)   
     * [Future Features](#future-features)  
-3. [Technologies Used](#technologies-used)
+3. [Technologies Used](#technologies)
     * [Langagues Used](#langagues)
     * [Frameworks, Libraries and Programs used](#frameworks)
 4. [Deployment](#deployment)
@@ -28,8 +29,10 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 6. [Testing](#testing) 
     * [Validation ](#validation)
     * [Lighthouse](#lighthouse)
-    * [bugs](#bugs)
+    * [Bugs](#bugs)
+    * [Known bugs](#known-bugs)
 7. [Acknowledgements](#acknowledgements)
+
 -----
 # 1. User Experience (UX) <a id="user-experience"></a>
 
@@ -39,6 +42,7 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 * As a first time visitor, I want to be able to understand the main purpose of the website.
 * As a first time visitor, i want easily navigate through the website. 
 * As a first time visitor, i want the website to allow me to easily track the score of my snooker game. 
+* As a first time visitor, i want to beable to see instuctions on how to use the webpage if i need them.
 
 
 ### Returning Visitor Goalsand 
@@ -56,23 +60,28 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 
 ## Design <a id="design"></a>
 
-
 ### Typography
 - Montserrat is the main font used for my logo with a sans serif fallback.
 - Roboto is the main font used for all headers with a sans serif fallback.
 - Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This to complimentS the Roboto font nicely.
 
 ### Colour theme
+- The color pallet for the webpage is influenced by the color of the snooker balls 
+
 ![Color palette 1 ](/assets/screenshots/colorpaletteone.png)
 ![Color palette 2 ](/assets/screenshots/colorpalettetwo.png)
 
 ### Imagary 
-- 1 x Background image 
+- 1 x Background image - image of a snooker table cloth.
 - 1 x favicon 
 
-## Wireframes 
------
-- Start up wireframe - [View](//wireframes/homepage.jpg)
+## Wireframes <a id="wireframes"></a>
+
+The wireframes forthe website were created on drawio there will only be one html page that will be minipulated by javscript to change the display.
+
+There is a desktop and mobile wireframe for this website
+
+- Start up wireframe - [View](/wireframes/homepage.jpg)
 - Settings wireframe - [View](/wireframes/wireframesetuppage.jpg)
 - Red ball wireframe - [View](/wireframes/wireframeonred.jpg)
 - Red ball mobile wireframe - [View](/wireframes/rredballwireframepng.png)
@@ -81,7 +90,7 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 - End game wireframe - [View](/wireframes/wireframescores.jpg)
 
 -----
-# 2. Features
+# 2. Features <a id="features"></a>
 
 ### Responsiveness
 * Responsiveness on all device sizes.
@@ -125,14 +134,18 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 ### Track remaining points and differnce between scores
 - Website to track the remaining points between each player and the score difference between each player.
 
+## Future features
+
+### Track frame times 
+* Website to time each frame for users and display the results at the end.  
+
 -----
 # 3.Technologies Used <a id="technologies"></a>
 
-
 ## Langagues Used <a id="langagues"></a>
-* HTML5
-* CSS
-* JavaScript
+* <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML5</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
+* <a href="https://www.javascript.com/">JavaScript</a>
 
 ## Frameworks, Libraries and Programs used <a id="frameworks"></a>
 
@@ -156,17 +169,16 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 -----
 # 4.Deployment <a id="deployment"></a>
 
-
 ## Github pages <a id=pages></a>
 
 I Deployed my project to Github pages using the following steps:
 
-1. I logged in to Github and located [repositorys](https://github.com/DeanDodds/MilestoneProject2)
+1. I logged in to Github and located [repositories](https://github.com/DeanDodds/MilestoneProject2)
 2. I then clicked on settings, this was located just above the green GitPod button.
 3. I scrolled down through the settings menu and clicked on the pages section
 4. from there, I  went to the source section and under the dropdown menu labeled none I selcted the new-main 
 5. I clicked save 
-6. after a few minutes the site was live and the link to the published website was generated [link](https://deandodds.github.io/milestoneprojectone2/)
+6. after a few minutes the site was live and the link to the published website was generated [link](https://deandodds.github.io/MilestoneProject2/)
 
 ## Making a local clone <A id="clone"></a>
 
@@ -240,6 +252,11 @@ I have tested through google dev tools lighthouse analysis which are scored on:
        * frames players have won
        ![Screenshot of scoreboard](/assets/screenshots/scoreboardscreenshots.png)
 
+       4.As a first time visitor, i want to beable to see instuctions on how to use the webpage if i need them.
+       - There is a claer button to instruction displayed on a modal.
+       ![Screenshot of button](/assets/screenshots/instructionbutton.png)
+       ![Screenshot of modal](/assets/screenshots/instructionsmodal.png)
+
  * ### Returning Visitor Goals
       1. As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
       - At the end of each game there is a reset button the resets the page.
@@ -250,7 +267,7 @@ I have tested through google dev tools lighthouse analysis which are scored on:
        - There are clear links to social media of the delevoper in the footer of the webpage.
         ![Screenshot of reset button](/assets/screenshots/footer.png)
 
- * ### * ### Website Creator goals
+ * ### Website Creator goals
       1. As a website creator, I want to create a website that works on all platforms.
       - Website runs on all devices tested.
 
@@ -319,7 +336,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - Snooker Theme tune - <a href="http://www.televisiontunes.com/Snooker_-BBC.html#google_vignette">Dragby Racer by the Doug Wood Band.</a>
 ----
 
-# Acknowledgements <a id="acknowledgements">
+# Acknowledgements <a id="acknowledgements"></a>
 
 * Chris Quinn - My Mentor for continuous helpful feedback and advice.
 * The Code Institute Slack Community
