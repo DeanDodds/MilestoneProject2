@@ -34,7 +34,7 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 # 1. User Experience (UX) <a id="user-experience"></a>
 
 ## User Stories <a id="user-stories"></a>
------
+
 ### First Time Visitor Goals
 * As a first time visitor, I want to be able to understand the main purpose of the website.
 * As a first time visitor, i want easily navigate through the website. 
@@ -55,7 +55,7 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 
 
 ## Design <a id="design"></a>
------
+
 
 ### Typography
 - Montserrat is the main font used for my logo with a sans serif fallback.
