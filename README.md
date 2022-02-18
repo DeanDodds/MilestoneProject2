@@ -1,8 +1,8 @@
 # Snooker Counter
 
-Snooker Counter is a website to aid snooker players help keep the the score during a live game of snooker. each Player can enter there names and the number of frames they would like to play. Snooker counter will keep track the player score based on the input they give it. It will then display satatics from the games player.
+Snooker Counter is a website to aid snooker players in keeping their score during a game of snooker. Each player can enter their names and the number of frames they would like to play. Snooker counter will keep track of players scores based on the data they input. It will then display satatics from the game.
 
-<a href="https://deandodds.github.io/MilestoneProject2/">View live webite......
+<a href="https://deandodds.github.io/MilestoneProject2/">View live website......
 
 ![Mock up of website](/assets/screenshots/mockup.png)
 </a>
@@ -40,14 +40,14 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 
 ### First Time Visitor Goals
 * As a first time visitor, I want to be able to understand the main purpose of the website.
-* As a first time visitor, i want easily navigate through the website. 
-* As a first time visitor, i want the website to allow me to easily track the score of my snooker game. 
-* As a first time visitor, i want to beable to see instuctions on how to use the webpage if i need them.
+* As a first time visitor, I want to easily navigate through the website. 
+* As a first time visitor, I want the website to allow me to easily track the score of my snooker game. 
+* As a first time visitor, I want to be able to see instuctions on how to use the webpage if i need them.
 
 
 ### Returning Visitor Goalsand 
-* As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
-* As a returning visitor, I want to beable to keep in touch with the creator for updates to the website 
+* As a returning visitor, I want to be able to start a new game without having to clear my previous statistics. 
+* As a returning visitor, I want to be able to keep in touch with the creator for updates to the website. 
 
 
 ### Website Creator goals
@@ -63,21 +63,21 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 ### Typography
 - Montserrat is the main font used for my logo with a sans serif fallback.
 - Roboto is the main font used for all headers with a sans serif fallback.
-- Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This to complimentS the Roboto font nicely.
+- Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This compliments the Roboto font nicely.
 
 ### Colour theme
-- The color pallet for the webpage is influenced by the color of the snooker balls 
+- The colour pallet for the webpage is influenced by the colour of the snooker balls and table. 
 
 ![Color palette 1 ](/assets/screenshots/colorpaletteone.png)
 ![Color palette 2 ](/assets/screenshots/colorpalettetwo.png)
 
 ### Imagary 
-- 1 x Background image - image of a snooker table cloth.
-- 1 x favicon 
+- 1 x background image - image of a snooker table cloth.
+- 1 x favicon. 
 
 ## Wireframes <a id="wireframes"></a>
 
-The wireframes forthe website were created on drawio there will only be one html page that will be minipulated by javscript to change the display.
+The wireframes for the website were created on Drawio, there will only be one html page that will be minipulated by JavaScript to change the display.
 
 There is a desktop and mobile wireframe for this website
 
@@ -86,7 +86,7 @@ There is a desktop and mobile wireframe for this website
 - Red ball wireframe - [View](/wireframes/wireframeonred.jpg)
 - Red ball mobile wireframe - [View](/wireframes/rredballwireframepng.png)
 - Colour ball wireframe - [View](/wireframes/wireframeoncolor.jpg)
-- colur ball mobile wireframe [View](/wireframes/colorBallwireframe.drawio.png)
+- Colour ball mobile wireframe [View](/wireframes/colorBallwireframe.drawio.png)
 - End game wireframe - [View](/wireframes/wireframescores.jpg)
 
 -----
@@ -102,11 +102,11 @@ There is a desktop and mobile wireframe for this website
 ![header screenshot](/assets/screenshots/headerscreenshot.png)
 
 ### Footer 
-* footer that displays while the game is not being played. This will contains links to developer social media. 
+* Footer that displays while the game is not being played. This will contains links to developer social media. 
 ![footer screenshot](/assets/screenshots/footer.png)
 
 ### Start page
-* Start page with two buttons one to navigate through the website and another to display a modal containing instructions on how to use the website.
+* Start page with two buttons, one to navigate through the website and another to display a modal containing instructions on how to use the website.
 ![instructions modal](/assets/screenshots/titlepage.png)
 
 ### Settings page
@@ -114,33 +114,33 @@ There is a desktop and mobile wireframe for this website
 ![settings page screenshot](/assets/screenshots/settingspagescreenshot.png)
 
 ### End Page
-* End page to display game status such as:
+* End page to display game status, such as:
     - Player names and who the overall winner is
-    - plaers best snooker break 
-    - the amount of fouls won by each player
-    - number of frames each player wins 
+    - Players best snooker break 
+    - The amount of fouls won by each player
+    - The number of frames each player wins 
 ![End game display](/assets/screenshots/restartbutton.png)
 
 
 ### Changing displays
-- Website to chanage display depending on the stage of the snooker game.
+- Website is to chanage display depending on the stage of the snooker game.
 ![Screenshot of button](/assets/screenshots/changeone.png)
        ![Screenshot of modal](/assets/screenshots/changetwo.png)
        
 ### Track frames 
-- website to track the number of frames players win and end the game once a player wins the majority of frames.
+- Website to track the number of frames players win, and end the game once a player wins the majority of frames.
 ![frames counter](/assets/screenshots/frames.png)
 
 ### Track remaining points and differnce between scores
-- Website to track the remaining points between each player and the score difference between each player.
+- Website to track the remaining points between each player, and display the score difference between each player.
 ![remaining poits](/assets/screenshots/trackpointsscreenshots.png)
 
 ### Freeball modal
-- A modal allowing players to input points froma freeball
+- A modal allowing players to input points froma freeball.
 ![freeball modal](/assets/screenshots/freeballmodal.png)
 
 ### Foul Modal
-- A modal to allow players to add fouls to the score
+- A modal to allow players to add fouls to the score.
 ![foul modal](/assets/screenshots/foulmodal.png)
 
 ## Future features<a id="future-features"></a>
@@ -167,7 +167,7 @@ There is a desktop and mobile wireframe for this website
 - <a href="https://www.adobe.com/uk/creativecloud/renew/resubscribe-cci.html?mv=search&mv=search&sdid=NYTLQZ47&ef_id=CjwKCAiAl-6PBhBCEiwAc2GOVBVVZWAM7BSlwfKAnfOwXnRkvfkZi8jooQjOrIjBJtMIUCE3M9zzIBoCbTEQAvD_BwE:G:s&s_kwcid=AL!3085!3!436521415410!e!!g!!photoshop!10105625998!106997352408&gclid=CjwKCAiAl-6PBhBCEiwAc2GOVBVVZWAM7BSlwfKAnfOwXnRkvfkZi8jooQjOrIjBJtMIUCE3M9zzIBoCbTEQAvD_BwE">Photoshop:</a> 
     Used to create logo and resize images. 
 - <a href="https://jquery.com/">JQuery:</a>
-    Used with both Boostrap 5.
+    Used with both Boostrap 5 and to develop the website.
 - <a href="https://gitpod.io/">Gitpod: </a>
     Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - <a href="https://github.com/">GitHub:</a>
@@ -180,10 +180,10 @@ There is a desktop and mobile wireframe for this website
 
 ## Github pages <a id=pages></a>
 
-I Deployed my project to Github pages using the following steps:
+I deployed my project to Github pages using the following steps:
 
 1. I logged in to Github and located [repositories](https://github.com/DeanDodds/MilestoneProject2)
-2. I then clicked on settings, this was located just above the green GitPod button.
+2. I then clicked on settings, this was located just above the green GitPod button
 3. I scrolled down through the settings menu and clicked on the pages section
 4. from there, I  went to the source section and under the dropdown menu labeled none I selcted the new-main 
 5. I clicked save 
@@ -214,7 +214,7 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 
 ## Validation <a id="validation"></a>
 
-I used the W3C Markup and CSS Validator Service to ensure there was no syntax errors throughout my webpage.
+I used the W3C Markup and CSS Validator Service to ensure there was no syntax errors throughout my website.
 
 
 ## W3C Mark up Validator
@@ -245,15 +245,15 @@ I have tested through google dev tools lighthouse analysis which are scored on:
 
    * ### First Time Visitor Goals
       1. As a first time visitor, I want to be able to understand the main purpose of the website.
-       - When entering the webpage there is a page title with an explaintion of the main purpose of the website
+       - When entering the webpage there is a page title with an explaintion of the main purpose of the website.
        ![Screenhot of page title](/assets/screenshots/titlepage.png)
 
-      2. As a first time visitor, i want easily navigate through the website. 
-        - The webpage has clear navigation buttons and the will automatically change when buttons are clicked to limit user choice to only the relevant buttons
+      2. As a first time visitor, I want to easily navigate through the website. 
+        - The webpage has clear navigation buttons which will automatically change when buttons are clicked to limit user choice to only the relevant buttons.
         ![Screenhot of red ball button](/assets/screenshots/navigationbuttons.png)
         ![Screenhot of coloured ball buttons](/assets/screenshots/colornavigationbuttons.png)
 
-      3.  s a first time visitor, i want the website to allow me to easily track the score of my snooker game.
+      3.  As a first time visitor, I want the website to allow me to easily track the score of my snooker game.
        -  the webpage clearly displays 
        * player scores
        * player names 
@@ -261,18 +261,18 @@ I have tested through google dev tools lighthouse analysis which are scored on:
        * frames players have won
        ![Screenshot of scoreboard](/assets/screenshots/scoreboardscreenshots.png)
 
-       4.As a first time visitor, i want to beable to see instuctions on how to use the webpage if i need them.
-       - There is a claer button to instruction displayed on a modal.
+       4.As a first time visitor, i want to be able to see instuctions on how to use the webpage if i need them.
+       - There is a clear button to instructions displayed on a modal.
        ![Screenshot of button](/assets/screenshots/instructionbutton.png)
        ![Screenshot of modal](/assets/screenshots/instructionsmodal.png)
 
  * ### Returning Visitor Goals
-      1. As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
-      - At the end of each game there is a reset button the resets the page.
-      - The page does not remaber previous information.
+      1. As a returning visitor, I want to be able to start a new game and all my previous games statisics to have been reset.
+      - At the end of each game there is a reset button that resets the page.
+      - The page does not remember previous information.
       ![Screenshot of reset button](/assets/screenshots/restartbutton.png)
 
-      2. As a returning visitor, I want to beable to keep in touch with the creator for updates to the website
+      2. As a returning visitor, I want to be able to keep in touch with the creator for updates to the website
        - There are clear links to social media of the delevoper in the footer of the webpage.
         ![Screenshot of reset button](/assets/screenshots/footer.png)
 
@@ -284,7 +284,7 @@ I have tested through google dev tools lighthouse analysis which are scored on:
       - Navigation system worked well during user testing. 
 
       3. As a website creator, I want my website load times to be low. I do not want users leaving the site before it has time to load.
-      - webpage has a 96% performace rating during lighthouse testing 
+      - Website has a 96% performace rating during lighthouse testing. 
 
       4. As a website creator, I want my website to be as accesible as possible.
       - Webpages all pass lighthouse accesibility testing.
@@ -306,23 +306,23 @@ I have tested my project on a variety of browsers such as:
   
 I have also tested it on a range of devices such as:
   * Iphone 12
-  * samsung s21
-  * Apple mac Laptop 
+  * Samsung s21
+  * Apple Mac Laptop 
   * Windows Desktop
   * Huawei T10 tablet
 
-I have used the Chrome developer tools to test responsiveness on different device simulations 
+I have used the Chrome developer tools to test responsiveness on different device simulations.
 
-I have used my website to score my snooker games and fixed any bugs that occured i also asked my friends to use it during there games and report any problems  
+I have used my website to score my snooker games and fixed any bugs that occured, I also asked my friends to use it during their games and report any problems.  
 
 ## Bugs<id href="bugs">
 
 ### bugs found and fixed
-- background image does not load on the live website - fix found on Stackoverflow<a href="https://stackoverflow.com/questions/41607049/background-images-not-showing-on-github-pages-for-website"></a>
-- settings form required attribute not working - fixed by stopping the hidden class being applted if the feilds were empty this then allowed the 
+- Background image does not load on the live website - fix found on Stackoverflow<a href="https://stackoverflow.com/questions/41607049/background-images-not-showing-on-github-pages-for-website"></a>
+- Settings form required attribute not working - fixed by stopping the hidden class being applied if the feilds were empty.
 
 ### known bugs
-- when the end of break button pressed the score difference displays incorrectly
+- When the end of break button is pressed the score difference displays incorrectly.
 
 ----
 # 6. Credits <a id="credits"></a>
@@ -348,4 +348,4 @@ I have used my website to score my snooker games and fixed any bugs that occured
 # 7. Acknowledgements <a id="acknowledgements"></a>
 
 * Chris Quinn - My Mentor for continuous helpful feedback and advice.
-* The Code Institute Slack Community
+* The Code Institute Slack Community.
