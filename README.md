@@ -94,22 +94,24 @@ There is a desktop and mobile wireframe for this website
 
 ### Responsiveness
 * Responsiveness on all device sizes.
+![mobile screenshot](/assets/screenshots/mobilescreenshot.jpeg)
+![desktop version](/assets/screenshots/chromescrenshot.png)
 
 ### Header
 * All pages have the logo and mute button at the top of each page. 
-
+![header screenshot](/assets/screenshots/headerscreenshot.png)
 
 ### Footer 
 * footer that displays while the game is not being played. This will contains links to developer social media. 
-
+![footer screenshot](/assets/screenshots/footer.png)
 
 ### Start page
-* Start page with two buttons one to navigate through the website and another to display a modal containg instructions on how to use the website.
-
+* Start page with two buttons one to navigate through the website and another to display a modal containing instructions on how to use the website.
+![instructions modal](/assets/screenshots/titlepage.png)
 
 ### Settings page
 * Settings page for users to input the settings to the game.
-
+![settings page screenshot](/assets/screenshots/settingspagescreenshot.png)
 
 ### End Page
 * End page to display game status such as:
@@ -117,22 +119,29 @@ There is a desktop and mobile wireframe for this website
     - plaers best snooker break 
     - the amount of fouls won by each player
     - number of frames each player wins 
-
-
-### Track score during the Game
-- Website will allow players to track the score by pressing the colours ball they have potted. There will also be a modal to input fouls to the score.
+![End game display](/assets/screenshots/restartbutton.png)
 
 
 ### Changing displays
 - Website to chanage display depending on the stage of the snooker game.
-
-
+![Screenshot of button](/assets/screenshots/instructionbutton.png)
+       ![Screenshot of modal](/assets/screenshots/instructionsmodal.png)
+       
 ### Track frames 
 - website to track the number of frames players win and end the game once a player wins the majority of frames.
-
+![frames counter](/assets/screenshots/frames.png)
 
 ### Track remaining points and differnce between scores
 - Website to track the remaining points between each player and the score difference between each player.
+![remaining poits](/assets/screenshots/trackpointsscreenshots.png)
+
+### Freeball modal
+- A modal allowing players to input points froma freeball
+![freeball modal](/assets/screenshots/freeballmodal.png)
+
+### Foul Modal
+- A modal to allow players to add fouls to the score
+![foul modal](/assets/screenshots/foulmodal.png)
 
 ## Future features<a id="future-features"></a>
 
