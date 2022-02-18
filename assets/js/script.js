@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <p>Number of frames won: <span>${playerOneFrames}</span></p>
                 <p>Highest break: <span>${playerOneHighestBreak}</span></p>
-                <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
+                <p>Points won in fouls: <span>${playerOneFouls}</span></p>
             </div>
 
             <div class="player-display-scores text-center">
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <p>Number of frames won: <span>${playerTwoFrames}</span></p>
                 <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
-                <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
+                <p>Points won in fouls <span>${playerTwoFouls}</span></p>
             </div>
 
             <button id="reset-button" class="btn btn-secondary">Restart</button>  
