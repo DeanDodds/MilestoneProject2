@@ -22,15 +22,15 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     * [Github pages](#pages)
     * [Making a local clone](#clone)
     * [Forking the GitHub Repository](#fork)
-5. [Credis](#credits)
-    * [Code](#code)
-    * [Content](#content)
-    * [Media](#media)
-6. [Testing](#testing) 
+5. [Testing](#testing) 
     * [Validation ](#validation)
     * [Lighthouse](#lighthouse)
     * [Bugs](#bugs)
     * [Known bugs](#known-bugs)
+6. [Credis](#credits)
+    * [images](#images)
+    * [Code](#code)
+    * [Sound](#sounds)
 7. [Acknowledgements](#acknowledgements)
 
 -----
@@ -134,7 +134,7 @@ There is a desktop and mobile wireframe for this website
 ### Track remaining points and differnce between scores
 - Website to track the remaining points between each player and the score difference between each player.
 
-## Future features
+## Future features<a id="future-features"></a>
 
 ### Track frame times 
 * Website to time each frame for users and display the results at the end.  
@@ -308,7 +308,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 
 ## Bugs<id href="bugs">
 
-### bugs found 
+### bugs found and fixed
 - background image does not load on the live website - fix found on Stackoverflow<a href="https://stackoverflow.com/questions/41607049/background-images-not-showing-on-github-pages-for-website"></a>
 - settings form required attribute not working - fixed by stopping the hidden class being applted if the feilds were empty this then allowed the 
 
@@ -316,14 +316,14 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - when the end of break button pressed the score difference displays incorrectly
 
 ----
-6. # Credits <a id="credits"></a>
+# 6.Credits <a id="credits"></a>
 
 
-## Images
+## Images <a id="images"></a>
 - Favicon image<a href="https://www.flaticon.com/free-icons/snooker" title="snooker icons"> Snooker icons created by Freepik - Flaticon</a>
 - Background Image -<a href="https://www.istockphoto.com/photo/green-felt-texture-for-poker-and-casino-background-gm1133423137-300816310?clarity=false"> Leszek Kobusinski - iStock </a> 
 
-## Code
+## Code <a id="code"></a>
 - html sliders <a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
 - CSS Sphere  - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"> From Ran Enoch at CSSDECK.COM</a>
 - CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
@@ -331,7 +331,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial
 - mute function - <a href="https://stackoverflow.com/questions/14044761/how-to-mute-all-sound-in-a-page-with-js/37218500"> by Zach Saucier - Stackoverflow</a>
 
-## Sounds
+## Sounds <a id="sounds"></a>
 - Pot sound - <a href="https://freesfx.co.uk/sfx/snooker"> by freefx.co.uk</a>
 - Snooker Theme tune - <a href="http://www.televisiontunes.com/Snooker_-BBC.html#google_vignette">Dragby Racer by the Doug Wood Band.</a>
 ----
