@@ -140,7 +140,7 @@ There is a desktop and mobile wireframe for this website
 * Website to time each frame for users and display the results at the end.  
 
 -----
-# 3.Technologies Used <a id="technologies"></a>
+# 3. Technologies Used <a id="technologies"></a>
 
 ## Langagues Used <a id="langagues"></a>
 * <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML5</a>
@@ -167,7 +167,7 @@ There is a desktop and mobile wireframe for this website
     Used to create all wireframes.
 
 -----
-# 4.Deployment <a id="deployment"></a>
+# 4. Deployment <a id="deployment"></a>
 
 ## Github pages <a id=pages></a>
 
@@ -200,7 +200,7 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 3. the copy of this resository should now be in your own repositories
 
 ------
-# Testing <a id="testing"></a>
+# 5. Testing <a id="testing"></a>
 
 
 ## Validation <a id="validation"></a>
@@ -316,7 +316,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - when the end of break button pressed the score difference displays incorrectly
 
 ----
-# 6.Credits <a id="credits"></a>
+# 6. Credits <a id="credits"></a>
 
 
 ## Images <a id="images"></a>
@@ -328,7 +328,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - CSS Sphere  - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"> From Ran Enoch at CSSDECK.COM</a>
 - CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
 - addSUM function <a href ="https://medium.com/@chrisburgin95/rewriting-javascript-sum-an-array-dbf838996ed0">by Chris Burgin</a>
-- checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial
+- checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial</a>
 - mute function - <a href="https://stackoverflow.com/questions/14044761/how-to-mute-all-sound-in-a-page-with-js/37218500"> by Zach Saucier - Stackoverflow</a>
 
 ## Sounds <a id="sounds"></a>
@@ -336,7 +336,7 @@ I have used my website to score my snooker games and fixed any bugs that occured
 - Snooker Theme tune - <a href="http://www.televisiontunes.com/Snooker_-BBC.html#google_vignette">Dragby Racer by the Doug Wood Band.</a>
 ----
 
-# Acknowledgements <a id="acknowledgements"></a>
+# 7. Acknowledgements <a id="acknowledgements"></a>
 
 * Chris Quinn - My Mentor for continuous helpful feedback and advice.
 * The Code Institute Slack Community
