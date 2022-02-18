@@ -124,8 +124,8 @@ There is a desktop and mobile wireframe for this website
 
 ### Changing displays
 - Website to chanage display depending on the stage of the snooker game.
-![Screenshot of button](/assets/screenshots/instructionbutton.png)
-       ![Screenshot of modal](/assets/screenshots/instructionsmodal.png)
+![Screenshot of button](/assets/screenshots/changeone.png)
+       ![Screenshot of modal](/assets/screenshots/changetwo.png)
        
 ### Track frames 
 - website to track the number of frames players win and end the game once a player wins the majority of frames.
