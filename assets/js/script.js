@@ -638,6 +638,18 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let checkbox of checkboxes) {
             checkbox.checked = false;
         }
+        document.getElementById('myRange').value = 4;
+        document.getElementById('demo').innerHTML = 4;
+
+    }
+
+    /**
+     * reset free ball slider
+     */
+    function resetFreeBallSlider() {
+        document.getElementById('freeball-counter').value = 1;
+        document.getElementById('free-ball-points').innerHTML = 1;
+
     }
 
     /**
@@ -718,6 +730,8 @@ document.addEventListener('DOMContentLoaded', function () {
         changeDisplay(points, red, remainingPoints, i);
         playerScore = playerScore + points;
         currentPlayerScoreMarker.innerHTML = playerScore;
+        resetFreeBallSlider();
         closeFreeBallModal();
+
     }
 });
