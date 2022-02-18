@@ -2,16 +2,16 @@
 
 Snooker Counter is a website to aid snooker players help keep the the score during a live game of snooker. each Player can enter there names and the number of frames they would like to play. Snooker counter will keep track the player score based on the input they give it. It will then display satatics from the games player.
 
-<a href="https://deandodds.github.io/MilestoneProject2/">View live webite......
+<a href="#">View live webite......
 ![Mock up of website](/assets/screenshots/mockup.png)
 </a>
 
-# Table of content
+# Table of contents
 
 1. [User Experience (UX)](#user-experience)
-* [User Stories](#user-stories)
-* [Design](#design)
-* [Wireframes](#wireframes)
+    * [User Stories](#user-stories)
+    * [Design](#design)
+    * [Wireframes](#wireframes)
 2. [Features](#features)   
     * [Future Features](#future-features)  
 3. [Technologies Used](#technologies-used)
@@ -26,9 +26,9 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     * [Content](#content)
     * [Media](#media)
 6. [Testing](#testing) 
-    *[Validation ](#validation)
-    *[Lighthouse](#lighthouse)
-    *[bugs](#bugs)
+    * [Validation ](#validation)
+    * [Lighthouse](#lighthouse)
+    * [bugs](#bugs)
 7. [Acknowledgements](#acknowledgements)
 
 
@@ -81,10 +81,10 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 3. ## Features
 -----
 
-* Responsiveness on all device sizes
+* Responsiveness on all device sizes.
 
 ### Header
-* All pages have the logo and mute button at the top of each page.
+* All pages have the logo and mute button at the top of each page. 
 
 ### Footer 
 * footer that displays while the game is not being played. This will contains links to developer social media. 
@@ -93,24 +93,26 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 * Start page with two buttons one to navigate through the website and another to display a modal containg instructions on how to use the website.
 
 ### Settings page
-* Settings page for users to input the settings to the game
+* Settings page for users to input the settings to the game.
 
 ### End Page
 * End page to display game status such as:
-    - Player names 
+    - Player names and who the overall winner is
     - plaers best snooker break 
-    - the amount of fouls completed by each player
+    - the amount of fouls won by each player
     - number of frames each player wins 
 
 ### Track score during the Game
-- Website will allow players to track the score by pressing the color ball they have potted. There will also be a modal to input fouls to the score 
+- Website will allow players to track the score by pressing the colours ball they have potted. There will also be a modal to input fouls to the score.
 
 ### Changing displays
 - Website to chanage display depending on the stage of the snooker game.
 
 ### Track frames 
-- website to track the number of frames players win 
+- website to track the number of frames players win and end the game once a player wins the majority of frames.
 
+###
+- Website to track the remaining points between each player and the score difference between each player.
 
 4. ## Technologies Used <a id="technologies"></a>
 -----
@@ -175,16 +177,18 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 
 # Testing <a id="testing"></a>
 
-## Validation <a id="validation">
+
+## Validation <a id="validation"></a>
 
 I used the W3C Markup and CSS Validator Service to ensure there was no syntax errors throughout my webpage.
+
 
 ## W3C Mark up Validator
 
 Index.html - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdeandodds.github.io%2FMilestoneProject2%2F">View</a>
 
 
-### W3C CSS Validator
+## W3C CSS Validator
 
 <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdeandodds.github.io%2FMilestoneProject2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">View</a>
 
@@ -193,8 +197,7 @@ Index.html - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdeandodds.g
 
 My JavaScript code was validated by <a href="https://jshint.com/">jshint.com</a> and contains no major errors.
 
-
-## LightHouse Testing <a id="lighthouse">
+## LightHouse Testing <a id="lighthouse"></a>
 
 I have tested through google dev tools lighthouse analysis which are scored on: 
 * Performance 
@@ -204,25 +207,95 @@ I have tested through google dev tools lighthouse analysis which are scored on:
 
 ![light house test screen shot](/assets/screenshots/lighthousereport.png)
 
+## Testing User Stories from User Experience (UX) Section <a id="user"></a>
+
+   * ### First Time Visitor Goals
+      1. As a first time visitor, I want to be able to understand the main purpose of the website.
+       - When entering the webpage there is a page title with an explaintion of the main purpose of the website
+       ![Screenhot of page title](#)
+
+      2. As a first time visitor, i want easily navigate through the website. 
+        - The webpage has clear navigation buttons and the will automatically change when buttons are clicked to limit user choice to only the relevant buttons
+        ![Screenhot of red ball button](#)
+        ![Screenhot of coloured ball buttons](#)
+
+      3.  s a first time visitor, i want the website to allow me to easily track the score of my snooker game.
+       -  the webpage clearly displays 
+       * player scores
+       * player names 
+       * number of frames 
+       * frames players have won
+       ![Screenshot of scoreboard](#)
+
+ * ### Returning Visitor Goals
+      1. As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
+      - At the end of each game there is a reset button the resets the page.
+      - The page does not remaber previous information.
+      ![Screenshot of reset button](#)
+
+      2. As a returning visitor, I want to beable to keep in touch with the creator for updates to the website
+       - There are clear links to social media of the delevoper in the footer of the webpage.
+        ![Screenshot of reset button](#)
+
+ * ### * ### Website Creator goals
+      1. As a website creator, I want to create a website that works on all platforms.
+      - Website runs on all devices tested.
+
+      2. As a website creator, I want to create a good user experience by having a clear navigation system.
+      - Navigation system worked well during user testing. 
+
+      3. As a website creator, I want my website load times to be low. I do not want users leaving the site before it has time to load.
+      - webpage has a 89% performace rating during lighthouse testing 
+
+      4. As a website creator, I want my website to be as accesible as possible.
+      - Webpages all pass lighthouse accesibility testing.
+
+I have tested my project on a variety of browsers such as:
+  ### Google Chrome 
+
+  ![Screen shot of Google Chrome](#)
+
+
+  ### Firefox 
+  ![Screen shot of Firefox Browser ](#)
+
+
+  ### Safari
+
+  ![Screen shot of Safari](#)
+  
+  
+I have also tested it on a range of devices such as:
+  * Iphone 12
+  * samsung s21
+  * Apple mac Laptop 
+  * Windows Desktop
+  * Huawei T10 tablet
+
+I have used the Chrome developer tools to test responsiveness on different device simulations 
+
+I have used my website to score my snooker games and fixed any bugs that occured i also asked my friends to use it during there games and report any problems  
+
 ## Bugs<id href="bugs">
 
 ### bugs found 
-- background image does not load on the live website - fix 
-- settings form required attribute not working - fix
+- background image does not load on the live website - fix found on Stackoverflow<a href="https://stackoverflow.com/questions/41607049/background-images-not-showing-on-github-pages-for-website"></a>
+- settings form required attribute not working - fixed by stopping the hidden class being applted if the feilds were empty this then allowed the 
 
 ### known bugs
+- when the end of break button pressed the score difference displays incorrectly
 
 6. # Credits
 -----
 
 ## Images
 - Favicon image<a href="https://www.flaticon.com/free-icons/snooker" title="snooker icons"> Snooker icons created by Freepik - Flaticon</a>
-- Background Image -<a href="https://www.shutterstock.com/image-illustration/3d-rendering-empty-billiard-table-top-1049972813"> Created by Gearstd - Sutterstock </a> 
-- CSS Sphere  - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"> From Ran Enoch at CSSDECK.COM</a>
-- CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
+- Background Image -<a href="https://www.istockphoto.com/photo/green-felt-texture-for-poker-and-casino-background-gm1133423137-300816310?clarity=false"> Leszek Kobusinski - iStock </a> 
 
 ## Code
 - html sliders <a href ="https://www.w3schools.com/howto/howto_js_rangeslider.asp">by 3W3Schools</a>
+- CSS Sphere  - <a href="https://cssdeck.com/blog/making-a-sphere-in-css/"> From Ran Enoch at CSSDECK.COM</a>
+- CSS Triangle - <a href="https://css-tricks.com/snippets/css/css-triangle/">Created by Chris Coyler - CSS-TRICKS</a>
 - addSUM function <a href ="https://medium.com/@chrisburgin95/rewriting-javascript-sum-an-array-dbf838996ed0">by Chris Burgin</a>
 - checkbox validation - <a href="https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/"> by JavaScript Tutorial
 - mute function - <a href="https://stackoverflow.com/questions/14044761/how-to-mute-all-sound-in-a-page-with-js/37218500"> by Zach Saucier - Stackoverflow</a>
