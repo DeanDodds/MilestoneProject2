@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /** ends current frame */
-    function endCurrentFrame(currentScoreDifference) {
+    function endCurrentFrame() {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         endFrame();
         clearPoints();
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             changeDisplay();
         }
         remainingPoints = trackRemainingPoints(red, colours, 2);
-        viewRemaingingpoints(remainingPoints, currentScoreDifference);
+        viewRemaingingpoints(remainingPoints);
     }
 
     /**
@@ -274,17 +274,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * displays remaining points 
+     * displays remaining points element 
      * @param {remainingPoints} 
      */
-    function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
+    function viewRemaingingpoints(remainingPoints) {
         document.getElementById('remaining-points').innerHTML = remainingPoints;
         document.getElementById('remaining').classList.remove('hidden');
-        document.getElementById('point-difference').innerHTML = currentScoreDifference;
-        document.getElementById('differnce').classList.remove('hidden');
+
 
     }
 
+    /**
+     * hides the remaining points element 
+     */
     function hideRemainingPoints() {
         document.getElementById('remaining-points-section').classList.add('hidden');
     }
@@ -551,8 +553,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             scoreDiffence = playerTwoScore - playerOneScore;
         }
-        document.getElementById('point-difference').innertext = scoreDiffence;
         document.getElementById('remaining-points-section').classList.remove('hidden');
+        document.getElementById('point-difference').innerHTML = scoreDiffence;
+        document.getElementById('differnce').classList.remove('hidden');
         return scoreDiffence;
     }
 
@@ -628,6 +631,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
+     * uncheck form boxes
+     */
+    function uncheckFormBoxesOnSubmit() {
+        let checkboxes = document.getElementsByClassName('checkbox');
+        for (let checkbox of checkboxes) {
+            checkbox.checked = false;
+        }
+    }
+
+    /**
      * get the data from the the foul form and 
      */
     function playerFoul(currentScoreDifference) {
@@ -656,6 +669,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (remainingPoints <= 27) {} else {
             changeDisplay();
         }
+        uncheckFormBoxesOnSubmit()
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         saveFoul(activePlayerOneMarker, foul);
         breakTotal = 0;
@@ -663,6 +677,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentScoreDifference = checkDiffernce();
         viewRemaingingpoints(remainingPoints, currentScoreDifference);
     }
+
 
     /**
      * Saves fouls to the afoul tally array 
@@ -680,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * runs the the main game 
      */
-    function runMainainGame(currentScoreDifference) {
+    function runMainainGame() {
         playPotSound();
         points = parseInt(this.innerHTML);
         breakTotal = breakTotal + points;
@@ -692,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function () {
         remainingPoints = trackRemainingPoints(red, colours, points);
         currentScoreDifference = checkDiffernce();
         noPointsLeft(remainingPoints);
-        viewRemaingingpoints(remainingPoints, currentScoreDifference);
+        viewRemaingingpoints(remainingPoints);
         changeDisplay(points, red, remainingPoints, i);
     }
 
