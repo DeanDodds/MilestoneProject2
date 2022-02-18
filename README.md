@@ -146,9 +146,9 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     Used to create logo and resize images. 
 - <a href="https://jquery.com/">JQuery:</a>
     Used with both Boostrap 5.
-- <a href="#">Gitpod: </a>
+- <a href="https://gitpod.io/">Gitpod: </a>
     Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-- <a href="#">GitHub:</a>
+- <a href="https://github.com/">GitHub:</a>
     Used to store the projects code once pushed from Gitpot.
 - <a href="https://app.diagrams.net/">Drawio.net:</a>
     Used to create all wireframes.
@@ -218,19 +218,19 @@ I have tested through google dev tools lighthouse analysis which are scored on:
 * Best Practices 
 * Search Engine Optimization (SEO)
 
-![light house test screen shot](/assets/screenshots/lighthousereport.png)
+![light house test screen shot](/assets/screenshots/lighthousescreenshot.png)
 
 ## Testing User Stories from User Experience (UX) Section <a id="user"></a>
 
    * ### First Time Visitor Goals
       1. As a first time visitor, I want to be able to understand the main purpose of the website.
        - When entering the webpage there is a page title with an explaintion of the main purpose of the website
-       ![Screenhot of page title](#)
+       ![Screenhot of page title](/assets/screenshots/titlepage.png)
 
       2. As a first time visitor, i want easily navigate through the website. 
         - The webpage has clear navigation buttons and the will automatically change when buttons are clicked to limit user choice to only the relevant buttons
-        ![Screenhot of red ball button](#)
-        ![Screenhot of coloured ball buttons](#)
+        ![Screenhot of red ball button](/assets/screenshots/navigationbuttons.png)
+        ![Screenhot of coloured ball buttons](/assets/screenshots/colornavigationbuttons.png)
 
       3.  s a first time visitor, i want the website to allow me to easily track the score of my snooker game.
        -  the webpage clearly displays 
@@ -238,17 +238,17 @@ I have tested through google dev tools lighthouse analysis which are scored on:
        * player names 
        * number of frames 
        * frames players have won
-       ![Screenshot of scoreboard](#)
+       ![Screenshot of scoreboard](/assets/screenshots/scoreboardscreenshots.png)
 
  * ### Returning Visitor Goals
       1. As a returning visitor, I want to beable to start a new game and all my previous games statisics to have been reset 
       - At the end of each game there is a reset button the resets the page.
       - The page does not remaber previous information.
-      ![Screenshot of reset button](#)
+      ![Screenshot of reset button](/assets/screenshots/restartbutton.png)
 
       2. As a returning visitor, I want to beable to keep in touch with the creator for updates to the website
        - There are clear links to social media of the delevoper in the footer of the webpage.
-        ![Screenshot of reset button](#)
+        ![Screenshot of reset button](/assets/screenshots/footer.png)
 
  * ### * ### Website Creator goals
       1. As a website creator, I want to create a website that works on all platforms.
@@ -258,7 +258,7 @@ I have tested through google dev tools lighthouse analysis which are scored on:
       - Navigation system worked well during user testing. 
 
       3. As a website creator, I want my website load times to be low. I do not want users leaving the site before it has time to load.
-      - webpage has a 89% performace rating during lighthouse testing 
+      - webpage has a 96% performace rating during lighthouse testing 
 
       4. As a website creator, I want my website to be as accesible as possible.
       - Webpages all pass lighthouse accesibility testing.
@@ -266,16 +266,16 @@ I have tested through google dev tools lighthouse analysis which are scored on:
 I have tested my project on a variety of browsers such as:
   ### Google Chrome 
 
-  ![Screen shot of Google Chrome](#)
+  ![Screen shot of Google Chrome](/assets/screenshots/chromescrenshot.png)
 
 
   ### Firefox 
-  ![Screen shot of Firefox Browser ](#)
+  ![Screen shot of Firefox Browser ](/assets/screenshots/firefoxscreenshot.png)
 
 
   ### Safari
 
-  ![Screen shot of Safari](#)
+  ![Screen shot of Safari](/assets/screenshots/safariscreenshot.png)
   
   
 I have also tested it on a range of devices such as:
@@ -298,8 +298,9 @@ I have used my website to score my snooker games and fixed any bugs that occured
 ### known bugs
 - when the end of break button pressed the score difference displays incorrectly
 
-6. # Credits
------
+----
+6. # Credits <a id="credits"></a>
+
 
 ## Images
 - Favicon image<a href="https://www.flaticon.com/free-icons/snooker" title="snooker icons"> Snooker icons created by Freepik - Flaticon</a>
@@ -316,3 +317,9 @@ I have used my website to score my snooker games and fixed any bugs that occured
 ## Sounds
 - Pot sound - <a href="https://freesfx.co.uk/sfx/snooker"> by freefx.co.uk</a>
 - Snooker Theme tune - <a href="http://www.televisiontunes.com/Snooker_-BBC.html#google_vignette">Dragby Racer by the Doug Wood Band.</a>
+----
+
+# Acknowledgements <a id="acknowledgements">
+
+* Chris Quinn - My Mentor for continuous helpful feedback and advice.
+* The Code Institute Slack Community
