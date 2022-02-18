@@ -33,10 +33,13 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 
 
 
-1. ## User Experience (UX) <a id="user-experience"></a>
+
+
+
+# User Experience (UX) <a id="user-experience"></a>
 -----
 
-### User Stories <a id="user-stories"></a>
+## User Stories <a id="user-stories"></a>
 
 ### First Time Visitor Goals
 * As a first time visitor, I want to be able to understand the main purpose of the website.
@@ -63,6 +66,10 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 - Montserrat is the main font used for my logo with a sans serif fallback.
 - Roboto is the main font used for all headers with a sans serif fallback.
 - Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This to complimentS the Roboto font nicely.
+
+### Colour theme
+![Color palette 1 ](#)
+![Color palette 2 ](#)
 
 ### Imagary 
 - 1 x Background image 
