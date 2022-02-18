@@ -30,17 +30,11 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     * [Lighthouse](#lighthouse)
     * [bugs](#bugs)
 7. [Acknowledgements](#acknowledgements)
-
-
-
-
-
-
-# User Experience (UX) <a id="user-experience"></a>
 -----
+# 1. User Experience (UX) <a id="user-experience"></a>
 
 ## User Stories <a id="user-stories"></a>
-
+-----
 ### First Time Visitor Goals
 * As a first time visitor, I want to be able to understand the main purpose of the website.
 * As a first time visitor, i want easily navigate through the website. 
@@ -59,7 +53,8 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 * As a website creator, I want my website to be as accesible as possible in order to be inclusive to all potenial users.
 
 
-2. ## Design <a id="design"></a>
+
+## Design <a id="design"></a>
 -----
 
 ### Typography
@@ -68,39 +63,44 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 - Raleway is the font used for the main text area of the web appliction with a sans serif fallback. This to complimentS the Roboto font nicely.
 
 ### Colour theme
-![Color palette 1 ](#)
-![Color palette 2 ](#)
+![Color palette 1 ](/assets/screenshots/colorpaletteone.png)
+![Color palette 2 ](/assets/screenshots/colorpalettetwo.png)
 
 ### Imagary 
 - 1 x Background image 
 - 1 x favicon 
 
-### Wireframes 
-- Start up wireframe - [View](/assets/screenshots/startup.jpg)
-- Settings wireframe - [View](/assets/screenshots/setuppage.jpg)
-- Red ball wireframe - [View](/assets/screenshots/redball.jpg)
-- Red ball mobile wireframe - [View](/assets/screenshots/redballmobile.png)
-- Colour ball wireframe - [View](/assets/screenshots/color.jpg)
-- colur ball mobile wireframe [View](/assets/screenshots/colorballgamemobile.png)
-- End game wireframe - [View](/assets/screenshots/endscores.jpg)
-
-
-3. ## Features
+## Wireframes 
 -----
+- Start up wireframe - [View](//wireframes/homepage.jpg)
+- Settings wireframe - [View](/wireframes/wireframesetuppage.jpg)
+- Red ball wireframe - [View](/wireframes/wireframeonred.jpg)
+- Red ball mobile wireframe - [View](/wireframes/rredballwireframepng.png)
+- Colour ball wireframe - [View](/wireframes/wireframeoncolor.jpg)
+- colur ball mobile wireframe [View](/wireframes/colorBallwireframe.drawio.png)
+- End game wireframe - [View](/wireframes/wireframescores.jpg)
 
+-----
+# 2. Features
+
+### Responsiveness
 * Responsiveness on all device sizes.
 
 ### Header
 * All pages have the logo and mute button at the top of each page. 
 
+
 ### Footer 
 * footer that displays while the game is not being played. This will contains links to developer social media. 
+
 
 ### Start page
 * Start page with two buttons one to navigate through the website and another to display a modal containg instructions on how to use the website.
 
+
 ### Settings page
 * Settings page for users to input the settings to the game.
+
 
 ### End Page
 * End page to display game status such as:
@@ -109,27 +109,32 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
     - the amount of fouls won by each player
     - number of frames each player wins 
 
+
 ### Track score during the Game
 - Website will allow players to track the score by pressing the colours ball they have potted. There will also be a modal to input fouls to the score.
+
 
 ### Changing displays
 - Website to chanage display depending on the stage of the snooker game.
 
+
 ### Track frames 
 - website to track the number of frames players win and end the game once a player wins the majority of frames.
 
-###
+
+### Track remaining points and differnce between scores
 - Website to track the remaining points between each player and the score difference between each player.
 
-4. ## Technologies Used <a id="technologies"></a>
 -----
+# 3.Technologies Used <a id="technologies"></a>
 
-### Langagues Used <a id="langagues"></a>
+
+## Langagues Used <a id="langagues"></a>
 * HTML5
 * CSS
 * JavaScript
 
-### Frameworks, Libraries and Programs used <a id="frameworks"></a>
+## Frameworks, Libraries and Programs used <a id="frameworks"></a>
 
 - <a href="https://getbootstrap.com/">Bootstrap 5:</a>
       Used for responsiveness and styling of the website.
@@ -148,11 +153,11 @@ Snooker Counter is a website to aid snooker players help keep the the score duri
 - <a href="https://app.diagrams.net/">Drawio.net:</a>
     Used to create all wireframes.
 
-
-5. ## Deployment <a id="deployment"></a>
 -----
+# 4.Deployment <a id="deployment"></a>
 
-### Github pages <a id=pages></a>
+
+## Github pages <a id=pages></a>
 
 I Deployed my project to Github pages using the following steps:
 
@@ -163,7 +168,7 @@ I Deployed my project to Github pages using the following steps:
 5. I clicked save 
 6. after a few minutes the site was live and the link to the published website was generated [link](https://deandodds.github.io/milestoneprojectone2/)
 
-### Making a local clone <A id="clone"></a>
+## Making a local clone <A id="clone"></a>
 
 You can clone a Github repository to your local computer by following these steps:
 
@@ -174,7 +179,7 @@ You can clone a Github repository to your local computer by following these step
 
 You can see more information on making local clones [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
 
-### Forking the GitHub Repository <a id="fork"></a>
+## Forking the GitHub Repository <a id="fork"></a>
 
 Forking a Github repositary allows you to make a copy that you can work on without effecting the original repository. You can fork a repository by:
 
@@ -182,6 +187,7 @@ Forking a Github repositary allows you to make a copy that you can work on witho
 2. on the top right hand side of the page locate click fork button 
 3. the copy of this resository should now be in your own repositories
 
+------
 # Testing <a id="testing"></a>
 
 
