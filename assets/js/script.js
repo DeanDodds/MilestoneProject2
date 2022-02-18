@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /** ends current frame */
-    function endCurrentFrame() {
+    function endCurrentFrame(currentScoreDifference) {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         endFrame();
         clearPoints();
@@ -172,8 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * ends the current frame
      */
-    function endOfTurn() {
-        console.log('end of players turn');
+    function endOfTurn(currentScoreDifference) {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         breakTotal = 0;
         switchPlayer();
@@ -208,37 +207,37 @@ document.addEventListener('DOMContentLoaded', function () {
         colorBall.classList.add('hidden');
         scoreboard.classList.add('hidden');
         document.getElementById('footer').classList.remove('hidden');
-        playerOne = document.getElementById('player-one-name').innerHTML;
-        playerTwo = document.getElementById('player-two-name').innerHTML;
-        playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML;
-        playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML;
-        playerOneHighestBreak = Math.max(...playerOneBreak);
-        playerTwoHighestBreak = Math.max(...playerTwoBreak);
+        let playerOne = document.getElementById('player-one-name').innerHTML;
+        let playerTwo = document.getElementById('player-two-name').innerHTML;
+        let playerOneFrames = document.getElementById('player-one-frame-counter').innerHTML;
+        let playerTwoFrames = document.getElementById('player-two-frame-counter').innerHTML;
+        let playerOneHighestBreak = Math.max(...playerOneBreak);
+        let playerTwoHighestBreak = Math.max(...playerTwoBreak);
         playerOneFouls = getSum(playerOneFouls);
         playerTwoFouls = getSum(playerTwoFouls);
-        console.log(playerOneHighestBreak, playerTwoHighestBreak);
-        console.log(playerOneFouls, playerTwoFouls);
 
         document.getElementById('game-area-section').innerHTML = `
-        <div class="player-display-scores">
-            <div class="player-display-heading" >
-                <h2>${playerOne} </h2><h1 id="player-one-wins"></h1>
+        <section id="end-display">
+            <div class="player-display-scores text-center">
+                <div class="player-display-heading text-center" >
+                    <h2>${playerOne} </h2><h1 id="player-one-wins"></h1>
+                </div>
+                <p>Number of frames won: <span>${playerOneFrames}</span></p>
+                <p>Highest break: <span>${playerOneHighestBreak}</span></p>
+                <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
             </div>
-            <p>Number of frames won: <span>${playerOneFrames}</span></p>
-            <p>Highest break: <span>${playerOneHighestBreak}</span></p>
-            <p>Points Won in fouls: <span>${playerOneFouls}</span></p>
-        </div>
 
-        <div class="player-display-scores">
-            <div class="player-display-heading" >
-                <h2>${playerTwo} </h2><h1 id="player-two-wins"></h1>
+            <div class="player-display-scores text-center">
+                <div class="player-display-heading text-center" >
+                    <h2>${playerTwo} </h2><h1 id="player-two-wins"></h1>
+                </div>
+                <p>Number of frames won: <span>${playerTwoFrames}</span></p>
+                <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
+                <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
             </div>
-            <p>Number of frames won: <span>${playerTwoFrames}</span></p>
-            <p>Highest break: <span>${playerTwoHighestBreak}</span></p>
-            <p>Points Won in fouls <span>${playerTwoFouls}</span></p>
-        </div>
 
-        <button id="reset-button" class="btn btn-secondary">Restart</button>  
+            <button id="reset-button" class="btn btn-secondary">Restart</button>  
+        </section>
         `;
 
         if (playerOneFrames > playerTwoFrames) {
@@ -262,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * i @returns 
      */
     function lastcolorDiplay(i) {
-        console.log('just colours');
         document.getElementById('colored-balls-section').classList.remove('hidden');
         let colours = document.getElementsByClassName('size-big');
         for (let colour of colours) {
@@ -280,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {remainingPoints} 
      */
     function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
-        console.log('show remaing')
         document.getElementById('remaining-points').innerHTML = remainingPoints;
         document.getElementById('remaining').classList.remove('hidden');
         document.getElementById('point-difference').innerHTML = currentScoreDifference;
@@ -289,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function hideRemainingPoints() {
-        console.log('hide remaing stats')
         document.getElementById('remaining-points-section').classList.add('hidden');
     }
 
@@ -322,18 +318,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // <--------------------------- Sound Functions ------------------------------------------>
     /** Starts theme song */
     function playTheme() {
-        console.log('play theme');
         document.getElementById('theme-song').play();
     }
     /** Plays pot sound */
     function playPotSound() {
-        console.log('playing pot sound');
         document.getElementById('pot-sound').play();
     }
 
     /**  stops them song */
     function stopTheme() {
-        console.log('stop song');
         document.getElementById('theme-song').pause();
     }
 
@@ -365,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * swaps the the scoring between the two players 
      * */
     function switchPlayer() {
-        console.log('switch player');
         if (activePlayerOneMarker.classList.contains('active')) {
             activePlayerOneMarker.classList.remove('active');
             activePlayerTWOMarker.classList.add('active');
@@ -389,7 +381,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*breakTotal} num2 
      */
     function displayBreakBalls(points, breakTotal) {
-        console.log('break ball being added');
         let ballCounter;
         let newBreakTotal;
         let breakMarker = document.getElementById("current");
@@ -491,14 +482,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * @returns remiaining points 
      */
     function trackRemainingPoints(red, colours, points) {
-        console.log('Tracking points');
         let newRemainingPointsTotal;
         if (points === 1) {
             newRemainingPointsTotal = (red * 8) + colours + 7;
-            console.log(newRemainingPointsTotal);
         } else {
             newRemainingPointsTotal = (red * 8) + colours;
-            console.log(newRemainingPointsTotal);
         }
         return newRemainingPointsTotal;
     }
@@ -523,20 +511,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /** get the player scores from the DOM */
-    function endFrame() {
+    function endFrame(currentScoreDifference) {
         let playerOneScore = parseInt(document.getElementById('player-one-score').innerHTML);
         let playerTwoScore = parseInt(document.getElementById('player-two-score').innerHTML);
         let playerOneFrame = parseInt(document.getElementById('player-one-frame-counter').innerHTML);
         let playerTwoFrame = parseInt(document.getElementById('player-two-frame-counter').innerHTML);
-
         if (playerOneScore > playerTwoScore) {
             playerOneFrame = playerOneFrame + 1;
-            console.log(playerOneFrame);
             document.getElementById('player-one-frame-counter').innerHTML = playerOneFrame;
             alert('player one wins');
         } else if (playerTwoScore > playerOneScore) {
             playerTwoFrame = playerTwoFrame + 1;
-            console.log(playerTwoFrame);
             document.getElementById('player-two-frame-counter').innerHTML = playerTwoFrame;
             alert('player two wins this frame');
         }
@@ -566,7 +551,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             scoreDiffence = playerTwoScore - playerOneScore;
         }
-        console.log('difference = ', scoreDiffence);
         document.getElementById('point-difference').innertext = scoreDiffence;
         document.getElementById('remaining-points-section').classList.remove('hidden');
         return scoreDiffence;
@@ -580,13 +564,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*playerOneFrame}
      * @param {*playertWOFrame} */
     function checkframes(playerOneFrames, playerTwoFrames) {
-        console.log('check frames funtion');
-        totalFramesToPlay = parseInt(document.getElementById('number-of-frames').innerHTML);
-        framesToWin = totalFramesToPlay / 2;
+        let totalFramesToPlay = parseInt(document.getElementById('number-of-frames').innerHTML);
+        let framesToWin = totalFramesToPlay / 2;
         if (playerOneFrames >= framesToWin || playerTwoFrames >= framesToWin) {
             endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         } else {
-
             startFrame();
         }
     }
@@ -606,17 +588,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return sum;
     }
 
-    /**
-     * displays remaining points 
-     * @param {remainingPoints} 
-     */
-    function viewRemaingingpoints(remainingPoints, currentScoreDifference) {
-        document.getElementById('remaining-points').innerHTML = remainingPoints;
-        document.getElementById('remaining').classList.remove('hidden');
-        document.getElementById('point-difference').innerHTML = currentScoreDifference;
-        document.getElementById('differnce').classList.remove('hidden');
-
-    }
 
     /**
      * saves the new breaktally to the current player break tally array 
@@ -626,13 +597,10 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*} breakTotal 
      */
     function saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
-        console.log('saving break');
         if (activePlayerOneMarker.classList.contains('active')) {
             playerOneBreakTally.push(breakTotal);
-            console.log(playerOneBreakTally);
         } else {
             playerTwoBreakTally.push(breakTotal);
-            console.log(playerTwoBreakTally);
         }
     }
 
@@ -640,7 +608,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Ends the game 
      */
     function endOfGame() {
-        console.log('ending game');
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
         endFrame();
         displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally);
@@ -656,14 +623,14 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function endGame(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal) {
         saveBreaks(activePlayerOneMarker, playerOneBreakTally, playerTwoBreakTally, breakTotal);
-        clearBreak()
+        clearBreak();
         displayEndGameInfo(playerOneBreakTally, playerTwoBreakTally, playerOneFoulTally, playerTwoFoulTally);
     }
 
     /**
      * get the data from the the foul form and 
      */
-    function playerFoul() {
+    function playerFoul(currentScoreDifference) {
         let foul = parseInt(output.innerHTML);
         let freeball = document.querySelector('#freeball:checked') !== null;
         let retake = document.querySelector('#retake:checked') !== null;
@@ -677,9 +644,7 @@ document.addEventListener('DOMContentLoaded', function () {
             red = red - 1;
         }
 
-        if (retake) {
-            console.log('players turn again');
-        } else {
+        if (retake === false) {
             switchPlayer();
         }
 
@@ -695,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function () {
         saveFoul(activePlayerOneMarker, foul);
         breakTotal = 0;
         clearBreak();
-        currentScoreDifference = checkDiffernce()
+        currentScoreDifference = checkDiffernce();
         viewRemaingingpoints(remainingPoints, currentScoreDifference);
     }
 
@@ -705,20 +670,17 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {*} foul 
      */
     function saveFoul(activePlayerOneMarker, foul) {
-        console.log('saving foul');
         if (activePlayerOneMarker.classList.contains('active')) {
             playerOneFoulTally.push(foul);
-            console.log(playerOneFoulTally);
         } else {
             playerTwoFoulTally.push(foul);
-            console.log(playerTwoFoulTally);
         }
     }
 
     /**
      * runs the the main game 
      */
-    function runMainainGame() {
+    function runMainainGame(currentScoreDifference) {
         playPotSound();
         points = parseInt(this.innerHTML);
         breakTotal = breakTotal + points;
